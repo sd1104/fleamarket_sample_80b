@@ -1,12 +1,15 @@
 # fleamarket_sample_80b
 
+
+![ER図](https://app.diagrams.net/#G19MjrNMS5XUA7ci99D3-ztQ6IsH3nK_w2)
+
 ## usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
 |email|string|null: false, unique: true|
-|password|string|null: false|
+|password|string|null: false, unique: true|
 
 ### Association
 - has_many :items, dependent: :destroy
@@ -42,7 +45,7 @@
 |address_city|string|null: false|
 |address_street|string|null: false|
 |building_name|string|
-|phone_number|integer|
+|phone_number|integer|unique:true|
 |user|references|null: false, foreign_key: true|
 
 ### Association
@@ -64,13 +67,16 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|introduction|string|null: false|
+|introduction|text|null: false|
 |brand|string|
 |condition|integer|null: false|
 |delivery_charge|integer|null:false|
 |derivery_origin|integer|null:false|
 |delivery_date|integer|null:false|
 |category|references|null: false, foreign_key: true|
+|price|integer|null: false|
+|seller|references|null:false, foreign_key:true|
+|buyer|references|foreign_key:true|
 
 ### Association
 - belongs_to :user, dependent: :destroy
@@ -78,18 +84,18 @@
 - belongs_to :category, dependent: :destroy
 
 
-## item_imageテーブル
+## item_imagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|item|references|null: false,foreign_key:true|
+|item|references|null: false, foreign_key:true|
 |image|string|null: false|
 
 ### Association
-- belongs_to :image
+- belongs_to :item
 
 
-## categoryテーブル
+## categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
