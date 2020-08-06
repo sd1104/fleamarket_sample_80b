@@ -1,0 +1,2 @@
+class ProductAddress < ApplicationRecord
+end
