@@ -2,12 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
 
-  resouces :users
-  resouces :profiles
-  resouces :product_addresses
-  resouces :credits
-  resouces :items do
-    collection :categories
+  resources :users
+  resources :profiles
+  resources :product_addresses
+  resources :credits
+  
+  
+  resources :items do
+    resources :item_images
   end
-  resouces :item_images
+  resources :categories, only: :index
 end
