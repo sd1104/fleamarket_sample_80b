@@ -1,0 +1,2 @@
+class ProductAddressesController < ApplicationController
+end

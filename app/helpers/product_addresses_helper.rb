@@ -1,0 +1,2 @@
+module ProductAddressesHelper
+end
