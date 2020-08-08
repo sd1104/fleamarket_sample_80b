@@ -23,7 +23,7 @@
         = f.label :都道府県, class: "label_head"
         = f.label :必須, class: "label_required"
         %br/
-        = f.select :address_prefecture, placeholder: "選択", autofocus: true, autocomplete: ""
+        = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name
       .field
         = f.label :市町村区, class: "label_head"
         = f.label :必須, class: "label_required"
