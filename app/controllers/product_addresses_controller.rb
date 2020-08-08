@@ -5,12 +5,12 @@ class ProductAddressesController < ApplicationController
   end
 
   def new
-    @product_addresses = ProductAddress.new
+    @product_address = ProductAddress.new
   end
-  
+
   def create
-    @product_addresses = ProductAddress.new(product_address_params)
-    if @product_addresses.create(product_address_params)
+    @product_address = ProductAddress.new(product_address_params)
+    if @product_address.create(product_address_params)
       redirect_to product_addresses_path
     else
       render :new
@@ -19,7 +19,7 @@ class ProductAddressesController < ApplicationController
 
   private
    def product_address_params
-    params.permit(
+    params.require(:product_address).permit(
       :first_name, 
       :last_name, 
       :first_name_kana, 
