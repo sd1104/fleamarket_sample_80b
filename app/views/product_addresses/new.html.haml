@@ -45,6 +45,6 @@
         = f.label :お届け先電話番号, class: "label_head"
         = f.label :任意, class: "label_required"
         %br/
-        = f.text_field :phone_number, placeholder: "例)09012345678", autofocus: true, autocomplete: ""
+        = f.telephone_field :phone_number, placeholder: "例)09012345678", autofocus: true, autocomplete: ""
       .actions
         = f.submit "登録する"
