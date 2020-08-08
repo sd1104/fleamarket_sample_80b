@@ -1,0 +1,219 @@
+.postForm {
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: lightgrey;
+  &__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+  }
+  &__main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    .postContents {
+      width: 700px;
+      background-color: white;
+      min-height: 100vh;
+      padding-bottom: 60px;
+      padding-top: 10px;
+      .postContent {
+        padding: 40px 40px;
+      }
+      .selectTitle {
+        display: flex;
+        &__info {
+          font-weight: bold;
+        }
+        &__required {
+          margin-left: 10px;
+          background-color: #3CCACE;
+          color: white;
+          border-radius: 3px;
+          font-size: 12px;
+          padding-left: 5px;
+          padding-right: 5px;
+          font-weight: bold;
+          line-height: 1.8em;
+          height: 20px;
+          width: 35px;
+          text-align: center;
+          margin-top: 2px;
+        }
+        &__optional {
+          margin-left: 10px;
+          background-color: lightgray;
+          color: white;
+          border-radius: 3px;
+          font-size: 12px;
+          padding-left: 5px;
+          padding-right: 5px;
+          font-weight: bold;
+          line-height: 1.8em;
+          height: 20px;
+          width: 35px;
+          text-align: center;
+          margin-top: 2px;
+        }
+      }
+      .selectImageUpload {
+        margin-top: 16px;
+        font-size: 14px;
+      }
+      .selectImage {
+        margin-top: 16px;
+        background-color: lightgray;
+        height: 162px;
+        width: 100%;
+        border:1px solid #3CCACE;
+        border-style: dashed;
+        margin-bottom: 40px;
+        label {
+          display: none;
+          &__choose {
+            background-color: lightgray;
+            height: 162px;
+            width: 100%;
+          }
+        }
+      }
+      .borders {
+        border-top: 1px solid lightgrey;
+        margin-bottom: 15px;
+      }
+      .selectNameIntro {
+        display: flex;
+        align-items: center;
+        margin-top: 25px;
+        &__name {
+          font-weight: bold;
+        }
+      }
+      .inputName{
+        width: 97%;
+        height: 40px;
+        border-radius: 4px;
+        border: 1px solid grey;
+        padding-left: 16px;
+        margin-bottom: 20px;
+        margin-top: 15px;
+      }
+      .inputText {
+        width: 97%;
+        height: 200px;
+        border-radius: 4px;
+        border: 1px solid grey;
+        padding-left: 16px;
+        padding-top: 10px;
+        margin-top: 15px;
+      } 
+      .oneThousand {
+        margin-top: 12px;
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 30px;
+        &__one {
+          font-size: 12px;
+        }
+      }
+      .selectShowTitle {
+        margin-bottom: 25px;
+        font-weight: bold;
+        font-size: 14px;
+        color: gray;
+      }
+      .selectShow {
+        display: flex;
+      }
+      .selectPrices {
+        display: flex;
+        justify-content: space-between;
+        .inputPrice {
+        width: 82%;
+        height: 40px;
+        border-radius: 4px;
+        border: 1px solid grey;
+        padding-right: 16px;
+        text-align: right;
+        }
+      }
+      .priceFee {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 25px;
+        border-bottom: 1px solid lightgray;
+        &__title {
+          font-size: 14px;
+          margin-bottom: 40px;
+        }
+        &__price {
+          font-size: 14px;
+          margin-bottom: 40px;
+        }
+      }
+      .priceProfit {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 25px;
+        &__title {
+          font-size: 30px;
+        }
+        &__price {
+          font-size: 30px;
+        }
+      }
+      .exhibition {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+        .exhibition-btn {
+          border: none;
+          color: white;
+          background-color: #3CCACE;
+          font-weight: bold;
+          min-height: 48px;
+          width: 100%;
+          cursor: pointer;
+        }
+        .exhibition-cancel {
+          background-color: lightgray;
+          text-decoration: none;
+          color: white;
+          margin-top: 30px;
+          display: block;
+          min-height: 48px;
+          width: 80%;
+          font-weight: bold;
+          text-align: center;
+          line-height: 50px;
+        }
+      }
+    }
+  }
+  &__footer {
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    .postFooterList {
+      display: flex;
+      &__list {
+        margin-left: 40px;
+        text-decoration: none;
+        color: black;
+      }
+    }
+    .postFooterLogo {
+      margin-top: 40px;
+      &__inc {
+        font-size: 12px;
+        text-align: center;
+      }
+    }
+  }
+}
