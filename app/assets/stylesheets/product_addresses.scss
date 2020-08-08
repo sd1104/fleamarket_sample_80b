@@ -1,3 +1,12 @@
-// Place all the styles related to the product_addresses controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+input[type="text"],
+input[type="tel"],
+input[type="submit"] {
+  width: 300px;
+  height: 40px;
+}
+
+#product_address_prefecture_code {
+  width: 300px;
+  height: 40px;
+}
+
