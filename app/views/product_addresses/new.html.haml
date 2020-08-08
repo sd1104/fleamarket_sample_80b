@@ -2,6 +2,8 @@
   .ProductAdress__title 商品送付先住所情報登録
   .ProductAdress__formBox
     = form_with model: @product_address, local: true do |f|
+      .ProductAdress__errorMessages
+        = render 'layouts/error_messages', model: f.object
       .field
         = f.label :お名前（全角）, class: "label_head"
         = f.label :必須, class: "label_required"
