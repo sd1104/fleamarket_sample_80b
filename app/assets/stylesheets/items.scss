@@ -1,3 +1,68 @@
-// Place all the styles related to the items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.wrapper {
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100%;
+  .header {
+    height: 100px;
+    width: 100%;
+    background-color: black;
+  }
+  .border {
+    margin-bottom: 10px;
+  }
+  .main {
+    background-color: #F8F8F8;
+    &__top {
+      background-image: url("material/pict/bg-mainVisual-pict_pc.jpg");
+      background-size: cover;
+      height: 560px;
+      width: 100%;
+    }
+    &__info {
+      height: 640px;
+      width: 100%;
+    }
+    &__middle {
+      height: 400px;
+      background-image: url("material/pict/bg-topMiddleDl-pict.jpg");
+      background-position: center;
+      width: 100%;
+      background-size: cover;
+    }
+    &__unique {
+      height: 735px;
+      width: 100%;
+      background-color: black;
+    }
+    &__new {
+      height: 350px;
+    }
+    &__contents {
+      height: 350px;
+      background-color: brown;
+    }
+  }
+  .bottomPicture {
+    background-image: url("material/pict/bg-appBanner-pict.jpg");
+    height: 360px;
+    background-size: cover;
+    background-position: center;
+  }
+  .footer {
+    height: 360px;
+    background-color: gray;
+  }
+  .post {
+    width: 100px;
+    height: 100px;
+    background-color: #3ccace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+
+  }
+}
