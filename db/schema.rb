@@ -57,11 +57,11 @@ ActiveRecord::Schema.define(version: 2020_08_06_111607) do
     t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
     t.integer "postal_code", null: false
-    t.integer "address_prefecture", null: false
+    t.integer "prefecture_code", null: false
     t.string "address_city", null: false
     t.string "address_street", null: false
     t.string "building_name"
-    t.integer "phone_number"
+    t.string "phone_number"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
