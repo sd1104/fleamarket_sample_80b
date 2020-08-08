@@ -10,11 +10,12 @@ class ProductAddressesController < ApplicationController
 
   def create
     @product_address = ProductAddress.new(product_address_params)
-    if @product_address.create(product_address_params)
+    if @product_address.save
       redirect_to product_addresses_path
     else
       render :new
     end
+    
   end
 
   private
@@ -30,6 +31,6 @@ class ProductAddressesController < ApplicationController
       :address_street, 
       :building_name, 
       :phone_number
-    ).merge(user_id: 8)
+    ).merge(user_id: 1)
    end
 end

@@ -1,6 +1,6 @@
-%div
-  %h2 商品送付先住所情報登録
-  %div
+.ProductAdress
+  .ProductAdress__title 商品送付先住所情報登録
+  .ProductAdress__formBox
     = form_with model: @product_address, local: true do |f|
       .field
         = f.label :お名前（全角）, class: "label_head"
@@ -45,4 +45,4 @@
         %br/
         = f.text_field :phone_number, autofocus: true, autocomplete: ""
       .actions
-        = f.submit "Sign up"
+        = f.submit "登録する"
