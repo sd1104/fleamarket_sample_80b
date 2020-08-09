@@ -104,11 +104,11 @@ input[type="submit"]:hover {
       justify-content: flex-start;
       align-items: center;
       flex-direction: column;
-      &__errorMessages {
-  
-      }
       .field {
         margin-top: 32px;
+        &__nameInput {
+          display: flex;
+        }
       }
     }
   }
