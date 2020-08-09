@@ -1,12 +1,115 @@
-input[type="text"],
-input[type="tel"],
-input[type="submit"] {
-  width: 300px;
-  height: 40px;
+@mixin inputStyle {
+  height: 30px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+@mixin label {
+  padding: 3px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+
+
+#product_address_first_name,
+#product_address_last_name,
+#product_address_first_name_kana,
+#product_address_last_name_kana {
+  @include inputStyle;
+  margin: 8px 5px 0 5px ;
+  width: 120px;
+}
+
+#product_address_postal_code,
+#product_address_prefecture_code,
+#product_address_address_city,
+#product_address_address_street,
+#product_address_building_name,
+#product_address_phone_number {
+  @include inputStyle;
+  margin: 8px 0 0 ;
+  width: 290px;
 }
 
 #product_address_prefecture_code {
-  width: 300px;
-  height: 40px;
+  @include inputStyle;
+  height: 50px;
+  width: 325px;
+  margin: 8px 0 0 ;
+  color: gray;
 }
 
+input[type="submit"] {
+  height: 50px;
+  width: 325px;
+  margin-top: 80px;
+  background-color: #ea352d;
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+}
+
+input[type="submit"]:hover {
+  height: 50px;
+  width: 325px;
+  margin-top: 80px;
+  background-color: #ea352d;
+  color: #fff;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+}
+
+.label_head {
+  @include label;
+}
+
+.label_required {
+  @include label;
+  background-color: #ea352d;
+  color: #fff;
+}
+
+.label_any {
+  @extend .label_required;
+  background-color: lightgray;
+}
+
+.subWrapper {
+  display: flex;
+  justify-content: center;
+  .ProductAdress {
+    width: 700px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fff;
+    &__title {
+      width: 100%;
+      padding: 32px;
+      text-align: center;
+      font-size: 25px;
+      border-bottom: 2px solid lightgray;
+    }
+    &__formBox {
+      width: 100%;
+      padding: 40px 40px 64px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+      &__errorMessages {
+  
+      }
+      .field {
+        margin-top: 32px;
+      }
+    }
+  }
+}
