@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  # root 'items#index'
-  root 'product_addresses#index'
+  root 'items#index'
   
   resources :users
   resources :profiles
-  resources :product_addresses, only: [ :index, :new, :create ]
+  resources :product_addresses, only: [ :new, :create ]
   resources :credits
   
   
