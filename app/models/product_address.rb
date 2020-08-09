@@ -25,6 +25,3 @@ class ProductAddress < ApplicationRecord
     uniqueness: true,
     format: { with: /\A\d{10,11}\z/, message: "はハイフンなし、半角数字で入力してください" }
 end
-
-
-/\A[+-]?\d+\z/
