@@ -13,4 +13,12 @@ class Item < ApplicationRecord
   validates :derivery_origin, presence: true
   validates :delivery_date, presence: true
   validates :category_id, presence: true
+
+  def self.search(search)
+    if search
+      Item.where('title LIKE(?)', "%#{search}%")
+    else
+      Item.all
+    end
+  end
 end
