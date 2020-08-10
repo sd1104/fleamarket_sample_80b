@@ -1,9 +1,5 @@
 class ProductAddressesController < ApplicationController
 
-  def index
-    @product_addresses = ProductAddress.includes(:user)
-  end
-
   def new
     @product_address = ProductAddress.new
   end
