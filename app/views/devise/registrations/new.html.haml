@@ -1,0 +1,45 @@
+.Account_page
+  .Account_logo
+    = image_tag src="material/logo/logo.png", size: "150x50", class: "logo"
+  .Account_master
+    .Account_entry
+      .Account_page__title
+        %h2 新規登録
+      .Account_page__form
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          .Formfiled
+            .Formfiled_lavel
+              .field_one
+                = f.label :ニックネーム
+                %span ※必須
+              .field_second
+                = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class:"field", placeholder:"例) 田中 太朗"
+          .Formfiled
+            .Formfiled_lavel
+              .field_one
+                = f.label :メールアドレス
+                %span ※必須
+              .field_second
+                = f.email_field :email, autofocus: true, autocomplete: "email", class:"field", placeholder:"xxx@furima.com"
+          .Formfiled
+            .Formfiled_lavel
+              .field_one
+                = f.label :パスワード
+                - if @minimum_password_length
+                  %em
+                    (#{@minimum_password_length}文字以上)
+                  %span ※必須
+              .field_second
+                = f.password_field :password, autocomplete: "new-password", class:"field", placeholder:"7文字以上の半角英数字"
+          .Formfiled
+            .Formfiled_lavel
+              .field_one
+                = f.label :確認用パスワード
+                %span ※必須
+              .field_second
+                = f.password_field :password_confirmation, autocomplete: "new-password", class:"field", placeholder:"もう一度"
+
+          .actions
+            = f.submit "サインアップ", class: "sign__btn"
+          = render "devise/shared/links"
