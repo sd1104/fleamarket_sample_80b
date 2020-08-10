@@ -12,14 +12,14 @@
             .Formfiled_lavel
               .field_one
                 = f.label :ニックネーム
-                %span ※必須
+                %span 必須
               .field_second
                 = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class:"field", placeholder:"例) 田中 太朗"
           .Formfiled
             .Formfiled_lavel
               .field_one
                 = f.label :メールアドレス
-                %span ※必須
+                %span 必須
               .field_second
                 = f.email_field :email, autofocus: true, autocomplete: "email", class:"field", placeholder:"xxx@furima.com"
           .Formfiled
@@ -36,7 +36,7 @@
             .Formfiled_lavel
               .field_one
                 = f.label :確認用パスワード
-                %span ※必須
+                %span 必須
               .field_second
                 = f.password_field :password_confirmation, autocomplete: "new-password", class:"field", placeholder:"もう一度"
 

@@ -1,10 +1,19 @@
-%h2 Forgot your password?
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .actions
-    = f.submit "Send me reset password instructions"
-= render "devise/shared/links"
+.Account_page
+  .Account_logo
+    = image_tag src="material/logo/logo.png", size: "150x50", class: "logo"
+  .Account_master
+    .Account_entry
+      .Account_page__title
+        %h2 パスワードお忘れの方
+      .Account_page__form
+        = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          .Formfiled
+            .Formfiled_lavel
+              .field_one
+                = f.label :メールアドレス
+              .field_second
+                = f.email_field :email, autofocus: true, autocomplete: "email", class:"field", placeholder:"xxx@furima.com"
+          .actions
+            = f.submit "送信する", class: "sign__btn"
+          = render "devise/shared/links"
