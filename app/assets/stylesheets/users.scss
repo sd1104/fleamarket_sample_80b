@@ -50,12 +50,18 @@
               color: #333;
               font-size: 14px;
             }
+            a:hover {
+            }
             .fas.fa-chevron-right {
               color: #bbbbbb;
               font-size: 16px;
               position: absolute;
               top: 20px;
               right: 15px;
+            }
+            .fas.fa-chevron-right:hover {
+              font-weight: 600;
+              font-size: 50px;
             }
           }
           .function:hover {
