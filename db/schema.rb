@@ -39,10 +39,10 @@ ActiveRecord::Schema.define(version: 2020_08_06_111607) do
     t.string "name", null: false
     t.text "introduction", null: false
     t.string "brand"
-    t.string "condition", null: false
-    t.string "delivery_charge", null: false
-    t.string "derivery_origin", null: false
-    t.string "delivery_date", null: false
+    t.string "condition_id", null: false
+    t.string "delivery_charge_id", null: false
+    t.string "delivery_origin_id", null: false
+    t.string "delivery_date_id", null: false
     t.bigint "category_id", null: false
     t.integer "price", null: false
     t.bigint "seller_id", null: false
