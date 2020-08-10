@@ -69,3 +69,10 @@ gem 'erb2haml'
 gem 'devise'
 gem 'ancestry'
 gem 'font-awesome-sass'
+
+
+
+
+
+
+gem 'active_hash'
