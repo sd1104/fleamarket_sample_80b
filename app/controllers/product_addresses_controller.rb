@@ -1,5 +1,9 @@
 class ProductAddressesController < ApplicationController
 
+  def index
+    @product_addresses = ProductAddress.includes(:user)
+  end
+
   def new
     @product_address = ProductAddress.new
   end
@@ -11,7 +15,19 @@ class ProductAddressesController < ApplicationController
     else
       render :new
     end
-    
+  end
+
+  def edit
+    @product_address = ProductAddress.find(params[:id])
+  end
+
+  def update
+    @product_address = ProductAddress.find(params[:id])
+    if @product_address.update(product_address_params)
+      redirect_to product_addresses_path
+    else
+      render :edit
+    end
   end
 
   private

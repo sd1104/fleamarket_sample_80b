@@ -1,0 +1,11 @@
+.wrapper
+  .head
+    送付先情報管理
+  .link
+    = link_to '新規ページ', new_product_address_path(@product_address)
+  .link
+    - @product_addresses.each do |product_address|
+      .editlink
+        =link_to edit_product_address_path( product_address ) do
+          = product_address.first_name
+        　編集
