@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.includes(:user).order("created_at DESC")
   end
 
   def new 
@@ -22,12 +22,25 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def update
   end
 
+  def show
+  end
+
   def destroy
+    if @item.seller.id == current_user.id
+      if @item.destroy
+        redirect_to root_path, notice: "削除が完了しました"
+      else
+        redirect_to root_path, alert: "削除が失敗しました"
+      end
+    else
+      redirect_to root_path, alert: "ユーザーが一致していません"
+    end
   end
   
   private

@@ -64,7 +64,7 @@
                 配送料の負担
               .selectTitle__required
                 必須
-            = f.text_field :delivery_charge, class: "inputName", placeholder: "選択してください"
+            = f.collection_select :delivery_charge, Delivery_charge.all, :id, :name, {include_blank: "選択してください"}, {class: "inputInformation"}
             .selectShow   
               .selectNameIntro__name
                 配送元に地域

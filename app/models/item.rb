@@ -3,7 +3,10 @@ class Item < ApplicationRecord
   belongs_to :seller, class_name: "User", foreign_key: "seller_id"
   belongs_to :buyer, class_name: "User", foreign_key: "buyer_id"
   has_many :item_images, dependent: :destroy
-  belongs_to :user, dependent: :destroy
+  belongs_to :user, dependent: :destroy, optional: true
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :delivery_charge
+
 
   validates :name, presence: true
   validates :introduction, presence: true
@@ -13,6 +16,8 @@ class Item < ApplicationRecord
   validates :derivery_origin, presence: true
   validates :delivery_date, presence: true
   validates :category_id, presence: true
+
+ 
 
   def self.search(search)
     if search
