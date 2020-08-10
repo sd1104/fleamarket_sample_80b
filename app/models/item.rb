@@ -4,6 +4,9 @@ class Item < ApplicationRecord
   belongs_to :seller, class_name: "User", foreign_key: "seller_id"
   belongs_to :buyer, class_name: "User", foreign_key: "buyer_id"
   has_many :item_images, dependent: :destroy
+  
+  accepts_nested_attributes_for :item_images, allow_destroy: true, update_only: true
+  
   belongs_to :user, dependent: :destroy, optional: true
   belongs_to_active_hash :delivery_charge
   belongs_to_active_hash :condition
