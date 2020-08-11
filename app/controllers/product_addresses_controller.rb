@@ -40,6 +40,6 @@ class ProductAddressesController < ApplicationController
       :address_street, 
       :building_name, 
       :phone_number
-    ).merge(user_id: 1)
+    ).merge(user_id: current_user.id)
    end
 end
