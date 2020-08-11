@@ -25,6 +25,15 @@
             padding: 16px;
             border-radius: 4px;
           }
+          .function-mypage:hover {
+            color: black;
+            background-color: #dddddd;
+            opacity: 0.8;
+          }
+          .function-mypage:active {
+            position: relative;
+            top: 2px;
+          }
           a {
             text-decoration: none;
             color: #333;
@@ -64,6 +73,10 @@
             color: black;
             background-color: #dddddd;
             opacity: 0.8;
+          }
+          .function:active {
+            position: relative;
+            top: 2px;
           }
         }
         .settings {
