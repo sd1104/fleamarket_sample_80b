@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   
   resources :items do
     resources :item_images
+    collection do
+      get 'search'
+    end
   end
   resources :categories, only: :index
 end
