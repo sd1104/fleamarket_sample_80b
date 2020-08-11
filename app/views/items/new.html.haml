@@ -27,21 +27,20 @@
               .selectTitle__required
                 必須
             .selectImageUpload
-              最大5枚までアップロードできます
-              
-            .post__drop__box__container
+              最大5枚までアップロードできます             
+            .imageUpload
               .prev-content
               .label-content
-                %label{for: "item_images_attributes_0_src", class: "label-box", id: "label-box--0"}
+                %label{for: "item_images_attributes_0_image", class: "label-box"}
                   %pre.label-box__text-visible クリックしてファイルをアップロード
               .hidden-content
                 = f.fields_for :images do |i|
-                  = i.file_field :src, class: "hidden-field"
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][src]", id: "item_images_attributes_1_src" }
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][src]", id: "item_images_attributes_2_src" }
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][src]", id: "item_images_attributes_3_src" }
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][src]", id: "item_images_attributes_4_src" }
-                
+                  = i.file_field :image, class:"hidden-field"
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][image]", id: "item_images_attributes_4_image" }
+            .imageExistenceContent            
           .borders
           .postContent
             .selectNameIntro
