@@ -66,7 +66,7 @@
                 カテゴリー
               .selectTitle__required
                 必須
-            = f.text_field :category_id, class: "inputName", placeholder: "選択してください"
+            = f.collection_select :category, Category.where(ancestry: nil), :id, :name, {prompt: "----" }, {class: 'inputInformation', id: 'parent_itemcategory'}
             .selectShow              
               .selectNameIntro__name
                 ブランド
