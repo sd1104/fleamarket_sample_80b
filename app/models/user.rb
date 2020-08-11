@@ -8,4 +8,8 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_one :product_address, dependent: :destroy
   has_one :credit, dependent: :destroy
+
+  validates :nickname,
+    presence: true,
+    length: { maximum: 10 }
 end
