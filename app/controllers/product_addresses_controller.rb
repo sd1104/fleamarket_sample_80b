@@ -15,7 +15,11 @@ class ProductAddressesController < ApplicationController
   end
 
   def edit
-    @product_address = ProductAddress.find(params[:id])
+    if !current_user.product_address.nil?
+      @product_address = ProductAddress.find(current_user.product_address.id)
+    else
+      @product_address = ProductAddress.new
+    end
   end
 
   def update
