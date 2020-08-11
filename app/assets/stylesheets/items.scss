@@ -204,6 +204,7 @@
         padding-top: 30px;
         font-size: 28px;
         font-weight: bold;
+        margin-bottom: 15px;
       }
       &__sub {
         text-align: center;
@@ -224,7 +225,9 @@
       .items {
         display: flex;
         align-items: center;
-        margin: 20px 500px 0px 500px;
+        justify-content: center;
+        margin: 0 auto;
+        margin: 0 100px;
         &__content {
           background-color: rgb(255, 255, 255);
           width: 220px;
