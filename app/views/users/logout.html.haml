@@ -1,0 +1,8 @@
+.MyPageWrapper
+  .MyPageContents
+    .MyPageContents__LeftSide
+      = render 'users/mypage_leftside'
+    .MyPageContents__RightSide
+      .LogOutBtn
+        = link_to destroy_user_session_path, method: :delete, id: "myPageLogOutBtn" do
+          ログアウト

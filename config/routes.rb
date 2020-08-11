@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   root 'items#index'
   
-  resources :users, only: :index
+  resources :users, only: :index do
+    get 'logout'
+  end
   resources :profiles
   resources :product_addresses, only: [ :new, :create, :edit, :update ]
   resources :credits
