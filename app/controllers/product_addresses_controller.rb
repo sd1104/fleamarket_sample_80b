@@ -6,8 +6,9 @@ class ProductAddressesController < ApplicationController
 
   def create
     @product_address = ProductAddress.new(product_address_params)
+
     if @product_address.save
-      redirect_to product_addresses_path
+      redirect_to users_path
     else
       render :new
     end
