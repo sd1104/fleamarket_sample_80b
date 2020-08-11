@@ -1,3 +1,91 @@
-// Place all the styles related to the profiles controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@mixin inputStyle {
+  height: 30px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+@mixin label {
+  padding: 3px;
+  font-weight: 600;
+  font-size: 14px;
+}
+#profile_first_name,
+#profile_last_name,
+#profile_first_name_kana,
+#profile_last_name_kana{
+  @include inputStyle;
+  margin: 8px 5px 0 5px ;
+  width: 120px;
+}
+
+#profile_birthday_1i,
+#profile_birthday_2i,
+#profile_birthday_3i {
+  @include inputStyle;
+  height: 50px;
+  margin: 8px 0 0 ;
+  width: 105px;
+}
+#submit {
+  height: 50px;
+  width: 325px;
+  margin-top: 80px;
+  background-color: #EA352D;
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+}
+#submit:hover {
+  height: 50px;
+  width: 325px;
+  margin-top: 80px;
+  background-color: #EA352D;
+  color: #fff;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+}
+.label_head {
+  @include label;
+}
+.label_required {
+  @include label;
+  background-color: #EA352D;
+  color: #fff;
+}
+.subWrapper {
+  display: flex;
+  justify-content: center;
+  .Profile {
+    width: 700px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fff;
+    &__title {
+      width: 100%;
+      padding: 32px;
+      text-align: center;
+      font-size: 25px;
+      border-bottom: 2px solid lightgray;
+    }
+    &__formBox {
+      width: 100%;
+      padding: 40px 40px 64px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+      .field {
+        margin-top: 32px;
+        &__nameInput {
+          display: flex;
+        }
+      }
+    }
+  }
+}
