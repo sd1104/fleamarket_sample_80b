@@ -12,7 +12,7 @@ describe User do
     it "is invalid without a nickname" do
       user = build(:user, nickname: nil)
       user.valid?
-      expect(user.errors[:nickname]).to include()
+      expect(user.errors[:nickname]).to include("を入力してください")
     end
 
     # 3. emailが空では登録できないこと
@@ -33,14 +33,14 @@ describe User do
     it "is invalid without a password_confirmation although with a password" do
       user = build(:user, password_confirmation: "")
       user.valid?
-      expect(user.errors[:password_confirmation]).to include("とPasswordの入力が一致しません")
+      expect(user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません")
     end
 
-    # 6. nicknameが7文字以上であれば登録できないこと
-    it "is invalid with a nickname that has more than 7 characters " do
-      user = build(:user, nickname: "aaaaaaa")
+    # 6. nicknameが10文字以上であれば登録できないこと
+    it "is invalid with a nickname that has more than 10 characters " do
+      user = build(:user, nickname: "aaaaaaaaaaa")
       user.valid?
-      expect(user.errors[:nickname]).to include()
+      expect(user.errors[:nickname]).to include("は10文字以内で入力してください")
     end
 
     # 7. nicknameが6文字以下では登録できること

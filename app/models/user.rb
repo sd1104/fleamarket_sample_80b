@@ -10,5 +10,6 @@ class User < ApplicationRecord
   has_one :credit, dependent: :destroy
 
   validates :nickname,
-    presence: true, length: { maximum: 6 }
+    presence: true,
+    length: { maximum: 10 }
 end
