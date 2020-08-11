@@ -14,8 +14,14 @@ ja:
       phone_number: "お届け先電話番号"
   activerecord:
     models:
+      user:
       product_address:
     attributes:
+      user:
+        nickname: "ニックネーム"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "確認用パスワード"
       product_address:
         first_name: "姓（漢字）"
         last_name: "名（漢字）"
