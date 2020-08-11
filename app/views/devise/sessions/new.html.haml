@@ -1,0 +1,24 @@
+.Account_page
+  .Account_logo
+    = image_tag src="material/logo/logo.png", size: "150x50", class: "logo"
+  .Account_master
+    .Account_entry
+      .Account_page__title
+        %h2 ログイン
+      .Account_page__form
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .Formfiled
+            .Formfiled_lavel
+              .field_one
+                = f.label :メールアドレス
+              .field_second
+                = f.email_field :email, autofocus: true, autocomplete: "email", class:"field", placeholder:"xxx@furima.com"
+          .Formfiled
+            .Formfiled_lavel
+              .field_one
+                = f.label :パスワード
+              .field_second
+                = f.password_field :password, autocomplete: "current-password", class:"field", placeholder:"7文字以上の半角英数字"
+          .actions
+            = f.submit "ログイン", class: "sign__btn"
+          = render "devise/shared/links"
