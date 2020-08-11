@@ -18,7 +18,7 @@
     .postForm__title
       = image_tag src="material/logo/logo.png", size: "140x40", class: "item-new-logo"
     .postForm__main
-      = form_with model: @item, local: true do |f|
+      = form_with model: @item, id: "item-dropzone", local: true do |f|
         .postContents
           .postContent
             .selectTitle
@@ -31,15 +31,15 @@
             .imageUpload
               .prev-content
               .label-content
-                %label{for: "item_images_attributes_0_image", class: "label-box"}
+                %label{for: "item_item_images_attributes_0_image", class: "label-box"}
                   %pre.label-box__text-visible クリックしてファイルをアップロード
               .hidden-content
-                = f.fields_for :images do |i|
+                = f.fields_for :item_images do |i|
                   = i.file_field :image, class:"hidden-field"
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][image]", id: "item_images_attributes_4_image" }
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_item_images_attributes_1_image" }
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_item_images_attributes_2_image" }
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_item_images_attributes_3_image" }
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][image]", id: "item_item_images_attributes_4_image" }
             .imageExistenceContent            
           .borders
           .postContent
