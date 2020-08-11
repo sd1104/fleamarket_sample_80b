@@ -3,12 +3,11 @@
     = image_tag src="material/logo/logo.png", size: "150x50", class: "logo"
   .Account_master
     .Account_entry
-      
       .Account_page__title
         %h2 新規登録
       .Account_page__form
         = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-          = render 'layouts/error_messages', model: f.object
+          = render "devise/shared/error_messages", resource: resource
           .Formfiled
             .Formfiled_lavel
               .field_one
