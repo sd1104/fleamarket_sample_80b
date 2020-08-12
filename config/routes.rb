@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: :index do
     get 'logout'
   end
-  resources :profiles
+  resources :profiles, only: [ :new, :create, :edit, :update]
   resources :product_addresses, only: [ :new, :create, :edit, :update ]
   resources :credits
   
