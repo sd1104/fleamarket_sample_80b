@@ -10,31 +10,31 @@ $(function(){
     // 子カテゴリーの表示作成
     function appendChidrenBox(insertHTML){
       var childSelectHtml = '';
-      childSelectHtml = `<div class='exhibitionPage__main__contents__detail__category__choose__added' id= 'children_wrapper'>
-                          <div class='exhibitionPage__main__contents__detail__category__choose1'>
-                            <i class='fas fa-chevron-down exhibitionPage__main__contents__detail__category__choose--arrow-down'></i>
-                            <select class="exhibitionPage__main__contents__detail__category__choose--select" id="child_category" name="item[category_id]">
+      childSelectHtml = `<div class='CategoryBox__select__added' id= 'children_wrapper'>
+                          <div class='CategoryBox__select1'>
+                            <i class='fas fa-chevron-down CategoryBox__select--arrow-down'></i>
+                            <select class="CategoryBox__select--select" id="child_category" name="item[category_id]">
                               <option value="---" data-category="---">---</option>
                               ${insertHTML}
                             <select>
                           </div>
                         </div>`;
-      $('.exhibitionPage__main__contents__detail__category__choose').append(childSelectHtml);
+      $('.CategoryBox__select').append(childSelectHtml);
     }
 
     // 孫カテゴリーの表示作成
     function appendGrandchidrenBox(insertHTML){
       var grandchildSelectHtml = '';
-      grandchildSelectHtml = `<div class='exhibitionPage__main__contents__detail__category__choose__added' id= 'grandchildren_wrapper'>
-                                <div class='exhibitionPage__main__contents__detail__category__choose2'>
-                                  <i class='fas fa-chevron-down exhibitionPage__main__contents__detail__category__choose--arrow-down'></i>
-                                  <select class="exhibitionPage__main__contents__detail__category__choose__box--select" id="grandchild_category" name="item[category_id]">
+      grandchildSelectHtml = `<div class='CategoryBox__select__added' id= 'grandchildren_wrapper'>
+                                <div class='CategoryBox__select2'>
+                                  <i class='fas fa-chevron-down CategoryBox__select--arrow-down'></i>
+                                  <select class="CategoryBox__select__box--select" id="grandchild_category" name="item[category_id]">
                                     <option value="---" data-category="---">---</option>
                                     ${insertHTML}
                                   </select>
                                 </div>
                               </div>`;
-      $('.exhibitionPage__main__contents__detail__category__choose').append(grandchildSelectHtml);
+      $('.CategoryBox__select').append(grandchildSelectHtml);
     }
 
     // 親カテゴリー選択後のイベント
@@ -67,7 +67,7 @@ $(function(){
     });
 
     // 子カテゴリー選択後のイベント
-    $('.exhibitionPage__main__contents__detail__category').on('change', '#child_category', function(){
+    $('.CategoryBox').on('change', '#child_category', function(){
       var child_category_id = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
       if (child_category_id != "---"){ //子カテゴリーが初期値でないことを確認
         $.ajax({
