@@ -1,4 +1,6 @@
-$(document).on('turbolinks:load', function(){
+// $(document).on('turbolinks:load', function(){
+$(function(){
+
   $(function(){
     // カテゴリーセレクトボックスのオプションを作成
     function appendOption(category){
