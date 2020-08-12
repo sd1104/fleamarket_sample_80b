@@ -1,0 +1,134 @@
+.itemShow {
+  min-height: 100vh;
+  padding: 50px 0;
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  &__main {
+    background-color: white;
+    width: 40%;
+    min-height: 100vh;
+    padding: 35px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    .itemBox {
+      display: flex;
+      justify-content: flex-end;
+      &__edit {
+        background-color: #3CCACE;
+        padding: 5px;
+        border-radius: 4px;
+        .editbtn {
+          text-decoration: none;
+          color: white;
+        }
+      }
+      &__delete {
+        background-color: red;
+        padding: 5px;
+        margin-left: 5px;
+        border-radius: 4px;
+        .deletebtn {
+          text-decoration: none;
+          color: white;
+        }
+      }
+    }
+    &__name {
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+      margin-top: 5px;
+      overflow: visible;
+    }
+    &__image {
+      text-align: center;
+      margin-top: 5px;
+    }
+    .itemSubImage {
+      display: flex;
+      justify-content: center;
+      .subImage {
+        margin-top: 10px;
+      }
+    }
+    &__price {
+      font-size: 35px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20px;
+    }
+    &__tax {
+      font-size: 15px;
+      text-align: center;
+    }
+    &__info {
+      text-align: center;
+      font-size: 22px;
+      margin-top: 20px;
+      .bothod {
+        color: red;
+      }
+      .seller {
+        color: red;
+      }       
+      .buyItem {
+        text-decoration: none;
+        background-color: #3CCACE;
+        color: white;
+        padding: 8px;
+        transition: all  0.5s ease;
+        &:hover {
+          background-color: rgb(74, 215, 250);
+          opacity: 0.8;
+        }
+      }
+    }
+    &__intro {
+      font-size: 21px;
+      margin-top: 8px;
+      border-bottom: 1px solid black;
+      display: inline-block;
+      width: 110px;
+    }
+    &__introduction {
+      width: 100%;
+      overflow: visible;
+      margin-top: 5px;
+    }
+    &__table {
+      margin-top: 35px;
+      table {
+        width: 100%;
+        font-size: 14px;
+        tbody {
+          border-collapse: collapse;
+          border-spacing: 0;
+          tr {
+            width: 100%;
+            border: 1px solid #dedede;
+            th {
+              width: 25%;
+              background-color: #eee;
+              font-weight: 400;
+              padding: 8px;
+              text-align: center;
+              vertical-align: inherit;
+            }
+            td {
+              padding: 15px;
+            }
+          }
+        }
+      }
+    }
+    &__truble {
+      text-align: center;
+      border: 1px solid black;
+      width: 220px;
+      margin: 40px auto;
+      cursor: pointer;
+    }
+  }
+}
