@@ -39,7 +39,7 @@
               商品の説明
             .selectTitle__required
               必須
-          = f.text_area :introduction, class: "inputText", placeholder: "40文字以内"
+          = f.text_area :introduction, class: "inputText", placeholder: "1000文字以内"
           .oneThousand
             .oneThousand__one 0/1000
         .borders
@@ -50,7 +50,9 @@
               カテゴリー
             .selectTitle__required
               必須
-          = f.collection_select :category, Category.where(ancestry: nil), :id, :name, {prompt: "----" }, {class: 'inputInformation', id: 'parent_itemcategory'}
+          .CategoryBox
+            .CategoryBox__select
+              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "----" }, {id: 'parent_category'}
           .selectShow              
             .selectNameIntro__name
               ブランド
