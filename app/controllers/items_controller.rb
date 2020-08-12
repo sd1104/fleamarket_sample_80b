@@ -41,9 +41,11 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def destroy
+    @item = Item.find(params[:id])
     if @item.seller_id == current_user.id
       if @item.destroy
         redirect_to root_path, notice: "削除が完了しました"
