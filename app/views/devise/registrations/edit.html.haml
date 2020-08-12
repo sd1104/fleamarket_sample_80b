@@ -1,36 +1,66 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      %br/
-      %em
-        = @minimum_password_length
-        characters minimum
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+.subWrapper
+  .Account
+    .Account__logo
+      = image_tag src="material/logo/logo.png", size: "150x50", class: "logo"
+    .Account__master
+      .Account__master__entry
+        .Account__master__entry__title
+          %h2 メールアドレス/パスワード変更
+        .Account__master__entry__form
+          = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+            = render "devise/shared/error_messages", resource: resource
+            .Formfiled
+              .Formfiled_lavel
+                .field_one
+                  = f.label :メールアドレス
+                  %span 必須
+                .field_second
+                  = f.email_field :email, autofocus: true, autocomplete: "email"
+                - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+                  %div
+                    Currently waiting confirmation for: #{resource.unconfirmed_email}
+            .Formfiled
+              .Formfiled_lavel
+                .field_one
+                  = f.label :新しいパスワード
+                  - if @minimum_password_length
+                    %em
+                      (#{@minimum_password_length}文字以上)
+                  %br/
+                  %i (変更しない場合は何も入力しないでください)
+                .field_second
+                  = f.password_field :password, autocomplete: "new-password"
+            .Formfiled
+              .Formfiled_lavel
+                .field_one
+                  = f.label :確認用パスワード
+                .field_second
+                  = f.password_field :password_confirmation, autocomplete: "new-password"
+            .Formfiled
+              .Formfiled_lavel
+                .field_one
+                  = f.label :現在のパスワード
+                  %br/
+                  %i (ユーザー確認のため現在のパスワードを入力してください)
+                .field_second
+                  = f.password_field :current_password, autocomplete: "current-password"
+            .actions
+              = f.submit "更新する"
+
+.subWrapper
+  .Account
+    .Account__logo
+      = image_tag src="material/logo/logo.png", size: "150x50", class: "logo"
+    .Account__master
+      .Account__master__entry
+        .Account__master__entry__accountDleteTitle
+          %h2 アカウント削除
+        .Account__master__entry__form
+          = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+            = render "devise/shared/error_messages", resource: resource
+            .accountDeleteBtn
+              #{button_to "アカウント削除", registration_path(resource_name), data: { confirm: "本当に削除してもいいですか?" }, method: :delete}
+              .accountDeleteConfirm
+                %i.fas.fa-exclamation-triangle
+                アカウント削除は取り消すことができません
+              = link_to "戻る", :back, class: "backBtn"
