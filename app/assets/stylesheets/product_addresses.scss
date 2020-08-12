@@ -1,11 +1,12 @@
 @mixin inputStyle {
-  height: 30px;
+  height: 48px;
+  width: 343px;
   padding: 10px 16px 8px;
   border-radius: 4px;
   border: 1px solid #ccc;
   background-color: #fff;
   line-height: 1.5;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 @mixin label {
@@ -14,13 +15,24 @@
   font-size: 14px;
 }
 
+.ProductAdress__logo {
+  height: 130px;
+  font-size: 50px;
+  justify-content: center;
+  display: flex;
+  .logo {
+    height: 50px;
+    margin-top: 50px;
+  }
+}
+
 #product_address_first_name,
 #product_address_last_name,
 #product_address_first_name_kana,
 #product_address_last_name_kana {
   @include inputStyle;
   margin: 8px 5px 0 5px ;
-  width: 120px;
+  width: 165px;
 }
 
 #product_address_postal_code,
@@ -31,35 +43,37 @@
 #product_address_phone_number {
   @include inputStyle;
   margin: 8px 0 0 ;
-  width: 290px;
+  width: 343px;
 }
 
 #product_address_prefecture_code {
   @include inputStyle;
   height: 50px;
-  width: 325px;
+  width: 343px;
   margin: 8px 0 0 ;
   color: gray;
 }
 
 input[type="submit"] {
   height: 50px;
-  width: 325px;
+  width: 343px;
   margin-top: 80px;
-  background-color: #ea352d;
+  background-color: #3CCACE;
   color: #fff;
   border-radius: 4px;
   border: none;
+  font-size: 14px;
 }
 
 input[type="submit"]:hover {
   height: 50px;
-  width: 325px;
+  width: 343px;
   margin-top: 80px;
-  background-color: #ea352d;
+  background-color: #3CCACE;
   color: #fff;
   border-radius: 7px;
   border: none;
+  font-size: 14px;
   cursor: pointer;
 }
 
@@ -69,25 +83,33 @@ input[type="submit"]:hover {
 
 .label_required {
   @include label;
-  background-color: #ea352d;
+  background-color: #3CCACE;
   color: #fff;
+  border-radius: 4px;
 }
 
 .label_any {
-  @extend .label_required;
+  @include label;
   background-color: lightgray;
+  color: #fff;
+  border-radius: 4px;
 }
 
 .subWrapper {
   display: flex;
   justify-content: center;
+  overflow: scroll;
+  background-color:#f5f5f5;
   .ProductAdress {
     width: 700px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    background-color: #fff;
+    &__master{
+      background-color: #fff;
+      padding: 0 135px;
+    }
     &__title {
       width: 100%;
       padding: 32px;
@@ -108,6 +130,45 @@ input[type="submit"]:hover {
           display: flex;
         }
       }
+    }
+  }
+}
+
+.noRegistrationMessage {
+  height: 200px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px 0;
+  &__statusMessage {
+    text-align: center;
+    font-size: 16px;
+    background-color: #fff;
+  }
+  &__registrationMessage {
+    text-align: center;
+    margin-top: 50px;
+    .registrationMessageBtn {      
+      background-color: #3CCACE;
+      padding: 10px 50px;
+      color: #fff;
+      border-radius: 3px;
+      border-top:2px solid rgba(255,255,255,0.2);
+	    border-bottom:2px solid rgba(0,0,0,0.2);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .registrationMessageBtn:hover {
+      opacity:0.8;
+    }
+    .registrationMessageBtn:active {
+      position: relative;
+      top: 2px;
+      -webkit-transform: translate(0,2px);
+      -moz-transform: translate(0,2px);
+      transform: translate(0,2px);
+      border-bottom:none;
     }
   }
 }

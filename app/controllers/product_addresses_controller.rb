@@ -15,7 +15,11 @@ class ProductAddressesController < ApplicationController
   end
 
   def edit
-    @product_address = ProductAddress.find(params[:id])
+    if !current_user.product_address.nil?
+      @product_address = ProductAddress.find(current_user.product_address.id)
+    else
+      @product_address = ProductAddress.new
+    end
   end
 
   def update
@@ -40,6 +44,6 @@ class ProductAddressesController < ApplicationController
       :address_street, 
       :building_name, 
       :phone_number
-    ).merge(user_id: 1)
+    ).merge(user_id: current_user.id)
    end
 end

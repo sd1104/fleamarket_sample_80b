@@ -25,6 +25,15 @@
             padding: 16px;
             border-radius: 4px;
           }
+          .function-mypage:hover {
+            color: black;
+            background-color: #dddddd;
+            opacity: 0.8;
+          }
+          .function-mypage:active {
+            position: relative;
+            top: 2px;
+          }
           a {
             text-decoration: none;
             color: #333;
@@ -65,6 +74,10 @@
             background-color: #dddddd;
             opacity: 0.8;
           }
+          .function:active {
+            position: relative;
+            top: 2px;
+          }
         }
         .settings {
           margin-top: 40px;
@@ -77,11 +90,6 @@
       display: inline-block;
       width: 700px;
       margin-left: 40px;
-      h2 {
-        padding-top: 170px;
-        text-align: center;
-        font-size: 30px;
-      }
     }
   }
 }
@@ -97,10 +105,34 @@
     font-size: 14px;
     padding: 10px 70px;
     margin-top: 80px;
-    background-color: #ea352d;
+    background-color: #3CCACE;
     color: #fff;
     border-radius: 4px;
-    border: none;
+    border-top:2px solid rgba(255,255,255,0.2);
+	  border-bottom:2px solid rgba(0,0,0,0.2);
+  }
+  #myPageLogOutBtn:hover {
+    opacity:0.8;
+  }
+  #myPageLogOutBtn:active {
+    position: relative;
+    top: 2px;
+    -webkit-transform: translate(0,2px);
+    -moz-transform: translate(0,2px);
+    transform: translate(0,2px);
+    border-bottom:none;
+  }
+}
+
+.LogInMassage {
+  height: 150px;
+  text-align: center;
+  background-color: #fff;
+  .welcom_message {
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 150px;
+    color: #333;
   }
 }
 
