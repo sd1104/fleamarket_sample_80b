@@ -121,8 +121,9 @@
         display: flex;
         justify-content: space-between;
         margin-top: 50px;
-        margin-left: 330px;
-        margin-right: 330px;
+        margin: 0 auto;
+        max-width: 1020px;
+        width: 100%;
         .infoPhoto {
           position: relative;
           &__number {
@@ -197,20 +198,54 @@
       }
     }
     &__new {
-      height: 430px;
+      min-height: 470px;
       background-color: rgb(235, 235, 235);
       &__title {
         text-align: center;
         padding-top: 30px;
         font-size: 28px;
         font-weight: bold;
-        margin-bottom: 15px;
+        margin-bottom: 5px;
       }
       &__sub {
         text-align: center;
         font-weight: bold;
         font-size: 24px;
         color: #3ccace;
+        margin-bottom: 25px;
+      }
+      .mainsNew {
+        width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        .mainNew {
+          display: flex;
+          &__contents {
+            background-color: #fff;
+            height: 250px;
+            cursor: pointer;
+            margin-left: 10px;
+            overflow: scroll;
+            .mainNew-info {
+              padding: 5px;
+              padding-left: 10px;
+              .mainNew-name {
+                overflow: visible;
+                width: 200px;
+                font-size: 19px;
+              }
+              .mainNew-price {
+                margin-top: 10px;
+                font-size: 15px;
+              }
+              .mainNew-tax {
+                font-size: 12px;
+              }
+            }
+          }
+        }
       }
     }
     &__contents {
@@ -233,8 +268,9 @@
           width: 220px;
           height: 250px;
           margin-right: 20px;
+          margin-top: 15px;
           cursor: pointer;
-          overflow: scroll;
+          overflow: visible;
           .item-content-name {
             color: black;
             margin-bottom: 3px;
