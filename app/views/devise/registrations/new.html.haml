@@ -10,21 +10,21 @@
           = form_for(resource, url: registration_path(resource_name)) do |f|
             = render "devise/shared/error_messages", resource: resource
             .Formfiled
-              .Formfiled_lavel
+              .Formfiled_label
                 .field_one
                   = f.label :ニックネーム
                   %span 必須
                 .field_second
                   = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class:"field", placeholder:"例)佐藤 太郎"
             .Formfiled
-              .Formfiled_lavel
+              .Formfiled_label
                 .field_one
                   = f.label :メールアドレス
                   %span 必須
                 .field_second
                   = f.email_field :email, autofocus: true, autocomplete: "email", class:"field", placeholder:"xxx@furima.com"
             .Formfiled
-              .Formfiled_lavel
+              .Formfiled_label
                 .field_one
                   = f.label :パスワード
                   - if @minimum_password_length
@@ -34,7 +34,7 @@
                 .field_second
                   = f.password_field :password, autocomplete: "new-password", class:"field", placeholder:"7文字以上の半角英数字"
             .Formfiled
-              .Formfiled_lavel
+              .Formfiled_label
                 .field_one
                   = f.label :確認用パスワード
                   %span 必須

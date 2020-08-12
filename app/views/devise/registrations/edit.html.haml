@@ -13,7 +13,13 @@
                 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
                   = render "devise/shared/error_messages", resource: resource
                   .Formfiled
-                    .Formfiled_lavel
+                    .Formfiled_label
+                      .field_one
+                        = f.label :ニックネーム
+                      .nickname
+                        = current_user.nickname
+                  .Formfiled
+                    .Formfiled_label
                       .field_one
                         = f.label :メールアドレス
                         %span 必須
@@ -23,7 +29,7 @@
                         %div
                           Currently waiting confirmation for: #{resource.unconfirmed_email}
                   .Formfiled
-                    .Formfiled_lavel
+                    .Formfiled_label
                       .field_one
                         = f.label :新しいパスワード
                         - if @minimum_password_length
@@ -34,13 +40,13 @@
                       .field_second
                         = f.password_field :password, autocomplete: "new-password"
                   .Formfiled
-                    .Formfiled_lavel
+                    .Formfiled_label
                       .field_one
                         = f.label :確認用パスワード
                       .field_second
                         = f.password_field :password_confirmation, autocomplete: "new-password"
                   .Formfiled
-                    .Formfiled_lavel
+                    .Formfiled_label
                       .field_one
                         = f.label :現在のパスワード
                         %br/
