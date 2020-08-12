@@ -133,3 +133,42 @@ input[type="submit"]:hover {
     }
   }
 }
+
+.noRegistrationMessage {
+  height: 200px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px 0;
+  &__statusMessage {
+    text-align: center;
+    font-size: 16px;
+    background-color: #fff;
+  }
+  &__registrationMessage {
+    text-align: center;
+    margin-top: 50px;
+    .registrationMessageBtn {      
+      background-color: #3CCACE;
+      padding: 10px 50px;
+      color: #fff;
+      border-radius: 3px;
+      border-top:2px solid rgba(255,255,255,0.2);
+	    border-bottom:2px solid rgba(0,0,0,0.2);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .registrationMessageBtn:hover {
+      opacity:0.8;
+    }
+    .registrationMessageBtn:active {
+      position: relative;
+      top: 2px;
+      -webkit-transform: translate(0,2px);
+      -moz-transform: translate(0,2px);
+      transform: translate(0,2px);
+      border-bottom:none;
+    }
+  }
+}
