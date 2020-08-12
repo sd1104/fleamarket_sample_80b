@@ -5,7 +5,7 @@
     .Account__master
       .Account__master__entry
         .Account__master__entry__title
-          %h2 パスワードお忘れの方
+          %h2 パスワードをお忘れの方
         .Account__master__entry__form
           = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
             = render "devise/shared/error_messages", resource: resource
