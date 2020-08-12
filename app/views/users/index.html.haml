@@ -3,5 +3,8 @@
     .MyPageContents__LeftSide
       = render 'users/mypage_leftside'
     .MyPageContents__RightSide
-      %h2
-        FULIMAようこそ
+      .LogInMassage
+        .welcom_message
+          ようこそ
+          = current_user.nickname
+          さん

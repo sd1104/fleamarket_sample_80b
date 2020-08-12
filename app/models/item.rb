@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category, dependent: :destroy
   belongs_to :seller, class_name: "User", foreign_key: "seller_id"
-  belongs_to :buyer, class_name: "User", foreign_key: "buyer_id"
+  belongs_to :buyer, class_name: "User", optional: true
   has_many :item_images, dependent: :destroy
   
   accepts_nested_attributes_for :item_images, allow_destroy: true, update_only: true
