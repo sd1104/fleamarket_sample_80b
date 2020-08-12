@@ -107,16 +107,20 @@
         ピックアップカテゴリー
       .main__new__sub
         新規投稿商品
-      - @items.each do |item|
-        .items
-          .items__content
-            .item-content-pic
-              =link_to item_path(item.id), method: :get do
-                =image_tag item.image.url, class: "item-photos", size: "220x140"
-            =link_to item.name, item_path(item.id), method: :get, class: "item-content-name"
-            =link_to item.price, item_path(item.id), method: :get, class: "item-content-price"
-            .item-content-tax
-              (税込)
+      .mainsNew
+        - @items.each do |item|
+          .mainNew
+            .mainNew__contents
+              .item-content-pic
+                =link_to item_path(item), method: :get do
+                  =image_tag item.item_images[0].image.url, class: "item-photos", size: "220x140"
+              .mainNew-info
+                .mainNew-name
+                  = item.name
+                .mainNew-price
+                  = item.price
+                .mainNew-tax
+                  (税込)
     .main__contents
       .main__contents__title
         新着おすすめカテゴリー
