@@ -1,160 +1,116 @@
-.wrapper
-  .header 
-    .header__top
-      = link_to root_path, method: :get do
-        = image_tag src="material/logo/logo.png", size: "140x40", calss: "headerLogo-index"
-      = form_with(url: search_items_path, local: true, method: :get, class: "search-form") do |form|
-        = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input", size: "80x80"
-        = button_tag type: 'submit', class: 'search-btn' do
-          %i.fas.fa-search
-    .header__under
-      .header__under__left
-        .category カテゴリーから検索
-        .brand ブランド
-      .header__under__right
-        = link_to "マイページ", "#", class: "header-mypage"
-  .border
-  .postForm
-    .postForm__title
-      = image_tag src="material/logo/logo.png", size: "140x40", class: "item-new-logo"
-    .postForm__main
-      = form_with model: @item, id: "item-dropzone", local: true do |f|
-        .postContents
-          .postContent
-            .selectTitle
-              .selectTitle__info
-                出品画像
-              .selectTitle__required
-                必須
-            .selectImageUpload
-              最大5枚までアップロードできます             
-            .imageUpload
-              .prev-content
-              .label-content
-                %label{for: "item_item_images_attributes_0_image", class: "label-box"}
-                  %pre.label-box__text-visible クリックしてファイルをアップロード
-              .hidden-content
-                = f.fields_for :item_images do |i|
-                  = i.file_field :image, class:"hidden-field"
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_item_images_attributes_1_image" }
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_item_images_attributes_2_image" }
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_item_images_attributes_3_image" }
-                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][image]", id: "item_item_images_attributes_4_image" }
-            .imageExistenceContent            
-          .borders
-          .postContent
-            .selectNameIntro
-              .selectNameIntro__name
-                商品名
-              .selectTitle__required
-                必須
-            = f.text_field :name, class: "inputName", placeholder: "40文字以内"
-            .selectNameIntro
-              .selectNameIntro__name
-                商品の説明
-              .selectTitle__required
-                必須
-            = f.text_area :introduction, class: "inputText", placeholder: "40文字以内"
-            .oneThousand
-              .oneThousand__one 0/1000
-          .borders
-          .postContent
-            .selectShowTitle 商品の詳細
-            .selectShow              
-              .selectNameIntro__name
-                カテゴリー
-              .selectTitle__required
-                必須
-            = f.collection_select :category, Category.where(ancestry: nil), :id, :name, {prompt: "----" }, {class: 'inputInformation', id: 'parent_itemcategory'}
-            .selectShow              
-              .selectNameIntro__name
-                ブランド
-              .selectTitle__optional
-                任意
-            = f.text_field :brand, class: "inputName", placeholder: "選択してください"
-            .selectShow              
-              .selectNameIntro__name
-                商品の状態
-              .selectTitle__required
-                必須
-            = f.collection_select :condition_id, Condition.all, :name, :name, {include_blank: "選択してください"}, {class: "inputInformation"}
-          .borders
-          .postContent
-            .selectShowTitle 配送について
+.border
+.postForm
+  .postForm__title
+    = image_tag src="material/logo/logo.png", size: "140x40", class: "item-new-logo"
+  .postForm__main
+    = form_with model: @item, id: "item-dropzone", local: true do |f|
+      .postContents
+        .postContent
+          .selectTitle
+            .selectTitle__info
+              出品画像
+            .selectTitle__required
+              必須
+          .selectImageUpload
+            最大5枚までアップロードできます             
+          .imageUpload
+            .prev-content
+            .label-content
+              %label{for: "item_item_images_attributes_0_image", class: "label-box"}
+                %pre.label-box__text-visible クリックしてファイルをアップロード
+            .hidden-content
+              = f.fields_for :item_images do |i|
+                = i.file_field :image, class:"hidden-field"
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_item_images_attributes_1_image" }
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_item_images_attributes_2_image" }
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_item_images_attributes_3_image" }
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][image]", id: "item_item_images_attributes_4_image" }
+          .imageExistenceContent            
+        .borders
+        .postContent
+          .selectNameIntro
+            .selectNameIntro__name
+              商品名
+            .selectTitle__required
+              必須
+          = f.text_field :name, class: "inputName", placeholder: "40文字以内"
+          .selectNameIntro
+            .selectNameIntro__name
+              商品の説明
+            .selectTitle__required
+              必須
+          = f.text_area :introduction, class: "inputText", placeholder: "40文字以内"
+          .oneThousand
+            .oneThousand__one 0/1000
+        .borders
+        .postContent
+          .selectShowTitle 商品の詳細
+          .selectShow              
+            .selectNameIntro__name
+              カテゴリー
+            .selectTitle__required
+              必須
+          = f.collection_select :category, Category.where(ancestry: nil), :id, :name, {prompt: "----" }, {class: 'inputInformation', id: 'parent_itemcategory'}
+          .selectShow              
+            .selectNameIntro__name
+              ブランド
+            .selectTitle__optional
+              任意
+          = f.text_field :brand, class: "inputName", placeholder: "選択してください"
+          .selectShow              
+            .selectNameIntro__name
+              商品の状態
+            .selectTitle__required
+              必須
+          = f.collection_select :condition_id, Condition.all, :name, :name, {include_blank: "選択してください"}, {class: "inputInformation"}
+        .borders
+        .postContent
+          .selectShowTitle 配送について
+          .selectShow   
+            .selectNameIntro__name
+              配送料の負担
+            .selectTitle__required
+              必須
+          = f.collection_select :delivery_charge_id, DeliveryCharge.all, :name, :name, {include_blank: "選択してください"}, {class: "inputInformation"}
+          .selectShow   
+            .selectNameIntro__name
+              配送元に地域
+            .selectTitle__required
+              必須
+          = f.collection_select :delivery_origin_id, DeliveryOrigin.all, :name, :name, {include_blank: "選択してください"}, {class: "inputInformation"}
+          .selectShow   
+            .selectNameIntro__name
+              配送までの日数
+            .selectTitle__required
+              必須
+          = f.collection_select :delivery_date_id, DeliveryDate.all, :name, :name, {include_blank: "選択してください"}, {class: "inputInformation"}
+        .borders
+        .postContent
+          .selectShowTitle 価格 (¥300~9,999,999)
+          .selectPrices
             .selectShow   
               .selectNameIntro__name
-                配送料の負担
+                販売価格
               .selectTitle__required
                 必須
-            = f.collection_select :delivery_charge_id, DeliveryCharge.all, :name, :name, {include_blank: "選択してください"}, {class: "inputInformation"}
-            .selectShow   
-              .selectNameIntro__name
-                配送元に地域
-              .selectTitle__required
-                必須
-            = f.collection_select :delivery_origin_id, DeliveryOrigin.all, :name, :name, {include_blank: "選択してください"}, {class: "inputInformation"}
-            .selectShow   
-              .selectNameIntro__name
-                配送までの日数
-              .selectTitle__required
-                必須
-            = f.collection_select :delivery_date_id, DeliveryDate.all, :name, :name, {include_blank: "選択してください"}, {class: "inputInformation"}
-          .borders
-          .postContent
-            .selectShowTitle 価格 (¥300~9,999,999)
-            .selectPrices
-              .selectShow   
-                .selectNameIntro__name
-                  販売価格
-                .selectTitle__required
-                  必須
-              .selectPrice
-                ¥
-                = f.number_field :price, class: "inputPrice", placeholder: "0"
-            .priceFee 
-              .priceFee__title 販売手数料(10%)
-              .priceFee__price ¥0
-            .priceProfit
-              .priceProfit__title 販売利益
-              .priceProfit__price ¥0 
-            .exhibition
-              = f.submit "出品する", class: "exhibition-btn"
-              = link_to "キャンセル", "#", class: "exhibition-cancel"            
-    .postForm__footer
-      .postFooterList
-        = link_to "プライバシーポリス", "#", class: "postFooterList__list"
-        = link_to "フリマ利用契約", "#", class: "postFooterList__list" 
-        = link_to "特定商取引に関する表記", "#", class: "postFooterList__list"  
-      .postFooterLogo
-        =image_tag src="material/logo/logo-white.png", size: "140x40", class: "item-new-logo"
-        .postFotterLogo__inc
-          ©︎ FURIMA, Inc.
-  .footer
-    .footer__all
-      .furimaTo
-        .furimaTo__title
-          FURIMAについて
-        .firimaTo__list
-          %ul
-            %li 会社概要（運営会社）
-            %li プライバシーポリシー
-            %li FURIMA利用規約
-            %li ポイントに関する特約 
-      .furimaTo
-        .furimaTo__title
-          FURIMAを見る
-        .firimaTo__list
-          %ul
-            %li カテゴリー一覧
-            %li ブランド一覧
-      .furimaTo
-        .furimaTo__title
-          ヘルプ＆ガイド
-        .firimaTo__list
-          %ul
-            %li FURIMAガイド
-            %li FURIMAロゴ利用ガイドライン
-            %li お知らせ
-    .footerLogo
-      = image_tag src="material/logo/logo-white.png", class: "footer-logo-photo", size: "140x40"
-      .footerLogo__inc ©︎ FURIMA, Inc.
+            .selectPrice
+              ¥
+              = f.number_field :price, class: "inputPrice", placeholder: "0"
+          .priceFee 
+            .priceFee__title 販売手数料(10%)
+            .priceFee__price ¥0
+          .priceProfit
+            .priceProfit__title 販売利益
+            .priceProfit__price ¥0 
+          .exhibition
+            = f.submit "出品する", class: "exhibition-btn"
+            = link_to "キャンセル", "#", class: "exhibition-cancel"            
+  .postForm__footer
+    .postFooterList
+      = link_to "プライバシーポリス", "#", class: "postFooterList__list"
+      = link_to "フリマ利用契約", "#", class: "postFooterList__list" 
+      = link_to "特定商取引に関する表記", "#", class: "postFooterList__list"  
+    .postFooterLogo
+      =image_tag src="material/logo/logo-white.png", size: "140x40", class: "item-new-logo"
+      .postFotterLogo__inc
+        ©︎ FURIMA, Inc.

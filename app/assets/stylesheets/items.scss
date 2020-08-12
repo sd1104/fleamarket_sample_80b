@@ -1,7 +1,5 @@
 .wrapper {
   box-sizing: border-box;
-  height: 100vh;
-  width: 100%;
   .header {
     height: 100px;
     width: 100%;
@@ -21,9 +19,9 @@
         .search-btn {
           border: none;
           background-color: #3ccace;
-          height: 36px;
-          padding: 8px;
-          width: 36px;
+          height: 32px;
+          padding: 6px;
+          width: 32px;
           cursor: pointer;
           vertical-align: bottom;
           color: #F8F8F8;
@@ -48,288 +46,291 @@
         }
       }
       &__right {
-        margin-right: 370px;
+        margin-right: 300px;
         .header-mypage {
+          margin: 15px;
           text-decoration: none;
           color: black;
-          font-size: 15px;
+          font-size: 14px;
         }
       }
     }
   }
-  .border {
-    margin-bottom: 10px;
-  }
-  .main {
-    background-color: #F8F8F8;
-    &__top {
-      background-image: url("material/pict/bg-mainVisual-pict_pc.jpg");
-      background-size: cover;
-      height: 560px;
-      width: 100%;
-      &__all {
-        display: flex;
-        flex-direction: column;
-        padding-top: 180px;
-        padding-left: 250px;
-        .topTitle {
-          font-size: 60px;
-          color: white;
-          text-shadow: 0 0 5px rgba(0,0,0,0.4);
-          margin-bottom: 10px;
-          margin-left: 20px;
-        }
-        .topTitleInfo {
-          color: white;
-          text-shadow: 0 0 5px rgba(0,0,0,0.4);
-          font-size: 20px;
-          margin-left: 15px;
-        }
-        .topTitle__photo {
-          margin-top: 10px;
-          position: relative;
-          .app-logo {
-            position: absolute;
-          }
-          .google-logo {
-            position: absolute;
-            left: 191px;
-          }
-        }
-      }
-    }
-    &__info {
-      height: 660px;
-      width: 100%;
-      background-color: whitesmoke;
-      &__title {
-        font-size: 25px;
-        font-weight: bold;
-        text-align: center;
-        padding-top: 80px;
-      }
-      &__border {
-        display: flex;
-        justify-content: center;
-        margin-top: 15px;
-        .infoBorder {
-          border: 2px solid #3ccace;
-          width: 60px;
-        }
-      }
-      &__photos {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 50px;
-        margin-left: 330px;
-        margin-right: 330px;
-        .infoPhoto {
-          position: relative;
-          &__number {
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: #3ccace;
-            width: 50px;
-            height: 45px;
-            color: #F8F8F8;
-            font-weight: bold;
-            font-size: 25px;
-            text-align: center;
-            padding-top: 10px;
-          }
-          &__subTitle {
-            margin-top: 15px;
-            text-align: center;
-            font-size: 23px;
-            font-weight: bold;
-            span {
-              color: #3ccace;
-            }
-          }
-          &__text {
-            margin-top: 20px;
-            font-size: 18px;
-          }
-        }
-      }
-    }
-    &__middle {
-      height: 400px;
-      background-image: url("material/pict/bg-topMiddleDl-pict.jpg");
-      background-position: center;
-      width: 100%;
-      background-size: cover;
-      &__all {
-        padding-top: 100px;
-        padding-left: 300px;
-        .middleTitle {
-          font-size: 28px;
-          color: white;
-          text-shadow: 0 0 5px rgba(0,0,0,0.4);
-          margin-bottom: 16px;
-          margin-left: 10px;
-        }
-        .middleTitleInfo {
-          color: white;
-          text-shadow: 0 0 5px rgba(0,0,0,0.4);
-          margin-left: 10px;
-        }
-        .middleTitle__photo {
-          position: relative;
-          margin-top: 15px;
-          .google-logo2 {
-            position: absolute;
-            left: 155px;
-          }
-        }
-      }
-    }
-    &__unique {
-      height: 800px;
-      width: 100%;
-      background-color: whitesmoke;
-      .uniquePhoto {
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-    &__new {
-      height: 430px;
-      background-color: rgb(235, 235, 235);
-      &__title {
-        text-align: center;
-        padding-top: 30px;
-        font-size: 28px;
-        font-weight: bold;
-        margin-bottom: 15px;
-      }
-      &__sub {
-        text-align: center;
-        font-weight: bold;
-        font-size: 24px;
-        color: #3ccace;
-      }
-    }
-    &__contents {
-      height: 430px;
-      background-color: whitesmoke;
-      &__title {
-        text-align: center;
-        padding-top: 30px;
-        font-size: 28px;
-        font-weight: bold;
-      }
-      .items {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto;
-        margin: 0 100px;
-        &__content {
-          background-color: rgb(255, 255, 255);
-          width: 220px;
-          height: 250px;
-          margin-right: 20px;
-          cursor: pointer;
-          overflow: scroll;
-          .item-content-name {
-            color: black;
-            margin-bottom: 3px;
-            padding-right: 10px;
-            padding-left: 10px;
-            margin-top: 8px;
-            overflow: visible;
-            width: 200px;
-          }
-          .item-content-price {
-            padding-left: 10px;
-            padding-right: 10px;
-            margin-bottom: 2px;
-          }
-          .item-content-tax {
-            font-size: 8px;
-            padding-left: 10px;
-          }
-        }
-      }
-    }
-  }
-  .bottomPicture {
-    background-image: url("material/pict/bg-appBanner-pict.jpg");
-    height: 360px;
+}
+.border {
+  margin-bottom: 10px;
+}
+.main {
+  height: 100%;
+  width: 100%;
+  background-color: #F8F8F8;
+  &__top {
+    background-image: url("material/pict/bg-mainVisual-pict_pc.jpg");
     background-size: cover;
-    background-position: center;
-    &__content {
+    height: 560px;
+    width: 100%;
+    &__all {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding-top: 100px;
-      .bottomTop {
-        font-size: 27px;
+      padding-top: 180px;
+      padding-left: 250px;
+      .topTitle {
+        font-size: 60px;
         color: white;
         text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        margin-bottom: 10px;
+        margin-left: 20px;
       }
-      .bottomUnder {
-        font-size: 40px;
+      .topTitleInfo {
         color: white;
         text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 20px;
+        margin-left: 15px;
+      }
+      .topTitle__photo {
+        margin-top: 10px;
+        position: relative;
+        .app-logo {
+          position: absolute;
+        }
+        .google-logo {
+          position: absolute;
+          left: 191px;
+        }
       }
     }
   }
-  .footer {
-    height: 360px;
-    background-color: #272727;
-    text-align: center;
-    color: white;
-    &__all {
-      width: 840px;
+  &__info {
+    height: 660px;
+    width: 100%;
+    background-color: whitesmoke;
+    &__title {
+      font-size: 25px;
+      font-weight: bold;
+      text-align: center;
+      padding-top: 80px;
+    }
+    &__border {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+      .infoBorder {
+        border: 2px solid #3ccace;
+        width: 60px;
+      }
+    }
+    &__photos {
       display: flex;
       justify-content: space-between;
-      margin: 0 auto;
-      .furimaTo {
-        margin-left: 10px;
-        margin-top: 60px;
-        &__title {
-          font-size: 20px;
-          margin-bottom: 22px;
+      margin-top: 50px;
+      margin-left: 330px;
+      margin-right: 330px;
+      .infoPhoto {
+        position: relative;
+        &__number {
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: #3ccace;
+          width: 50px;
+          height: 45px;
+          color: #F8F8F8;
           font-weight: bold;
+          font-size: 25px;
+          text-align: center;
+          padding-top: 10px;
         }
-        li {
-          font-size: 12px;
-          margin-bottom: 15px;
-          cursor: pointer;
+        &__subTitle {
+          margin-top: 15px;
+          text-align: center;
+          font-size: 23px;
+          font-weight: bold;
+          span {
+            color: #3ccace;
+          }
+        }
+        &__text {
+          margin-top: 20px;
+          font-size: 18px;
         }
       }
     }
-    .footerLogo__inc {
-      font-size: 12px;
-      color: white;
+  }
+  &__middle {
+    height: 400px;
+    background-image: url("material/pict/bg-topMiddleDl-pict.jpg");
+    background-position: center;
+    width: 100%;
+    background-size: cover;
+    &__all {
+      padding-top: 100px;
+      padding-left: 300px;
+      .middleTitle {
+        font-size: 28px;
+        color: white;
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        margin-bottom: 16px;
+        margin-left: 10px;
+      }
+      .middleTitleInfo {
+        color: white;
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        margin-left: 10px;
+      }
+      .middleTitle__photo {
+        position: relative;
+        margin-top: 15px;
+        .google-logo2 {
+          position: absolute;
+          left: 155px;
+        }
+      }
     }
   }
-  .post {
-    width: 100px;
-    height: 100px;
-    background-color: #3ccace;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    position: fixed;
-    bottom: 15px;
-    right: 15px;
+  &__unique {
+    height: 800px;
+    width: 100%;
+    background-color: whitesmoke;
+    .uniquePhoto {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  &__new {
+    height: 430px;
+    background-color: rgb(235, 235, 235);
+    &__title {
+      text-align: center;
+      padding-top: 30px;
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    &__sub {
+      text-align: center;
+      font-weight: bold;
+      font-size: 24px;
+      color: #3ccace;
+    }
+  }
+  &__contents {
+    height: 430px;
+    background-color: whitesmoke;
+    &__title {
+      text-align: center;
+      padding-top: 30px;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .items {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      margin: 0 100px;
+      &__content {
+        background-color: rgb(255, 255, 255);
+        width: 220px;
+        height: 250px;
+        margin-right: 20px;
+        cursor: pointer;
+        overflow: scroll;
+        .item-content-name {
+          color: black;
+          margin-bottom: 3px;
+          padding-right: 10px;
+          padding-left: 10px;
+          margin-top: 8px;
+          overflow: visible;
+          width: 200px;
+        }
+        .item-content-price {
+          padding-left: 10px;
+          padding-right: 10px;
+          margin-bottom: 2px;
+        }
+        .item-content-tax {
+          font-size: 8px;
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+}
+.bottomPicture {
+  background-image: url("material/pict/bg-appBanner-pict.jpg");
+  height: 360px;
+  background-size: cover;
+  background-position: center;
+  &__content {
     display: flex;
     flex-direction: column;
-    .push-post {
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+    .bottomTop {
+      font-size: 27px;
       color: white;
-      text-decoration: none;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
     }
-    i {
+    .bottomUnder {
       font-size: 40px;
       color: white;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
     }
+  }
+}
+.footer {
+  height: 360px;
+  background-color: #272727;
+  text-align: center;
+  color: white;
+  &__all {
+    width: 840px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    .furimaTo {
+      margin-left: 10px;
+      margin-top: 60px;
+      &__title {
+        font-size: 20px;
+        margin-bottom: 22px;
+        font-weight: bold;
+      }
+      li {
+        font-size: 12px;
+        margin-bottom: 15px;
+        cursor: pointer;
+      }
+    }
+  }
+  .footerLogo__inc {
+    font-size: 12px;
+    color: white;
+  }
+}
+.post {
+  width: 100px;
+  height: 100px;
+  background-color: #3ccace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  .push-post {
+    color: white;
+    text-decoration: none;
+  }
+  i {
+    font-size: 40px;
+    color: white;
   }
 }
