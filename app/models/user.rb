@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_one :product_address, dependent: :destroy
   has_one :credit, dependent: :destroy
 
-  validates :nickname,
+  validates :nickname, :email, :passoword,
     presence: true,
     length: { maximum: 10 }
 end

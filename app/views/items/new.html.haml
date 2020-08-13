@@ -5,6 +5,8 @@
   .postForm__main
     = form_with model: @item, id: "item-dropzone", local: true do |f|
       .postContents
+        .postContents__errorMessage
+          = render 'layouts/flash_notification'
         .postContent
           .selectTitle
             .selectTitle__info
@@ -72,7 +74,7 @@
           = f.collection_select :delivery_charge_id, DeliveryCharge.all, :name, :name, {include_blank: "選択してください"}, {class: "inputInformation"}
           .selectShow   
             .selectNameIntro__name
-              配送元に地域
+              配送元の地域
             .selectTitle__required
               必須
           = f.collection_select :delivery_origin_id, DeliveryOrigin.all, :name, :name, {include_blank: "選択してください"}, {class: "inputInformation"}

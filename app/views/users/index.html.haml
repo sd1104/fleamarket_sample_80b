@@ -4,7 +4,15 @@
       = render 'users/mypage_leftside'
     .MyPageContents__RightSide
       .LogInMassage
+        .LogInMassage__logo
+          = image_tag src="material/logo/logo.png", size: "150x50", class: "logo"
+        .LogInMassage__border
         .welcom_message
           ようこそ
           = current_user.nickname
           さん
+        .welcom_sentence
+          FULIMAはあなたのフリマ生活の最良のパートナーです
+          %br/
+          FULIMAで最適最高のフリマ生活を楽しみましょう
+        

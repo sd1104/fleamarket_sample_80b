@@ -25,7 +25,7 @@ class ProductAddressesController < ApplicationController
   def update
     @product_address = ProductAddress.find(params[:id])
     if @product_address.update(product_address_params)
-      redirect_to product_addresses_path
+      redirect_to users_path
     else
       render :edit
     end

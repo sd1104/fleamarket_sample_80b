@@ -16,6 +16,15 @@ ja:
     models:
       user:
       product_address:
+      profile:
+      item:
+      category: "カテゴリー"
+      condition:
+      credit:
+      delivery_charge:
+      delivery_date:
+      item:
+      item_image: "出品画像"
     attributes:
       user:
         nickname: "ニックネーム"
@@ -39,6 +48,21 @@ ja:
         address_street: "番地"
         building_name: "マンション名・ビル名"
         phone_number: "お届け先電話番号"
+      item:
+        name: "商品名"
+        introduction: "商品の説明"
+        brand: "ブランド"
+        condition_id: "商品の状態"
+        delivery_charge_id: "配送料の負担"
+        delivery_origin_id: "配送元の地域"
+        delivery_date_id: "配送までの日数"
+        category_id: "１つ目のカテゴリー"
+        category: "２つ目、３つ目カテゴリー"
+        price: "販売価格"
+        seller_id: "出品中"
+        buyer_id: "購入済み"
+      item_image:
+        image: "商品画像"
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"

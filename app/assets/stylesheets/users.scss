@@ -98,13 +98,29 @@
 
 // マイページLP
 .LogInMassage {
-  height: 150px;
+  height: 610px;
   text-align: center;
   background-color: #fff;
-  .welcom_message {
-    font-size: 25px;
-    font-weight: 600;
+  &__logo {
+    font-size: 100px;
     line-height: 150px;
     color: #333;
+  }
+  &__border {
+    width: 550px;
+    border-top: 2px solid lightgray;
+    margin: 0 auto;
+  }
+  .welcom_message {
+    height: 200px;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 300px;
+    color: #333;
+  }
+  .welcom_sentence {
+    font-size: 18px;
+    padding-top: 30px;
+    line-height: 40px;
   }
 }  
