@@ -5,6 +5,8 @@
   .postForm__main
     = form_with model: @item, id: "item-dropzone", local: true do |f|
       .postContents
+        .postContents__errorMessage
+          = render 'layouts/error_messages', model: f.object
         .postContent
           .selectTitle
             .selectTitle__info

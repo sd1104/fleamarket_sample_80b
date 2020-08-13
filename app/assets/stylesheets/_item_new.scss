@@ -19,6 +19,9 @@
       min-height: 100vh;
       padding-bottom: 60px;
       padding-top: 10px;
+      &__errorMessage {
+        padding: 5px 0 5px 230px;
+      }
       .postContent {
         padding: 40px 40px;
       }
