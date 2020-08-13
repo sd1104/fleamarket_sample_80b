@@ -7,6 +7,7 @@
         .ProductAdress
           .ProductAdress__title
             商品送付先住所情報登録
+          .ProductAdress__border
           -if !current_user.product_address.nil?
             .ProductAdress__formBox
               = form_with model: @product_address, local: true do |f|

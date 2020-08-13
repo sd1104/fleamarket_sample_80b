@@ -98,7 +98,7 @@ input[type="submit"]:active {
 .subWrapper {
   display: flex;
   justify-content: center;
-  background-color:#f5f5f5;
+  background-color:#fff;
   .ProductAdress {
     width: 700px;
     display: flex;
@@ -115,7 +115,11 @@ input[type="submit"]:active {
       text-align: center;
       font-size: 25px;
       background-color: #fff;
-      border-bottom: 2px solid lightgray;
+    }
+    &__border {
+      width: 400px;
+      border-top: 2px solid lightgray;
+      margin: 0 auto;
     }
     &__formBox {
       width: 100%;
