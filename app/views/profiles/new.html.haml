@@ -8,8 +8,8 @@
           会員情報入力
         .Profile__formBox
           = form_with model:@profile,local:true do |f|
-            -# .Profile__errorMessages
-            -#   = render ‘layouts/error_messages’, model: f.object
+            .Profile__errorMessages
+              = render 'layouts/error_messages', model: f.object
             .field
               = f.label :お名前（全角）, class:"label_head"
               = f.label :必須, class:"label_required"

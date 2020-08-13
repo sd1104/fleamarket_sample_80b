@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get 'logout'
     get 'account_delete'
   end
-  resources :profiles
+  resources :profiles, only: [ :new, :create, :edit, :update]
   resources :product_addresses, only: [ :new, :create, :edit, :update ]
   resources :credits
   

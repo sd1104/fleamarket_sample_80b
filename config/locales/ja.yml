@@ -22,6 +22,12 @@ ja:
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
+      profile:
+        first_name: "姓（漢字）"
+        last_name: "名（漢字）"
+        first_name_kana: "姓（カナ）"
+        last_name_kana: "名（カナ）"
+        birthday: "生年月日"
       product_address:
         first_name: "姓（漢字）"
         last_name: "名（漢字）"
