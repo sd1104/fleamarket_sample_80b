@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.includes(:image).order("created_at DESC")
+    @items = Item.includes(:item_images).order("created_at DESC")
   end
 
   def new 
@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      respond_to root_path(@item)
+      redirect_to root_path
     else
       flash.now[:alert] = "必須項目を入力してください"
       render :new
@@ -41,10 +41,12 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def destroy
-    if @item.seller.id == current_user.id
+    @item = Item.find(params[:id])
+    if @item.seller_id == current_user.id
       if @item.destroy
         redirect_to root_path, notice: "削除が完了しました"
       else
@@ -58,7 +60,14 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :introduction, :price, :condition_id, :delivery_charge_id, :derivery_origin_id, :delivery_date_id, :brand, :category_id, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :introduction, :price, :condition_id, :delivery_charge_id, :delivery_origin_id, :delivery_date_id, :brand, :category_id, item_images_attributes: [:image, :item, :id]).merge(seller_id: current_user.id)
   end
+
+  def set_category
+    @grandchild = Category.find(@item.category_id)
+    @child = @grandchild.parent
+    @parent = @child.parent
+  end
+
 
 end
