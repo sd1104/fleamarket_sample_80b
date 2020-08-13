@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :move_to_index, only: [:new]
   def index
     @items = Item.includes(:item_images).order("created_at DESC")
   end
@@ -39,6 +40,9 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @itemcategory = Category.where(ancestry: nil)
+    @childrencategory = @item.category.parent.parent.children
+    @grandchildrencategory = @item.category.parent.children
   end
 
   def update
@@ -70,4 +74,12 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :introduction, :price, :condition_id, :delivery_charge_id, :delivery_origin_id, :delivery_date_id, :brand, :category_id, item_images_attributes: [:image, :id, :_destory]).merge(seller_id: current_user.id)
   end
 
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
+  end
+  def set_category_sellector
+    @itemcategory = Category.where(ancestry: nil).pluck(:name).unshift("選択してください")
+  end
 end

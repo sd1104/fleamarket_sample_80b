@@ -15,13 +15,26 @@
             最大5枚までアップロードできます             
           .imageUpload
             .prev-content
+              - @item.item_images.each_with_index do |image,i|
+                .preview-box
+                  .upper-box
+                    = image_tag image.image.url, width: "112", height: "112", alt: "preview"
+                  .lower-box
+                    .delete-box
+                      .delete-btn{data:{delete_id: i}} 削除
             .label-content
-              %label{for: "item_item_images_attributes_0_image", class: "label-box"}
+              //プレビューの数に合わせてforオプションを指定
+              = f.label :"images_attributes_#{@item.item_images.length}_image", class: "label-box" do
                 %pre.label-box__text-visible クリックしてファイルをアップロード
             .hidden-content
-              = f.fields_for :item_images do |i|
+              = f.fields_for :images do |i|
+                //プレビューが出ている分のfile_fieldを設置
                 = i.file_field :image, class:"hidden-field"
-          .imageExistenceContent            
+                = i.check_box :_destroy, class:"hidden-field"
+                //5つのfile_fieldを準備するに当たって、足りない分を表示
+              - @item.item_images.length.upto(4) do |i|
+                %input{name: "item[images_attributes][#{i}][image]", id: "item_item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+          .imageExistenceContent
         .borders
         .postContent
           .selectNameIntro
@@ -48,7 +61,9 @@
               必須
           .CategoryBox
             .CategoryBox__select
-              = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "----" }, {id: 'parent_category'}
+              = f.collection_select :category_id, @itemcategory, :id, :name, {prompt: "----" }, {id: 'parent_category'}
+              = f.collection_select :category_id, @childrencategory, :id, :name, {prompt: "----" }, {id: 'parent_category'}
+              = f.collection_select :category_id, @grandchildrencategory, :id, :name, {prompt: "----" }, {id: 'parent_category'}
           .selectShow              
             .selectNameIntro__name
               ブランド
