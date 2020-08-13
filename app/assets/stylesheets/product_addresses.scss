@@ -1,3 +1,4 @@
+// input用の共通SCC
 @mixin inputStyle {
   height: 48px;
   width: 343px;
@@ -9,12 +10,14 @@
   font-size: 14px;
 }
 
+// label用の共通SCC
 @mixin label {
   padding: 3px;
   font-weight: 600;
   font-size: 14px;
 }
 
+// ロゴのSCSS
 .ProductAdress__logo {
   height: 130px;
   font-size: 50px;
@@ -26,6 +29,7 @@
   }
 }
 
+// input要素のSCSS指定
 #product_address_first_name,
 #product_address_last_name,
 #product_address_first_name_kana,
@@ -34,7 +38,6 @@
   margin: 8px 5px 0 5px ;
   width: 165px;
 }
-
 #product_address_postal_code,
 #product_address_prefecture_code,
 #product_address_address_city,
@@ -45,7 +48,6 @@
   margin: 8px 0 0 ;
   width: 343px;
 }
-
 #product_address_prefecture_code {
   @include inputStyle;
   height: 50px;
@@ -53,7 +55,6 @@
   margin: 8px 0 0 ;
   color: gray;
 }
-
 input[type="submit"] {
   height: 50px;
   width: 343px;
@@ -64,30 +65,28 @@ input[type="submit"] {
   border: none;
   font-size: 14px;
 }
-
 input[type="submit"]:hover {
-  height: 50px;
-  width: 343px;
-  margin-top: 80px;
-  background-color: #3CCACE;
-  color: #fff;
-  border-radius: 7px;
-  border: none;
-  font-size: 14px;
-  cursor: pointer;
+  opacity:0.8;
+}
+input[type="submit"]:active {
+  position: relative;
+  top: 2px;
+  -webkit-transform: translate(0,2px);
+  -moz-transform: translate(0,2px);
+  transform: translate(0,2px);
+  border-bottom:none;
 }
 
+// ラベルに関するSCSS
 .label_head {
   @include label;
 }
-
 .label_required {
   @include label;
   background-color: #3CCACE;
   color: #fff;
   border-radius: 4px;
 }
-
 .label_any {
   @include label;
   background-color: lightgray;
@@ -95,10 +94,10 @@ input[type="submit"]:hover {
   border-radius: 4px;
 }
 
+// newに関係するSCSS
 .subWrapper {
   display: flex;
   justify-content: center;
-  overflow: scroll;
   background-color:#f5f5f5;
   .ProductAdress {
     width: 700px;
@@ -115,6 +114,7 @@ input[type="submit"]:hover {
       padding: 32px;
       text-align: center;
       font-size: 25px;
+      background-color: #fff;
       border-bottom: 2px solid lightgray;
     }
     &__formBox {
@@ -134,6 +134,7 @@ input[type="submit"]:hover {
   }
 }
 
+// editに関係するSCSS
 .noRegistrationMessage {
   height: 200px;
   width: 100%;
@@ -141,10 +142,10 @@ input[type="submit"]:hover {
   align-items: center;
   flex-direction: column;
   padding: 50px 0;
+  background-color: #fff;
   &__statusMessage {
     text-align: center;
     font-size: 16px;
-    background-color: #fff;
   }
   &__registrationMessage {
     text-align: center;

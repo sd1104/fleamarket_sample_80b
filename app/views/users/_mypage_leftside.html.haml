@@ -26,25 +26,30 @@
     %li
       = link_to "/" do
         .function
-          プロフィール
+          プロフィール 登録・変更
           %i.fas.fa-chevron-right
     %li
       = link_to edit_product_address_path(current_user.id) do
         .function
-          商品送付先住所変更
+          商品送付先住所 登録・変更
+          %i.fas.fa-chevron-right
+    %li
+      = link_to  edit_user_registration_path(current_user.id) do
+        .function
+          メール/パスワード 変更
           %i.fas.fa-chevron-right
     %li
       = link_to "/" do
         .function
-          メール/パスワード
-          %i.fas.fa-chevron-right
-    %li
-      = link_to "/" do
-        .function
-          クレジットカード登録
+          クレジットカード 登録
           %i.fas.fa-chevron-right
     %li
       = link_to user_logout_path(current_user.id) do
         .function 
           ログアウト
+          %i.fas.fa-chevron-right
+    %li
+      = link_to user_account_delete_path(current_user.id) do
+        .function 
+          アカウント 削除
           %i.fas.fa-chevron-right

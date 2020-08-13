@@ -1,0 +1,170 @@
+* {
+  box-sizing: border-box;
+}
+
+// ラベルは共通項目としてくくりだし
+label {
+  font-size: 14px;
+}
+
+// inputは共通項目としてくくりだし
+#user_email,
+#user_password,
+#user[password],
+#user_password_confirmation,
+#user_current_password {
+  height: 48px;
+  width: 343px;
+  font-size: 16px;
+  padding: 10px 16px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+// sessionとregistration共通項目
+.subWrapper {
+  .Account {
+    width: 100vw;
+    background-color: #f5f5f5;
+    &__logo {
+      height: 130px;
+      font-size: 50px;
+      justify-content: center;
+      display: flex;
+      .logo {
+        height: 50px;
+        margin-top: 50px;
+      }
+    }
+    &__master {
+      display: flex;
+      justify-content: center;
+      &__entry {
+        width: 700px;
+        background-color: #fff;
+        #new_user,
+        #edit_user {
+          width: 400px;
+          border-top: 2px solid lightgray;
+          padding: 40px 0 64px;
+        }
+        &__title,
+        &__accountDleteTitle {
+          height: 100px;
+          padding: 30px;
+          h2{
+            font-size: 25px;
+            text-align: center;
+          }
+        }
+        &__border {
+          width: 400px;
+          border-top: 2px solid lightgray;
+          margin: 0 auto;
+        }
+        &__form {
+          display: flex;
+          justify-content: center;
+          .Formfiled {
+            margin: 32px;
+              .field_one {
+                font-weight: 600;
+                i {
+                  font-size: 12px;
+                }
+                em {
+                  font-weight: 600;
+                  font-size: 12px;
+                }
+              }
+              span{
+                margin-left: 8px;
+                padding: 2px 4px;
+                background-color: #3CCACE;
+                font-size: 14px;
+                color: #fff;
+                border-radius: 4px;
+              }
+            .field_second {
+              margin-top: 8px;
+              .field{
+                height: 48px;
+                width: 343px;
+                font-size: 16px;
+                padding: 10px 16px 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+              }
+            }
+            .nickname {
+              font-size: 22px;
+              font-weight: 600;
+              padding: 18px 0 0 20px;
+            }
+          }
+          .actions {
+            margin: 24px;
+            .sign__btn{
+              margin: 50px 0 24px;
+              background-color: #3ccace;
+              border: none;
+              font-size: 14px;
+              color: #fff;
+              height: 50px;
+              width: 343px;
+              border-radius: 4px;
+            }
+          }
+          a {
+            color: #3ccace;
+            text-decoration: none;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          // アカウント削除ページのボタン
+          .accountDeleteBtn {
+            text-align: center;
+            .accountDeleteConfirm {
+              text-align: center;
+              padding: 50px 0 50px 0;
+              .fas.fa-exclamation-triangle {
+                color: #3CCACE;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.LogOutBtn {
+  height: 150px;
+  text-align: center;
+  padding: 60px 0;
+  background-color: #fff;
+  #myPageLogOutBtn {
+    width: 300px;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 10px 70px;
+    margin-top: 80px;
+    background-color: #3CCACE;
+    color: #fff;
+    border-radius: 4px;
+    border-top:2px solid rgba(255,255,255,0.2);
+	  border-bottom:2px solid rgba(0,0,0,0.2);
+  }
+  #myPageLogOutBtn:hover {
+    opacity:0.8;
+  }
+  #myPageLogOutBtn:active {
+    position: relative;
+    top: 2px;
+    -webkit-transform: translate(0,2px);
+    -moz-transform: translate(0,2px);
+    transform: translate(0,2px);
+    border-bottom:none;
+  }
+}

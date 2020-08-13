@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   
   resources :users, only: :index do
     get 'logout'
+    get 'account_delete'
   end
   resources :profiles
   resources :product_addresses, only: [ :new, :create, :edit, :update ]
