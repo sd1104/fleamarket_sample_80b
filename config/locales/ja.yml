@@ -23,8 +23,8 @@ ja:
       credit:
       delivery_charge:
       delivery_date:
-      item: "商品画像"
-      item_image: "商品画像"
+      item:
+      item_image: "出品画像"
     attributes:
       user:
         nickname: "ニックネーム"
