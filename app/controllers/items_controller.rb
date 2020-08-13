@@ -46,6 +46,9 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @grandchild = Category.find(@item.category_id)
+    @child = @grandchild.parent
+    @parent = @child.parent
   end
 
   def destroy
@@ -66,12 +69,5 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :introduction, :price, :condition_id, :delivery_charge_id, :delivery_origin_id, :delivery_date_id, :brand, :category_id, item_images_attributes: [:image, :id, :_destory]).merge(seller_id: current_user.id)
   end
-
-  def set_category
-    @grandchild = Category.find(@item.category_id)
-    @child = @grandchild.parent
-    @parent = @child.parent
-  end
-
 
 end
