@@ -6,6 +6,10 @@ class ItemsController < ApplicationController
   def new 
     @item =Item.new
     @item.item_images.build
+    @item.item_images.build
+    @item.item_images.build
+    @item.item_images.build
+    @item.item_images.build
 
     @category_parent_array = ["---"]
     @category_parent_array = Category.where(ancestry: nil)
@@ -60,7 +64,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :introduction, :price, :condition_id, :delivery_charge_id, :delivery_origin_id, :delivery_date_id, :brand, :category_id, item_images_attributes: [:image, :item, :id]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :introduction, :price, :condition_id, :delivery_charge_id, :delivery_origin_id, :delivery_date_id, :brand, :category_id, item_images_attributes: [:image, :id, :_destory]).merge(seller_id: current_user.id)
   end
 
   def set_category
