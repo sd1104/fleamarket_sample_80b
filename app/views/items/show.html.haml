@@ -1,143 +1,93 @@
-.wrapper
-  .header
-    .header__top
-      = link_to root_path, method: :get do
-        = image_tag src="material/logo/logo.png", size: "140x40", calss: "headerLogo-index"
-      = form_with(url: search_items_path, local: true, method: :get, class: "search-form") do |form|
-        = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input", size: "80x80"
-        = button_tag type: 'submit', class: 'search-btn' do
-          %i.fas.fa-search
-    .header__under
-      .header__under__left
-        .category カテゴリーから検索
-        .brand ブランド
-      .header__under__right
-        -if user_signed_in?
-          = link_to "マイページ", users_path, class: "header-mypage"
-          = link_to "ログアウト", destroy_user_session_path, method: :delete, class:"header-mypage"
-        -else
-          = link_to "ログイン", new_user_session_path, class: "header-mypage"
-          = link_to "新規登録", new_user_registration_path, class: "header-mypage"       
-  .border
-  .itemShow
-    .itemShow__main
-      -if user_signed_in? && @item.seller_id == current_user.id
-        .itemBox
-          .itemBox__edit
-            = link_to edit_item_path(@item), class: "editbtn" do
-              編集
-          .itemBox__delete
-            = link_to item_path(@item), method: :delete, class: "deletebtn" do
-              削除
-      .itemShow__main__name
-        = @item.name
-      .itemShow__main__image
-        - if @item.item_images[0]
-          = image_tag @item.item_images[0].image.url,size: "560x346",class: "mainImage"
-        .itemSubImage
-          - @item.item_images.each do |i|
-            = image_tag i.image.url,class: "subImage", size: "110x80"
-      .itemShow__main__price
-        ¥
-        = @item.price
-      .itemShow__main__tax
-        (税込)
-        = @item.delivery_charge_id
-      .itemShow__main__info
-        .buyOrsell
-          - if @item.buyer_id
-            .bothod
-              この商品は既に売却済みです！
-          - elsif user_signed_in? && @item.seller_id == current_user.id
-            .seller
-              出品者は購入手続きができません！
-          - else
-            .buy
-              = link_to "#", class: "buyItem" do
-                購入画面に進む
-      .itemShow__main__intro
-        商品の説明
-      .itemShow__main__introduction
-        = @item.introduction
-      .itemShow__main__table
-        %table
-          %tbody
-            %tr
-              %th
-                出品者
-              %td
-                = @item.seller.nickname
-            %tr
-              %th
-                カテゴリー
-              %td
-                = @parent.name
+.itemShow
+  .itemShow__main
+    -if user_signed_in? && @item.seller_id == current_user.id
+      .itemBox
+        .itemBox__edit
+          = link_to edit_item_path(@item), class: "editbtn" do
+            編集
+        .itemBox__delete
+          = link_to item_path(@item), method: :delete, class: "deletebtn" do
+            削除
+    .itemShow__main__name
+      = @item.name
+    .itemShow__main__image
+      - if @item.item_images[0]
+        = image_tag @item.item_images[0].image.url,size: "560x346",class: "mainImage"
+      .itemSubImage
+        - @item.item_images.each do |i|
+          = image_tag i.image.url,class: "subImage", size: "110x80"
+    .itemShow__main__price
+      ¥
+      = @item.price
+    .itemShow__main__tax
+      (税込)
+      = @item.delivery_charge_id
+    .itemShow__main__info
+      .buyOrsell
+        - if @item.buyer_id
+          .bothod
+            この商品は既に売却済みです！
+        - elsif user_signed_in? && @item.seller_id == current_user.id
+          .seller
+            出品者は購入手続きができません！
+        - else
+          .buy
+            = link_to "#", class: "buyItem" do
+              購入画面に進む
+    .itemShow__main__intro
+      商品の説明
+    .itemShow__main__introduction
+      = @item.introduction
+    .itemShow__main__table
+      %table
+        %tbody
+          %tr
+            %th
+              出品者
+            %td
+              = @item.seller.nickname
+          %tr
+            %th
+              カテゴリー
+            %td
+              = @parent.name
+              %br
+                = @child.name
                 %br
-                  = @child.name
-                  %br
-                  = @grandchild.name
-            %tr
-              %th
-                ブランド
-              %td
-                - if @item.brand
-                  = @item.brand
-            %tr
-              %th
-                商品の状態
-              %td
-                = @item.condition_id
-            %tr
-              %th
-                配送料の負担
-              %td
-                = @item.delivery_charge_id
-            %tr
-              %th
-                発送元の地域
-              %td
-                =link_to "#" do
-                  = @item.delivery_origin_id
-            %tr
-              %th
-                発送日の目安
-              %td
-                = @item.delivery_date_id
-      .itemShow__main__truble
-        .problem
-          %i.fa.fa-flag
-          不適切な商品の通報
-  .footer
-    .footer__all
-      .furimaTo
-        .furimaTo__title
-          FURIMAについて
-        .firimaTo__list
-          %ul
-            %li 会社概要（運営会社）
-            %li プライバシーポリシー
-            %li FURIMA利用規約
-            %li ポイントに関する特約 
-      .furimaTo
-        .furimaTo__title
-          FURIMAを見る
-        .firimaTo__list
-          %ul
-            %li カテゴリー一覧
-            %li ブランド一覧
-      .furimaTo
-        .furimaTo__title
-          ヘルプ＆ガイド
-        .firimaTo__list
-          %ul
-            %li FURIMAガイド
-            %li FURIMAロゴ利用ガイドライン
-            %li お知らせ
-    .footerLogo
-      = image_tag src="material/logo/logo-white.png", class: "footer-logo-photo", size: "140x40"
-      .footerLogo__inc ©︎ FURIMA, Inc.
-  .post
-    = link_to new_item_path, class: "push-post" do
-      出品する
-    = link_to new_item_path, class: "new-post" do
-      %i.fas.fa-camera
+                = @grandchild.name
+          %tr
+            %th
+              ブランド
+            %td
+              - if @item.brand
+                = @item.brand
+          %tr
+            %th
+              商品の状態
+            %td
+              = @item.condition_id
+          %tr
+            %th
+              配送料の負担
+            %td
+              = @item.delivery_charge_id
+          %tr
+            %th
+              発送元の地域
+            %td
+              =link_to "#" do
+                = @item.delivery_origin_id
+          %tr
+            %th
+              発送日の目安
+            %td
+              = @item.delivery_date_id
+    .itemShow__main__truble
+      .problem
+        %i.fa.fa-flag
+        不適切な商品の通報
+.post
+  = link_to new_item_path, class: "push-post" do
+    出品する
+  = link_to new_item_path, class: "new-post" do
+    %i.fas.fa-camera
