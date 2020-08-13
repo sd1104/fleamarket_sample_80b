@@ -8,4 +8,54 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application'
   %body
+    .wrapper
+      .header
+        .header__top
+          = link_to root_path, method: :get do
+            = image_tag src="material/logo/logo.png", size: "140x40", calss: "headerLogo-index"
+          = form_with(url: search_items_path, local: true, method: :get, class: "search-form") do |form|
+            = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input", size: "80x80"
+            = button_tag type: 'submit', class: 'search-btn' do
+              %i.fas.fa-search
+        .header__under
+          .header__under__left
+            .category カテゴリーから検索
+            .brand ブランド
+          .header__under__right
+            -if user_signed_in?
+              = link_to "マイページ", users_path, class: "header-mypage"
+              = link_to "ログアウト", destroy_user_session_path, method: :delete, class:"header-mypage"
+            -else
+              = link_to "ログイン", new_user_session_path, class: "header-mypage"
+              = link_to "新規登録", new_user_registration_path, class: "header-mypage"
+      .border
     = yield
+    .footer
+      .footer__all
+        .furimaTo
+          .furimaTo__title
+            FURIMAについて
+          .firimaTo__list
+            %ul
+              %li 会社概要（運営会社）
+              %li プライバシーポリシー
+              %li FURIMA利用規約
+              %li ポイントに関する特約 
+        .furimaTo
+          .furimaTo__title
+            FURIMAを見る
+          .firimaTo__list
+            %ul
+              %li カテゴリー一覧
+              %li ブランド一覧
+        .furimaTo
+          .furimaTo__title
+            ヘルプ＆ガイド
+          .firimaTo__list
+            %ul
+              %li FURIMAガイド
+              %li FURIMAロゴ利用ガイドライン
+              %li お知らせ
+      .footerLogo
+        = image_tag src="material/logo/logo-white.png", class: "footer-logo-photo", size: "140x40"
+        .footerLogo__inc ©︎ FURIMA, Inc.
