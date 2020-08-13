@@ -13,7 +13,11 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @profile = Profile.find(params[:id])
+    if !current_user.profile.nil?
+      @profile = Profile.find(current_user.profile.id)
+    else
+      @profile = Profile.new
+    end
   end
 
   def update
