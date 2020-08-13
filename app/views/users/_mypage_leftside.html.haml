@@ -24,7 +24,7 @@
     設定
   %ul
     %li
-      = link_to "/" do
+      = link_to edit_profile_path(current_user.id) do
         .function
           プロフィール 登録・変更
           %i.fas.fa-chevron-right

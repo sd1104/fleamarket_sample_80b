@@ -9,6 +9,7 @@
             .Profile__entry
               .Profile__title
                 会員情報入力
+              .Profile__border
               -if !current_user.profile.nil?
                 .Profile__formBox
                   = form_with model:@profile,local:true do |f|
