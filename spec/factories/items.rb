@@ -10,8 +10,9 @@ FactoryBot.define do
     delivery_origin_id      {2}
     delivery_date_id        {3}
     brand                   {"時計"}
-    category_id
-    
+    category                {create(:category)}
+    seller                  {create(:user)}
+
     after(:build) do |item|
       item.item_images << build(:item_image)
     end
