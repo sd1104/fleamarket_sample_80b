@@ -1,0 +1,46 @@
+.MyPageWrapper
+  .MyPageContents
+    .MyPageContents__LeftSide
+      = render 'users/mypage_leftside'
+    .MyPageContents__RightSide
+      .subWrapper
+        .Profile
+          .Profile__master_edit
+            .Profile__entry
+              .Profile__title
+                会員情報入力
+              -if !current_user.profile.nil?
+                .Profile__formBox
+                  = form_with model:@profile,local:true do |f|
+                    -# .Profile__errorMessages
+                    -#   = render ‘layouts/error_messages’, model: f.object
+                    .field
+                      = f.label :お名前（全角）, class:"label_head"
+                      = f.label :必須, class:"label_required"
+                      %br/
+                      .field__nameInput
+                        = f.text_field :first_name, placeholder:"例)佐藤"
+                        = f.text_field :last_name, placeholder:"例)太郎"
+
+                    .field
+                      = f.label :お名前カナ（全角）, class: "label_head"
+                      = f.label :必須, class:"label_required"
+                      %br/
+                      .field__nameInput
+                        = f.text_field :first_name_kana, placeholder:"例)サトウ"
+                        = f.text_field :last_name_kana, placeholder:"例)タロウ"
+
+                    .field
+                      = f.label :生年月日, class: "label_head"
+                      = f.label :必須, class:"label_required"
+                      %br/
+                      = f.date_select :birthday, use_month_numbers:true, prompt:"--", start_year:Time.now.year, end_year:1900
+
+                    .actions
+                      = f.submit "登録する", id:"submit"
+              - else
+                .noRegistrationMessage
+                  .noRegistrationMessage__statusMessage
+                    会員情報は未登録です。
+                  .noRegistrationMessage__registrationMessage
+                    = link_to '登録する', new_product_address_path, class: "registrationMessageBtn"
