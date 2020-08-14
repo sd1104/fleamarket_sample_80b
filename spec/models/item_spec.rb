@@ -14,6 +14,10 @@ describe Item do
         expect(build(:item, brand: nil)).to be_valid
       end
 
+      it 'is introduction a sentence of 1000 characters or less' do
+        expect(build(:item, introduction: ("[aあ]{1000}"))).to be_valid
+      end
+
     end
 
 
@@ -73,8 +77,6 @@ describe Item do
         item.valid?
         expect(item.errors[:price]).to include("を入力してください")
       end
-
-      
 
     end
 
