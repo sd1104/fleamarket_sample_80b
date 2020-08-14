@@ -13,8 +13,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :delivery_date
   belongs_to_active_hash :delivery_origin
 
-  validates :name, presence: true
-  validates :introduction, presence: true
+  validates :name, presence: true, length: { maximum: 40 }
+  validates :introduction, presence: true, length: { maximum: 1000 }
   validates :price, presence: true
   validates :condition_id, presence: true
   validates :delivery_charge_id, presence: true
