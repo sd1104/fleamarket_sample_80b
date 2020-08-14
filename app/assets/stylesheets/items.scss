@@ -222,6 +222,7 @@
       .mainNew {
         display: flex;
         &__contents {
+          position: relative;
           background-color: #fff;
           height: 280px;
           cursor: pointer;
@@ -378,3 +379,21 @@
   }
 }
 
+// 売却済みのリボン
+.sold_triangle {
+  position: absolute;
+  right: 0;
+  width: 0;
+  height: 0;
+  opacity: 0.9;
+  border-style: solid;
+  border-width: 0 100px 100px 0;
+  border-color: transparent red transparent transparent;
+  .sold_word {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 60px 0px 45px;
+    transform: rotate(45deg);
+  }
+}

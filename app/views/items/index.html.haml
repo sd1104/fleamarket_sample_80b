@@ -89,6 +89,10 @@
       - @items.each do |item|
         .mainNew
           .mainNew__contents
+            - if !item.buyer_id.nil?
+              .sold_triangle
+                .sold_word
+                  SOLD
             .item-content-pic
               =link_to item_path(item), method: :get do
                 =image_tag item.item_images[0].image.url, class: "item-photos", size: "220x140"
