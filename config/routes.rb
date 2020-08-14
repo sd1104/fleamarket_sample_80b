@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   root 'items#index'
   
   resources :users, only: :index do
-    get 'logout'
-    get 'account_delete'
+    collection do
+      get 'logout'
+      get 'item_exhibitng'
+      get 'item_sold'
+      get 'item_purchaced'
+    end
   end
   resources :profiles, only: [ :new, :create, :edit, :update]
   resources :product_addresses, only: [ :new, :create, :edit, :update ]
