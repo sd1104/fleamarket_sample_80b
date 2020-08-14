@@ -7,13 +7,10 @@ describe Item do
     context 'can save' do
       
       it 'is valid with name' do
-        @item = Fcatory.build(:item)
-        expect(build(:item)).to be_valid
+        @item = build(:item)
+        expect(@item).to be_valid
       end
 
-      # it 'is valid with introduction' do
-      #   expect(build(:item)).to be_valid
-      # end
     end
 
 
