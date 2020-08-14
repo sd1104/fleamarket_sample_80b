@@ -66,6 +66,9 @@ label {
         &__form {
           display: flex;
           justify-content: center;
+          .errorMessage {
+            padding-left: 55px;
+          }
           .Formfiled {
             margin: 32px;
               .field_one {
