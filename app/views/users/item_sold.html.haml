@@ -3,3 +3,19 @@
     .MyPageContents__LeftSide
       = render 'users/mypage_leftside'
     .MyPageContents__RightSide
+      .itemsBox
+        .itemsBox__head
+          出品した商品 - 売却済み
+        .itemsBox__items
+          - if @items_exhibiting.nil?
+            .noItemMessage
+              該当する商品はございません
+          - @items_exhibiting.each do |item|
+            = link_to users_path(item), class: "itemLink" do
+              .item
+                .item__image
+                  = image_tag item.item_images[0].image.url, size: "65x65"
+                .item__name
+                  = item.name
+                .item__icon
+                  %i.fas.fa-chevron-right
