@@ -127,37 +127,6 @@
   }
 }
 
-// ログアウトページ
-.LogOutBtn {
-  height: 150px;
-  text-align: center;
-  padding: 60px 0;
-  background-color: #fff;
-  #myPageLogOutBtn {
-    width: 300px;
-    text-decoration: none;
-    font-size: 14px;
-    padding: 10px 70px;
-    margin-top: 80px;
-    background-color: #3CCACE;
-    color: #fff;
-    border-radius: 4px;
-    border-top:2px solid rgba(255,255,255,0.2);
-	  border-bottom:2px solid rgba(0,0,0,0.2);
-  }
-  #myPageLogOutBtn:hover {
-    opacity:0.8;
-  }
-  #myPageLogOutBtn:active {
-    position: relative;
-    top: 2px;
-    -webkit-transform: translate(0,2px);
-    -moz-transform: translate(0,2px);
-    transform: translate(0,2px);
-    border-bottom:none;
-  }
-}
-
 // 商品ページ
 .itemsBox {
   height: 150px;
@@ -174,6 +143,14 @@
   }
   &__items {
     margin-bottom: 50px;
+    .noItemMessage {
+      height: 150px;
+      font-size: 18px;
+      font-weight: 600;
+      background-color: #fff;
+      color: #333;
+      padding: 55px;
+    }
     .itemLink {
       text-decoration: none;
       color: #333;
@@ -209,5 +186,36 @@
         top: 2px;
       }
     }
+  }
+}
+
+// ログアウトページ
+.LogOutBtn {
+  height: 150px;
+  text-align: center;
+  padding: 60px 0;
+  background-color: #fff;
+  #myPageLogOutBtn {
+    width: 300px;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 10px 70px;
+    margin-top: 80px;
+    background-color: #3CCACE;
+    color: #fff;
+    border-radius: 4px;
+    border-top:2px solid rgba(255,255,255,0.2);
+	  border-bottom:2px solid rgba(0,0,0,0.2);
+  }
+  #myPageLogOutBtn:hover {
+    opacity:0.8;
+  }
+  #myPageLogOutBtn:active {
+    position: relative;
+    top: 2px;
+    -webkit-transform: translate(0,2px);
+    -moz-transform: translate(0,2px);
+    transform: translate(0,2px);
+    border-bottom:none;
   }
 }
