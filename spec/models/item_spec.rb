@@ -11,9 +11,6 @@ describe Item do
         expect(@item).to be_valid
       end
 
-      # it 'is valid with introduction' do
-      #   expect(build(:item)).to be_valid
-      # end
     end
 
 
