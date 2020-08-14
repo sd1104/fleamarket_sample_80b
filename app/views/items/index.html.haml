@@ -100,7 +100,7 @@
               .mainNew-name
                 = item.name
               .mainNew-price
-                = item.price
+                = item.price.to_s(:delimited)
                 円
               .mainNew-tax
                 (税込)

@@ -18,7 +18,7 @@
           = image_tag i.image.url,class: "subImage", size: "110x80"
     .itemShow__main__price
       ¥
-      = @item.price
+      = @item.price.to_s(:delimited)
     .itemShow__main__tax
       (税込)
       = @item.delivery_charge_id
