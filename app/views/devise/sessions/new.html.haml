@@ -9,7 +9,7 @@
         .Account__master__entry__form
           = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
             .errorMessage
-              = render 'layouts/flash_notification'
+              = flash[:alert]
             .Formfiled
               .Formfiled_lavel
                 .field_one
