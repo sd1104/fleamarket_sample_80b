@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: :index do
     collection do
       get 'logout'
-      get 'item_exhibitng'
+      get 'item_exhibiting'
       get 'item_sold'
       get 'item_purchaced'
     end
