@@ -16,11 +16,12 @@ class Item < ApplicationRecord
   validates :name, presence: true, length: { maximum: 40 }
   validates :introduction, presence: true, length: { maximum: 1000 }
   validates :price, presence: true
-  validates :condition_id, presence: true
-  validates :delivery_charge_id, presence: true
-  validates :delivery_origin_id, presence: true
-  validates :delivery_date_id, presence: true
+  validates :condition_id, presence: { message: "を選択してください"}
+  validates :delivery_charge_id, presence: { message: "を選択してください"}
+  validates :delivery_origin_id, presence: { message: "を選択してください"}
+  validates :delivery_date_id, presence: { message: "を選択してください"}
   validates :category_id, presence: true
+  validates :item_images, presence: { message: "を選択してください"}
 
  
 
