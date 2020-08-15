@@ -9,7 +9,21 @@ Rails.application.routes.draw do
   end
   resources :profiles, only: [ :new, :create, :edit, :update]
   resources :product_addresses, only: [ :new, :create, :edit, :update ]
-  resources :credits
+  resources :credits,only: [ :new, :show] do
+    collection do
+      post 'show', to: 'credit#show'
+      post 'pay', to: 'credit#pay'
+      post 'delete', to: 'credit#delete'
+    end
+  end
+  delete 'deleteData',to: 'credit#deleteData'
+  resources :purchase, only: [:index] do
+    collection do
+      get 'index', to: 'purchase#index'
+      post 'pay', to: 'purchase#pay'
+      get 'done', to: 'purchase#done'
+    end
+  end
   
   resources :items do
     resources :item_images
