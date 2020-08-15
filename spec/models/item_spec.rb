@@ -67,25 +67,25 @@ describe Item do
       it 'is invalid without condition_id' do
         item = build(:item, condition_id: nil)
         item.valid?
-        expect(item.errors[:condition_id]).to include("を選択してください")
+        expect(item.errors[:condition_id]).to include("を入力してください")
       end
 
       it 'is invalid without delivery_charge_id' do
         item = build(:item, delivery_charge: nil)
         item.valid?
-        expect(item.errors[:delivery_charge_id]).to include("を選択してください")
+        expect(item.errors[:delivery_charge_id]).to include("を入力してください")
       end
 
       it 'is invalid without delivery_origin_id' do
         item = build(:item, delivery_origin_id: nil)
         item.valid?
-        expect(item.errors[:delivery_origin_id]).to include("を選択してください")
+        expect(item.errors[:delivery_origin_id]).to include("を入力してください")
       end
 
       it 'is invalid without delivery_date_id' do
         item = build(:item, delivery_date_id: nil)
         item.valid?
-        expect(item.errors[:delivery_date_id]).to include("を選択してください")
+        expect(item.errors[:delivery_date_id]).to include("を入力してください")
       end
 
       it 'is invalid without price' do
@@ -97,7 +97,7 @@ describe Item do
       it 'is invalid without item_images' do
         item = build(:no_item_images)
         item.valid?
-        expect(item.errors[:item_images]).to include("を選択してください")
+        expect(item.errors[:item_images]).to include("を入力してください")
       end
 
     end
