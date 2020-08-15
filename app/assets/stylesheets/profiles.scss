@@ -76,7 +76,7 @@
 .subWrapper {
   display: flex;
   justify-content: center;
-  background-color:#fff;
+  background-color:#eeeeee;
   .Profile {
     width: 700px;
     display: flex;
@@ -86,6 +86,7 @@
     &__master{
       background-color: #fff;
       padding: 0 135px;
+      margin-bottom: 50px;
     }
     &__master_edit{
       width: 100%;
