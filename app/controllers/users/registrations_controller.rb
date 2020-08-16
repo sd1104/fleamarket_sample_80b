@@ -22,8 +22,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_profile
   end
 
-  def create_address
-    @user = user.new(session["devise.regist_data"]["user"])
+  def create_profile
+    @user = User.new(session["devise.regist_data"]["user"])
     @profile = Profile.new(profile_params)
     unless @profile.valid?
       flash[:alert] = @profile.errors.full_messages
@@ -32,7 +32,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_profile(@profile.attributes)
     session["profile"] = @user.build_profile(@profile.attributes)
     @product_address = @user.build_product_address
-    render : new_product_address
+    render :new_product_address
   end
 
   # GET /resource/edit
