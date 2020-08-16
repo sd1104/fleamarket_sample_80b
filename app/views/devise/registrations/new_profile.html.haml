@@ -1,0 +1,62 @@
+.subWrapper
+  .Profile
+    .Profile__logo
+      = image_tag src="material/logo/logo.png", size: "150x50", class: "logo"
+      %nav.progressBar
+        %ol.progresses
+          %li.Progress{ id: "first" }
+            .progressTile-active
+              メール/パスワード
+            .progressBorder
+            .progressRound-blue
+          %li.Progress{ id: "second" }
+            .progressTile
+              会員情報
+            .progressBorder
+            .progressRound
+          %li.Progress{ id: "third" }
+            .progressTile
+              お届け先住所入力
+            .progressBorder
+            .progressRound
+          %li.Progress{ id: "forth" }
+            .progressTile
+              支払い方法
+            .progressBorder
+            .progressRound
+          %li.Progress{ id: "fifth" }
+            .progressTile{ id: "end" }
+              完了
+            .progressRound
+    .Profile__master
+      .Profile__entry
+        .Profile__title
+          会員情報入力
+        .Profile__formBox
+          = form_for @profile do |f|
+            .Profile__errorMessages
+              = render 'layouts/error_messages', model: f.object
+            .field
+              = f.label :お名前（全角）, class:"label_head"
+              = f.label :必須, class:"label_required"
+              %br/
+              .field__nameInput
+                = f.text_field :first_name, placeholder:"例)山田"
+                = f.text_field :last_name, placeholder:"例)太郎"
+
+            .field
+              = f.label :お名前カナ（全角）, class: "label_head"
+              = f.label :必須, class:"label_required"
+              %br/
+              .field__nameInput
+                = f.text_field :first_name_kana, placeholder:"例)ヤマダ"
+                = f.text_field :last_name_kana, placeholder:"例)タロウ"
+
+            .field
+              = f.label :生年月日, class: "label_head"
+              = f.label :必須, class:"label_required"
+              %br/
+              = f.date_select :birthday, use_month_numbers:true, prompt:"--", start_year:Time.now.year, end_year:1900
+
+            .actions
+              = f.submit "送付先住所登録へ進む", id:"submit"

@@ -5,14 +5,35 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    @user = User.new
+  end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    @user = User.new(sign_up_params)
+    unless @user.valid?
+      flash[:alert] = @user.errors.full_messages
+      render :new and return
+    end
+    session["devise.regist_data"] = {user: @user.attributes}
+    session["devise.regist_data"][:user]["password"] = params[:user][:password]
+    @profile = @user.build_profile
+    render :new_profile
+  end
+
+  def create_address
+    @user = user.new(session["devise.regist_data"]["user"])
+    @profile = Profile.new(profile_params)
+    unless @profile.valid?
+      flash[:alert] = @profile.errors.full_messages
+      render :new_profile and return
+    end
+    @user.build_profile(@profile.attributes)
+    session["profile"] = @user.build_profile(@profile.attributes)
+    @product_address = @user.build_product_address
+    render : new_product_address
+  end
 
   # GET /resource/edit
   # def edit
@@ -38,7 +59,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
+
+  def profile_params
+    params.require(:profile).permit(
+      :first_name, 
+      :last_name, 
+      :first_name_kana, 
+      :last_name_kana, 
+      :birthday)
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params

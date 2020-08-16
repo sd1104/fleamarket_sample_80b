@@ -33,7 +33,7 @@
         .Account__master__entry__title
           %h2 新規登録
         .Account__master__entry__form
-          = form_for(resource, url: registration_path(resource_name)) do |f|
+          = form_for(@user, url: user_registration_path) do |f|
             = render "devise/shared/error_messages", resource: resource
             .Formfiled
               .Formfiled_label
@@ -67,5 +67,5 @@
                 .field_second
                   = f.password_field :password_confirmation, autocomplete: "new-password", class:"field", placeholder:"もう一度"
             .actions
-              = f.submit "登録する", class: "sign__btn"
+              = f.submit "会員登録に進む", class: "sign__btn"
             = render "devise/shared/links"
