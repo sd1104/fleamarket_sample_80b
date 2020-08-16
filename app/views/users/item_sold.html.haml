@@ -7,7 +7,7 @@
         .itemsBox__head
           出品した商品 - 売却済み
         .itemsBox__items
-          - if @items_exhibiting.nil?
+          - if @items_sold.blank?
             .noItemMessage
               該当する商品はございません
           - @items_exhibiting.each do |item|

@@ -7,7 +7,7 @@
         .itemsBox__head
           出品した商品 - 出品中
         .itemsBox__items
-          - if @items_exhibiting.nil?
+          - if @items_exhibiting.blank?
             .noItemMessage
               該当する商品はございません
           - @items_exhibiting.each do |item|
