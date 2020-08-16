@@ -10,23 +10,24 @@
             .progressBorder-blue
             .progressRound-blue
           %li.Progress{ id: "second" }
-            .progressTile-blue
+            .progressTile-active
               会員情報
             .progressBorder-blue
             .progressRound-blue
           %li.Progress{ id: "third" }
-            .progressTile-blue
+            .progressTile-active
               お届け先住所入力
             .progressBorder-blue
             .progressRound-blue
           %li.Progress{ id: "fifth" }
-            .progressTile-blue{ id: "end" }
+            .progressTile-active{ id: "end" }
               完了
             .progressRound-blue
     .Account__master
       .Account__master__entry
         .Account__master__entry__title
           %h2 登録が完了しました
+        .Account__master__entry__border
         .Account__master__entry__topPageLink
           = link_to root_path, class: "topPageBtn" do
             トップページへ

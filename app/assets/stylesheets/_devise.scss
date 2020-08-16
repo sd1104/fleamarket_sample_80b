@@ -23,6 +23,10 @@ label {
 
 // sessionとregistration共通項目
 .subWrapper {
+  min-height: calc( 100vh - ( 100px + 360px ) );
+  display: flex;
+  justify-content: center;
+  background-color:#fff;
   .Account {
     width: 100vw;
     background-color: #f5f5f5;
@@ -33,7 +37,7 @@ label {
       display: flex;
       .logo {
         height: 50px;
-        margin: 50px 40px 0 30px;
+        margin: 50px 40px 0 70px;
       }
     }
     &__master {
@@ -177,6 +181,7 @@ label {
   text-align: center;
   line-height: 50px;
   padding: 50px 0;
+  margin-left: 40px;
   display: flex;
   align-items: center;
     .progresses {
@@ -227,4 +232,34 @@ label {
     }
   }
 }
-        
+
+
+.Account__master__entry__topPageLink {
+  height: 150px;
+  text-align: center;
+  padding: 60px 0;
+  background-color: #fff;
+  .topPageBtn {
+    width: 300px;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 10px 70px;
+    margin-top: 80px;
+    background-color: #3CCACE;
+    color: #fff;
+    border-radius: 4px;
+    border-top:2px solid rgba(255,255,255,0.2);
+	  border-bottom:2px solid rgba(0,0,0,0.2);
+  }
+  .topPageBtn:hover {
+    opacity:0.8;
+  }
+  .topPageBtn:active {
+    position: relative;
+    top: 2px;
+    -webkit-transform: translate(0,2px);
+    -moz-transform: translate(0,2px);
+    transform: translate(0,2px);
+    border-bottom:none;
+  }
+}
