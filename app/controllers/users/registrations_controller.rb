@@ -32,7 +32,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_profile(@profile.attributes)
     session["profile"] = @profile.attributes
     @product_address = @user.build_product_address
-    binding.pry
     render :new_product_address
   end
 
@@ -44,12 +43,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
       flash.now[:alert] = @product_address.errors.full_messages
       render :new_product_address and return
     end
-    @user.build_address(@profile.attributes)
-    @user.build_creditcard(@product_address.attributes)
-    session["devise.regist_data"]["user"].clear
+    @user.build_profile(@profile.attributes)
+    @user.build_product_address(@product_address.attributes)
     @user.save
     sign_in(:user, @user)
-    redirect_to root_path
+    redirect_to :registration_finished
+  end
+
+  def registration_finished
   end
 
   # GET /resource/edit
