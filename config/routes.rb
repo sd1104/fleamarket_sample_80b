@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'profiles',              to: 'users/registrations#new_profile'
     post 'profiles',             to: 'users/registrations#create_profile'
-    get 'product_addresses',       to: 'users/registrations#new_product_address'
-    post 'product_addresses',      to: 'users/registrations#create_product_address'
+    get 'product_addresses',     to: 'users/registrations#new_product_address'
+    post 'product_addresses',    to: 'users/registrations#create_product_address'
     get 'registration_finished', to: 'users/registrations#registration_finished'
   end
 
