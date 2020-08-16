@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, only: [:new]
+  before_action :move_to_index, only: :new
+  before_action :get_user_item, only: [ :edit, :show, :destroy ]
   def index
     @items = Item.includes(:item_images).order("created_at DESC")
   end
@@ -39,7 +40,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
     @itemcategory = Category.where(ancestry: nil)
     @childrencategory = @item.category.parent.parent.children
     @grandchildrencategory = @item.category.parent.children
@@ -49,14 +49,12 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @grandchild = Category.find(@item.category_id)
     @child = @grandchild.parent
     @parent = @child.parent
   end
 
   def destroy
-    @item = Item.find(params[:id])
     if @item.seller_id == current_user.id
       if @item.destroy
         redirect_to root_path, notice: "削除が完了しました"
@@ -74,11 +72,16 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :introduction, :price, :condition_id, :delivery_charge_id, :delivery_origin_id, :delivery_date_id, :brand, :category_id, item_images_attributes: [:image, :id, :_destory]).merge(seller_id: current_user.id)
   end
 
+  def get_user_item
+    @item = Item.find(params[:id])
+  end
+
   def move_to_index
     unless user_signed_in?
       redirect_to action: :index
     end
   end
+
   def set_category_sellector
     @itemcategory = Category.where(ancestry: nil).pluck(:name).unshift("選択してください")
   end
