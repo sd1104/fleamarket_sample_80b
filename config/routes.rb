@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'profiles', to: 'users/registrations#new_profile'
     post 'profiles', to: 'users/registrations#create_profile'
+    get 'product_address', to: 'users/registrations#new_product_address'
+    post 'product_address', to: 'users/registrations#create_product_address'
   end
+  
   root 'items#index'
   
   resources :users, only: :index do
