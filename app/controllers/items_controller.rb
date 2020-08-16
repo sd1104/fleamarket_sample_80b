@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show, :update, :edit]
   before_action :move_to_index, only: [:new]
   def index
     @items = Item.includes(:item_images).order("created_at DESC")
@@ -37,14 +38,12 @@ class ItemsController < ApplicationController
   
 
   def edit
-    @item = Item.find(params[:id])
     @itemcategory = Category.where(ancestry: nil)
     @childrencategory = @item.category.parent.parent.children
     @grandchildrencategory = @item.category.parent.children
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to item_path(@item)
     else
@@ -54,7 +53,6 @@ class ItemsController < ApplicationController
 
 
   def show
-    @item = Item.find(params[:id])
     @grandchild = Category.find(@item.category_id)
     @child = @grandchild.parent
     @parent = @child.parent
@@ -88,5 +86,9 @@ class ItemsController < ApplicationController
 
   def set_category_sellector
     @itemcategory = Category.where(ancestry: nil).pluck(:name).unshift("選択してください")
+  end
+  
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
