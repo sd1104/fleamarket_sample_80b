@@ -58,10 +58,10 @@ describe Item do
         expect(item.errors[:introduction]).to include("は1000文字以内で入力してください")
       end
 
-      it 'is invalid without category' do
-        item = build(:item, category: nil)
+      it 'is invalid without price' do
+        item = build(:item, price: nil)
         item.valid?
-        expect(item.errors[:category]).to include("を入力してください")
+        expect(item.errors[:price]).to include("を入力してください")
       end
 
       it 'is invalid without condition_id' do
@@ -88,10 +88,10 @@ describe Item do
         expect(item.errors[:delivery_date_id]).to include("を入力してください")
       end
 
-      it 'is invalid without price' do
-        item = build(:item, price: nil)
+      it 'is invalid without category' do
+        item = build(:item, category: nil)
         item.valid?
-        expect(item.errors[:price]).to include("を入力してください")
+        expect(item.errors[:category]).to include("を入力してください")
       end
 
       it 'is invalid without item_images' do
