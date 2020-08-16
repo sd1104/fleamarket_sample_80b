@@ -76,6 +76,28 @@ input[type="submit"]:active {
   transform: translate(0,2px);
   border-bottom:none;
 }
+#productAddressSubmitBtn {
+  height: 50px;
+  width: 343px;
+  margin-top: 80px;
+  background-color: #3CCACE;
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  font-size: 14px;
+}
+#productAddressSubmitBtn:hover {
+  opacity:0.8;
+}
+#productAddressSubmitBtn:active {
+  position: relative;
+  top: 2px;
+  -webkit-transform: translate(0,2px);
+  -moz-transform: translate(0,2px);
+  transform: translate(0,2px);
+  border-bottom:none;
+}
+#productAddressSubmitBtn
 
 // ラベルに関するSCSS
 .label_head {

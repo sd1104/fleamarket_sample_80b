@@ -128,22 +128,13 @@ label {
             justify-content: center;
             align-items: center;
           }
-          // アカウント削除ページのボタン
-          .accountDeleteBtn {
-            text-align: center;
-            .accountDeleteConfirm {
-              text-align: center;
-              padding: 50px 0 50px 0;
-              .fas.fa-exclamation-triangle {
-                color: #3CCACE;
-              }
-            }
-          }
         }
       }
     }
   }
 }
+
+// ログアウトページのSCSS
 .LogOutBtn {
   height: 150px;
   text-align: center;
@@ -174,6 +165,7 @@ label {
   }
 }
 
+// 登録時ロゴの横に表示される進行のSCSS
 .progressBar {
   height: 50px;
   max-width: 100%;
@@ -233,7 +225,7 @@ label {
   }
 }
 
-
+// 登録完了ページのSCSS
 .Account__master__entry__topPageLink {
   height: 150px;
   text-align: center;

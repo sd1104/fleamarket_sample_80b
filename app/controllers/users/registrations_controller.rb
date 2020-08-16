@@ -46,6 +46,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_profile(@profile.attributes)
     @user.build_product_address(@product_address.attributes)
     @user.save
+    session["devise.regist_data"]["user"].clear
     sign_in(:user, @user)
     redirect_to :registration_finished
   end
