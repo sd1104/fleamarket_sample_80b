@@ -54,4 +54,6 @@
               = f.date_select :birthday, use_month_numbers:true, prompt:"--", start_year:Time.now.year, end_year:1900
 
             .actions
-              = f.submit "送付先住所登録へ進む", id:"submit"
+              = f.submit "送付先住所登録へ進む", id: "submit"
+            .actions
+              = f.submit "skip", id: "skip"
