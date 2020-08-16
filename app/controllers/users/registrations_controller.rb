@@ -30,9 +30,26 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render :new_profile and return
     end
     @user.build_profile(@profile.attributes)
-    session["profile"] = @user.build_profile(@profile.attributes)
+    session["profile"] = @profile.attributes
     @product_address = @user.build_product_address
+    binding.pry
     render :new_product_address
+  end
+
+  def create_product_address
+    @user = User.new(session["devise.regist_data"]["user"])
+    @profile = Profile.new(session["profile"])
+    @product_address = ProductAddress.new(product_address_params)
+    unless @product_address.valid?
+      flash.now[:alert] = @product_address.errors.full_messages
+      render :new_product_address and return
+    end
+    @user.build_address(@profile.attributes)
+    @user.build_creditcard(@product_address.attributes)
+    session["devise.regist_data"]["user"].clear
+    @user.save
+    sign_in(:user, @user)
+    redirect_to root_path
   end
 
   # GET /resource/edit
@@ -68,6 +85,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
       :first_name_kana, 
       :last_name_kana, 
       :birthday)
+  end
+
+  def product_address_params
+    params.require(:product_address).permit(
+      :first_name, 
+      :last_name, 
+      :first_name_kana, 
+      :last_name_kana, 
+      :postal_code, 
+      :prefecture_code, 
+      :address_city, 
+      :address_street, 
+      :building_name, 
+      :phone_number
+    )
   end
 
   # If you have extra params to permit, append them to the sanitizer.
