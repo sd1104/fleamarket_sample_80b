@@ -6,6 +6,8 @@ class Item < ApplicationRecord
   has_many :item_images, dependent: :destroy
   
   accepts_nested_attributes_for :item_images, allow_destroy: true, update_only: true
+  validates :item_images, presence: true
+  validates_associated :item_images
   
   belongs_to :user, dependent: :destroy, optional: true
   belongs_to_active_hash :delivery_charge
@@ -24,11 +26,5 @@ class Item < ApplicationRecord
 
  
 
-  def self.search(search)
-    if search
-      Item.where('title LIKE(?)', "%#{search}%")
-    else
-      Item.all
-    end
-  end
+ 
 end

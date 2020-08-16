@@ -34,9 +34,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  def search
-    @items = Item.search(params[:keyword])
-  end
+  
 
   def edit
     @item = Item.find(params[:id])
@@ -46,7 +44,14 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to item_path(@item)
+    else
+      redirect_to edit_item_path(@item), notice: "必須項目を入力してください"
+    end
   end
+
 
   def show
     @item = Item.find(params[:id])
@@ -59,26 +64,28 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     if @item.seller_id == current_user.id
       if @item.destroy
-        redirect_to root_path, notice: "削除が完了しました"
+        flash.now[:alert] = "削除が完了しました"
+        redirect_to root_path
       else
-        redirect_to root_path, alert: "削除が失敗しました"
+        render :edit, alert: "削除が失敗しました"
       end
-    else
-      redirect_to root_path, alert: "ユーザーが一致していません"
     end
   end
   
   private
 
   def item_params
-    params.require(:item).permit(:name, :introduction, :price, :condition_id, :delivery_charge_id, :delivery_origin_id, :delivery_date_id, :brand, :category_id, item_images_attributes: [:image, :id, :_destory]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :introduction, :price, :condition_id, :delivery_charge_id, :delivery_origin_id, :delivery_date_id, :brand, :category_id, item_images_attributes: [:image, :id, :_destroy]).merge(seller_id: current_user.id)
   end
+
+  
 
   def move_to_index
     unless user_signed_in?
       redirect_to action: :index
     end
   end
+
   def set_category_sellector
     @itemcategory = Category.where(ancestry: nil).pluck(:name).unshift("選択してください")
   end
