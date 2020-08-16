@@ -33,7 +33,7 @@ label {
       display: flex;
       .logo {
         height: 50px;
-        margin-top: 50px;
+        margin: 50px 40px 0 30px;
       }
     }
     &__master {
@@ -169,3 +169,62 @@ label {
     border-bottom:none;
   }
 }
+
+.progressBar {
+  height: 50px;
+  max-width: 100%;
+  font-size: 8px;
+  text-align: center;
+  line-height: 50px;
+  padding: 50px 0;
+  display: flex;
+  align-items: center;
+    .progresses {
+    display: flex;
+    justify-content: space-around;
+    .Progress {
+      position: relative;
+      .progressTile {
+        width: 100px;
+      }
+      .progressBorder {
+        width: 100px;
+        border: 2px solid #dddddd;
+        position: absolute;
+        top: 50px;
+        left: 55px;
+      }
+      .progressRound {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: lightgray;
+        position: absolute;
+        top: 43px;
+        left: 40px;
+      }
+      .progressTile-active {
+        width: 100px;
+        color: #3CCACE;
+        font-weight: bold;
+      }
+      .progressBorder-blue {
+        width: 100px;
+        border: 2px solid #3CCACE;
+        position: absolute;
+        top: 50px;
+        left: 55px;
+      }
+      .progressRound-blue {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #3CCACE;
+        position: absolute;
+        left: 40px;
+        top: 43px;
+      }
+    }
+  }
+}
+        
