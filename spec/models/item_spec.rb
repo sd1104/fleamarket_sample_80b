@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 describe Item do
+
   describe '#create' do
 
-
     context 'can save' do
-      
+
       it 'is valid with all: name, introduction, price, condition_id, delivery_charge_id, delivery_origin_id, delivery_date_id, brand, category, seller' do
         expect(build(:item)).to be_valid
       end
@@ -21,7 +21,7 @@ describe Item do
       it 'is valid for 1000 characters or less' do
         expect(create(:item, introduction: ("a" * 1000))).to be_valid
       end
-      
+
     end
 
 
@@ -102,6 +102,6 @@ describe Item do
 
     end
 
-
   end
+
 end
