@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, only: :new
-  before_action :get_user_item, only: [ :edit, :show, :destroy ]
+  before_action :set_item, only: [:edit, :update, :show, :destroy]
+  before_action :move_to_index, only: [:new]
+
   def index
     @items = Item.includes(:item_images).order("created_at DESC")
   end
@@ -35,9 +36,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  def search
-    @items = Item.search(params[:keyword])
-  end
+  
 
   def edit
     @itemcategory = Category.where(ancestry: nil)
@@ -46,7 +45,13 @@ class ItemsController < ApplicationController
   end
 
   def update
+    if @item.update(item_params)
+      redirect_to item_path(@item)
+    else
+      redirect_to edit_item_path(@item), notice: "必須項目を入力してください"
+    end
   end
+
 
   def show
     @grandchild = Category.find(@item.category_id)
@@ -59,21 +64,16 @@ class ItemsController < ApplicationController
       if @item.destroy
         redirect_to root_path, notice: "商品の削除が完了しました"
       else
-        redirect_to root_path, alert: "商品の削除に失敗しました"
+        @item = Item.find(params[:id])
+        render: show, alert: "商品の削除に失敗しました"
       end
-    else
-      redirect_to root_path, alert: "ユーザーが一致していません"
     end
   end
   
   private
 
   def item_params
-    params.require(:item).permit(:name, :introduction, :price, :condition_id, :delivery_charge_id, :delivery_origin_id, :delivery_date_id, :brand, :category_id, item_images_attributes: [:image, :id, :_destory]).merge(seller_id: current_user.id)
-  end
-
-  def get_user_item
-    @item = Item.find(params[:id])
+    params.require(:item).permit(:name, :introduction, :price, :condition_id, :delivery_charge_id, :delivery_origin_id, :delivery_date_id, :brand, :category_id, item_images_attributes: [:image, :id, :_destroy]).merge(seller_id: current_user.id)
   end
 
   def move_to_index
@@ -84,5 +84,9 @@ class ItemsController < ApplicationController
 
   def set_category_sellector
     @itemcategory = Category.where(ancestry: nil).pluck(:name).unshift("選択してください")
+  end
+  
+  def set_item
+    @item = Item.find(params[:id])
   end
 end

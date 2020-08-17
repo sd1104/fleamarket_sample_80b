@@ -1,0 +1,21 @@
+.MyPageWrapper
+  .MyPageContents
+    .MyPageContents__LeftSide
+      = render 'users/mypage_leftside'
+    .MyPageContents__RightSide
+      .itemsBox
+        .itemsBox__head
+          出品した商品 - 出品中
+        .itemsBox__items
+          - if @items_exhibiting.blank?
+            .noItemMessage
+              該当する商品はございません
+          - @items_exhibiting.each do |item|
+            = link_to item_path(item), class: "itemLink" do
+              .item
+                .item__image
+                  = image_tag item.item_images[0].image.url, size: "65x65"
+                .item__name
+                  = item.name
+                .item__icon
+                  %i.fas.fa-chevron-right
