@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to root_path
+      redirect_to root_path, notice: "商品の出品が完了しました"
     else
       flash.now[:alert] = "必須項目を入力してください"
       render :new
@@ -64,7 +64,7 @@ class ItemsController < ApplicationController
       if @item.destroy
         redirect_to root_path, notice: "商品の削除が完了しました"
       else
-        render: show, alert: "商品の削除に失敗しました"
+        render :show, alert: "商品の削除に失敗しました"
       end
     end
   end

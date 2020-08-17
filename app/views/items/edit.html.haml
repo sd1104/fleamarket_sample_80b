@@ -5,8 +5,6 @@
   .postForm__main
     = form_with model: @item, method: :PATCH, id: "item-dropzone", local: true do |f|
       .postContents
-        .postContents__errorMessage
-          = render 'layouts/flash_notification'
         .postContent
           .selectTitle
             .selectTitle__info
