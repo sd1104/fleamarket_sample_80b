@@ -13,6 +13,10 @@
     .itemShow__main__name
       = @item.name
     .itemShow__main__image
+      - if !@item.buyer_id.nil?
+        .sold_triangle
+          .sold_word
+            SOLD
       - if @item.item_images[0]
         = image_tag @item.item_images[0].image.url,size: "560x346",class: "mainImage"
       .itemSubImage
@@ -20,7 +24,7 @@
           = image_tag i.image.url,class: "subImage", size: "110x80"
     .itemShow__main__price
       ¥
-      = @item.price
+      = @item.price.to_s(:delimited)
     .itemShow__main__tax
       (税込)
       = @item.delivery_charge_id
