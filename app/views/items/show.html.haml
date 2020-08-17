@@ -1,6 +1,4 @@
 .itemShow
-  .postContents__errorMessage
-    = render 'layouts/flash_notification'
   .itemShow__main
     -if user_signed_in? && @item.seller_id == current_user.id
       .itemBox
