@@ -20,3 +20,5 @@
                     = image_tag item.item_images[0].image.url,size: "130x110",class: "mainImage"
                   .result__info
                     = item.name
+        .SearchPageContents__RightSide__searchContent__paginations
+          = paginate @items

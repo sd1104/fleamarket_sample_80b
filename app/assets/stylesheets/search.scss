@@ -20,9 +20,7 @@
       width: 700px;
       margin-left: 40px;
       &__searchContent {
-
         &__head {
-
           &__keyword {
             display: inline-block;
             font-size: 25px;
@@ -32,10 +30,8 @@
         &__resultCounts {
           font-size: 10px;
           margin: 15px 0;
-
         }
         &__Results {
-
           .ResultsWrapper {
             display: flex;
             flex-wrap: wrap;
@@ -65,8 +61,17 @@
           }
 
         }
+        &__paginations {
+          margin-top: 20px;
+          text-align: center;
+        }
       }
 
     }
   }
+}
+
+.page,
+.blue {
+  color: #3CCACE;
 }

@@ -67,8 +67,8 @@ class ItemsController < ApplicationController
   end
   
   def search
-    @items = Item.search(params[:keyword])
-    # @items = Item.all
+    @items = Item.search(params[:keyword]).page(params[:page]).per(20)
+    # @items = Item.all.page(params[:page])
   end
 
   private
