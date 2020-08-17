@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get 'item_sold'
       get 'item_purchaced'
     end
+
   end
   resources :profiles, only: [ :new, :create, :edit, :update]
   resources :product_addresses, only: [ :new, :create, :edit, :update ]

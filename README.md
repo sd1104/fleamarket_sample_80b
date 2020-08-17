@@ -1,13 +1,13 @@
 # fleamarket_sample_80b
 
 
-![ER図](https://i.gyazo.com/536d1a63631d62771dc57dca6a6b6bdd.png)
+![ER図](https://i.gyazo.com/305570e2207cdc12b1468ff3005e2106.png)
 
 ## usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false|
+|nickname|string|
 |email|string|null: false, unique: true|
 |password|string|null: false, unique: true|
 
@@ -69,17 +69,17 @@
 |name|string|null: false|
 |introduction|text|null: false|
 |brand|string|
-|condition|integer|null: false|
-|delivery_charge|integer|null:false|
-|derivery_origin|integer|null:false|
-|delivery_date|integer|null:false|
-|category|references|null: false, foreign_key: true|
+|condition_id|string|null: false|
+|delivery_charge_id|string|null:false|
+|derivery_origin_id|string|null:false|
+|delivery_date_id|string|null:false|
+|category_id|bigint|null: false, foreign_key: true|
 |price|integer|null: false|
-|seller|references|null:false, foreign_key:true|
-|buyer|references|foreign_key:true|
+|seller_id|bigint|null:false, foreign_key:true|
+|buyer_id|bigint|foreign_key:true|
 
 ### Association
-- belongs_to :user, dependent: :destroy
+- belongs_to :user, dependent: :destroy, optional: true
 - has_many :item_images, dependent: :destroy
 - belongs_to :category, dependent: :destroy
 
@@ -92,7 +92,7 @@
 |image|string|null: false|
 
 ### Association
-- belongs_to :item
+- belongs_to :item, optional: true
 
 
 ## categoriesテーブル
@@ -100,7 +100,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|ancestry|string|null: false|
+|ancestry|string|
 
 ### Association
 - has_many :items
