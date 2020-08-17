@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :update, :edit]
+  before_action :set_item, only: [:edit, :update, :show, :destroy]
   before_action :move_to_index, only: [:new]
+
   def index
     @items = Item.includes(:item_images).order("created_at DESC")
   end
@@ -59,13 +60,11 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
     if @item.seller_id == current_user.id
       if @item.destroy
-        flash.now[:alert] = "削除が完了しました"
-        redirect_to root_path
+        redirect_to root_path, notice: "商品の削除が完了しました"
       else
-        render :edit, alert: "削除が失敗しました"
+        render: show, alert: "商品の削除に失敗しました"
       end
     end
   end
@@ -75,8 +74,6 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :introduction, :price, :condition_id, :delivery_charge_id, :delivery_origin_id, :delivery_date_id, :brand, :category_id, item_images_attributes: [:image, :id, :_destroy]).merge(seller_id: current_user.id)
   end
-
-  
 
   def move_to_index
     unless user_signed_in?
