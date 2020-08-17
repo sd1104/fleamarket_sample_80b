@@ -2,7 +2,7 @@
   .logo
     = image_tag src="material/logo/logo.png", size: "150x50", class: "logo"
   .cardContents
-    = form_tag(pay_user_credits_path,method: :post, id: 'card_token',  name: "inputForm") do
+    = form_tag(pay_credits_path,method: :post, id: 'card_token',  name: "inputForm") do
       .cardContents__title
         クレジットカード情報登録
       .cardContents__number

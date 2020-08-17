@@ -3,19 +3,16 @@
     = image_tag src="material/logo/logo.png", size: "150x50", class: "logo"
   .cardContents
     .cardContents__title
-      登録クレジットカード情報確認・変更
+      登録クレジットカード情報確認
     .cardContents__number
       %label カード番号
-      = "**** **** **** " + @default_card_information.last4
+      = "**** **** **** " + @default_credit_information.last4
     .cardContents__deadline
       %label 有効期限
-      - exp_month = @default_card_information.exp_month.to_s
-      - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+      - exp_month = @default_credit_information.exp_month.to_s
+      - exp_year = @default_credit_information.exp_year.to_s.slice(2,3)
       = exp_month + " / " + exp_year
     .cardContents__delete
-      = form_with(method: :post, id: 'charge-form',  name: "inputForm") do
-        %input{ type: "hidden", name: "card_id", value: "" }
-        %button 変更する
-      = form_with(method: :delete, id: 'charge-form',  name: "inputForm") do
-        %input{ type: "hidden", name: "card_id", value: "" }
+      = form_tag(delete_credits_path, method: :post, id: 'charge-form', name: "inputForm") do
+        %input{ type: "hidden", name: "credit_id", value: "" }
         %button 削除する
