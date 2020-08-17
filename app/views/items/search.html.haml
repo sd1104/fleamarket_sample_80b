@@ -1,0 +1,22 @@
+.SearchPageWrapper
+  .SearchPageContents
+    .SearchPageContents__LeftSide
+      追加実装LV２用スペース
+    .SearchPageContents__RightSide
+      .SearchPageContents__RightSide__searchContent
+        .SearchPageContents__RightSide__searchContent__head
+          .SearchPageContents__RightSide__searchContent__head__keyword
+            = params[:keyword]
+          の検索結果
+        .SearchPageContents__RightSide__searchContent__resultCounts
+          = @items.count
+          件見つかりました
+        .SearchPageContents__RightSide__searchContent__Results
+          .ResultsWrapper
+            - @items.each do |item|
+              = link_to item_path(item), class: "searchLists" do
+                .result
+                  .result__image
+                    = image_tag item.item_images[0].image.url,size: "130x110",class: "mainImage"
+                  .result__info
+                    = item.name
