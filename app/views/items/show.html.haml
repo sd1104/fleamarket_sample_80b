@@ -8,6 +8,7 @@
         .itemBox__delete
           = link_to item_path(@item), method: :delete, class: "deletebtn", data: { confirm: '商品削除は取り消せません。よろしいですか?' } do
             削除
+    = flash[:alert]
     .itemShow__main__name
       = @item.name
     .itemShow__main__image
