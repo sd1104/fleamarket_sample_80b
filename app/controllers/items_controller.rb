@@ -64,7 +64,6 @@ class ItemsController < ApplicationController
       if @item.destroy
         redirect_to root_path, notice: "商品の削除が完了しました"
       else
-        @item = Item.find(params[:id])
         render: show, alert: "商品の削除に失敗しました"
       end
     end
