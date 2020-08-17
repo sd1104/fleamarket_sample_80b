@@ -2,7 +2,7 @@
   .logo
     = image_tag src="material/logo/logo.png", size: "150x50", class: "logo"
   .cardContents
-    = form_with(method: :post, id: 'charge-form',  name: "inputForm") do
+    = form_tag(pay_user_credits_path,method: :post, id: 'card_token',  name: "inputForm") do
       .cardContents__title
         クレジットカード情報登録
       .cardContents__number
@@ -31,7 +31,6 @@
           月/
           %select#exp_year{name: "exp_year", class: "deadlineField__text", type: "text"}
             %option{value: ""} --
-            %option{value: "2019"}19
             %option{value: "2020"}20
             %option{value: "2021"}21
             %option{value: "2022"}22
@@ -42,6 +41,7 @@
             %option{value: "2027"}27
             %option{value: "2028"}28
             %option{value: "2029"}29
+            %option{value: "2030"}30
           年
       .cardContents__security
         %label セキュリティコード

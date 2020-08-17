@@ -3,16 +3,19 @@ document.addEventListener(
     if (document.getElementById("token_submit") != null) { //token_submitというidがnullの場合、下記コードを実行しない
       Payjp.setPublicKey("pk_test_27c7c0c037d420596633159b"); //ここに公開鍵を直書き
       let btn = document.getElementById("token_submit"); //IDがtoken_submitの場合に取得されます
-      btn.addEventListener("click", e => { //ボタンが押されたときに作動します
+      btn.addEventListener("click", (e) => { //ボタンが押されたときに作動します
         e.preventDefault(); //ボタンを一旦無効化します
+
         let credit = {
           number: document.getElementById("card_number").value,
           cvc: document.getElementById("cvc").value,
           exp_month: document.getElementById("exp_month").value,
           exp_year: document.getElementById("exp_year").value
         }; //入力されたデータを取得します。
+
         Payjp.createToken(credit, (status, response) => {
           if (status === 200) { //成功した場合
+            console.log(response);
             $("#card_number").removeAttr("name");
             $("#cvc").removeAttr("name");
             $("#exp_month").removeAttr("name");
