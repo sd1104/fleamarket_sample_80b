@@ -1,21 +1,17 @@
 .alert {
-  color: #ea352d;
+  color: #EA352D;
   font-size: 14px;
 }
-.Notification {
-  .notice {
-    height: 30px;
-    font-size: 14px;
-    color: #fff;
-    padding-left: 30px;
-    background-color: #3CCACE;
-    line-height: 30px;
-    opacity: 0.6;
-  }
+.notice {
+  height: 30px;
+  font-size: 14px;
+  color: #fff;
+  padding-left: 30px;
+  background-color: #3CCACE;
+  line-height: 30px;
+  opacity: 0.6;
 }
-
-
 .devise-error-messages {
-  color: #ea352d;
+  color: #EA352D;
   font-size: 14px;
 }

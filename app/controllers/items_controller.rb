@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :update, :show, :destroy]
+  before_action :set_item, only: [:edit, :update, :show, :destroy, :buy]
   before_action :move_to_index, only: [:new]
 
   def index
@@ -67,6 +67,10 @@ class ItemsController < ApplicationController
         render :show, alert: "商品の削除に失敗しました"
       end
     end
+  end
+
+  def buy
+  
   end
   
   private
