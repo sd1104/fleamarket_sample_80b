@@ -92,7 +92,6 @@ $(function(){
     //新規投稿時
     //削除用チェックボックスの有無で判定
     if ($(`#item_item_images_attributes_${id}__destroy`).length == 0) {
-      console.log("test")
       //フォームの中身を削除 
       $(`#item_item_images_attributes_${id}_image`).val("");
       var count = $('.preview-box').length;
