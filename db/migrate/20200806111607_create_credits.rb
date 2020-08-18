@@ -1,7 +1,7 @@
 class CreateCredits < ActiveRecord::Migration[6.0]
   def change
     create_table :credits do |t|
-      t.integer :user_id, null: false
+      t.references :user, null:false, foreign_key:true
       t.string :customer_id, null: false
       t.string :credit_id, null: false
       t.timestamps
