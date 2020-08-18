@@ -26,7 +26,7 @@ class CreditsController < ApplicationController
   end
 
   def show
-    credit = Credit.where(user_id: current_user.id).first
+    credit = Credit.find_by(user_id: current_user.id)
     if credit.blank?
       @credit = Credit.new 
     else
@@ -37,7 +37,7 @@ class CreditsController < ApplicationController
   end
 
   def delete
-    credit = Credit.where(user_id: current_user.id).first
+    credit = Credit.find_by(user_id: current_user.id)
     if credit.blank?
     else
       Payjp.api_key = Rails.application.credentials.config[:payjp][:PAYJP_SECRET_KEY]
