@@ -6,11 +6,16 @@
           = link_to edit_item_path(@item), class: "editbtn" do
             編集
         .itemBox__delete
-          = link_to item_path(@item), method: :delete, class: "deletebtn" do
+          = link_to item_path(@item), method: :delete, class: "deletebtn", data: { confirm: '商品削除は取り消せません。よろしいですか?' } do
             削除
+    = flash[:alert]
     .itemShow__main__name
       = @item.name
     .itemShow__main__image
+      - if !@item.buyer_id.nil?
+        .sold_triangle
+          .sold_word
+            SOLD
       - if @item.item_images[0]
         = image_tag @item.item_images[0].image.url,size: "560x346",class: "mainImage"
       .itemSubImage
@@ -18,7 +23,7 @@
           = image_tag i.image.url,class: "subImage", size: "110x80"
     .itemShow__main__price
       ¥
-      = @item.price
+      = @item.price.to_s(:delimited)
     .itemShow__main__tax
       (税込)
       = @item.delivery_charge_id
@@ -32,7 +37,7 @@
             出品者は購入手続きができません！
         - else
           .buy
-            = link_to "#", class: "buyItem" do
+            = link_to  buy_item_path, class: "buyItem" do
               購入画面に進む
     .itemShow__main__intro
       商品の説明

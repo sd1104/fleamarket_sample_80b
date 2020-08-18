@@ -1,5 +1,12 @@
 ---
 ja:
+  views:
+    pagination:
+      first: <i class="fas fa-angle-double-left"></i>
+      last: <i class="fas fa-angle-double-right"></i>
+      previous: <i class="fas fa-angle-left"></i>
+      next: <i class="fas fa-angle-right"></i>
+      truncate: ...
   label:
     product_address:
       first_name: "姓（漢字）"
@@ -14,7 +21,7 @@ ja:
       phone_number: "お届け先電話番号"
   activerecord:
     models:
-      user:
+      user: "ユーザー情報"
       product_address:
       profile:
       item:

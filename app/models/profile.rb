@@ -1,5 +1,5 @@
 class Profile < ApplicationRecord
-  belongs_to :user, dependent: :destroy
+  belongs_to :user, optional: true, dependent: :destroy
 
   VALID_NAME = /\A[ぁ-んァ-ン一-龥]/
   VALID_NAME_KANA = /\A[ァ-ヶー－]+\z/

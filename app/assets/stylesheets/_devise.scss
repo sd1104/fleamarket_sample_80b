@@ -21,8 +21,29 @@ label {
   border-radius: 4px;
 }
 
+#skip {
+  height: 48px;
+  width: 40px;
+  margin: 50px 150px 0;
+  background-color: transparent;
+  color: #3CCACE;
+  border: none;
+  font-size: 18px;
+}
+#skip:hover {
+  text-decoration: underline;
+}
+#skip:active {
+  text-decoration: underline;
+  border: none;
+}
+
 // sessionとregistration共通項目
 .subWrapper {
+  min-height: calc( 100vh - ( 100px + 360px ) );
+  display: flex;
+  justify-content: center;
+  background-color:#fff;
   .Account {
     width: 100vw;
     background-color: #f5f5f5;
@@ -33,7 +54,7 @@ label {
       display: flex;
       .logo {
         height: 50px;
-        margin-top: 50px;
+        margin: 50px 40px 0 70px;
       }
     }
     &__master {
@@ -66,6 +87,11 @@ label {
         &__form {
           display: flex;
           justify-content: center;
+          .errorMessage {
+            color: red;
+            font-size: 14px;
+            padding-left: 55px;
+          }
           .Formfiled {
             margin: 32px;
               .field_one {
@@ -124,22 +150,13 @@ label {
             justify-content: center;
             align-items: center;
           }
-          // アカウント削除ページのボタン
-          .accountDeleteBtn {
-            text-align: center;
-            .accountDeleteConfirm {
-              text-align: center;
-              padding: 50px 0 50px 0;
-              .fas.fa-exclamation-triangle {
-                color: #3CCACE;
-              }
-            }
-          }
         }
       }
     }
   }
 }
+
+// ログアウトページのSCSS
 .LogOutBtn {
   height: 150px;
   text-align: center;
@@ -161,6 +178,97 @@ label {
     opacity:0.8;
   }
   #myPageLogOutBtn:active {
+    position: relative;
+    top: 2px;
+    -webkit-transform: translate(0,2px);
+    -moz-transform: translate(0,2px);
+    transform: translate(0,2px);
+    border-bottom:none;
+  }
+}
+
+// 登録時ロゴの横に表示される進行のSCSS
+.progressBar {
+  height: 50px;
+  max-width: 100%;
+  font-size: 8px;
+  text-align: center;
+  line-height: 50px;
+  padding: 50px 0;
+  margin-left: 40px;
+  display: flex;
+  align-items: center;
+    .progresses {
+    display: flex;
+    justify-content: space-around;
+    .Progress {
+      position: relative;
+      .progressTile {
+        width: 100px;
+      }
+      .progressBorder {
+        width: 100px;
+        border: 2px solid #dddddd;
+        position: absolute;
+        top: 50px;
+        left: 55px;
+      }
+      .progressRound {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: lightgray;
+        position: absolute;
+        top: 43px;
+        left: 40px;
+      }
+      .progressTile-active {
+        width: 100px;
+        color: #3CCACE;
+        font-weight: bold;
+      }
+      .progressBorder-blue {
+        width: 100px;
+        border: 2px solid #3CCACE;
+        position: absolute;
+        top: 50px;
+        left: 55px;
+      }
+      .progressRound-blue {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #3CCACE;
+        position: absolute;
+        left: 40px;
+        top: 43px;
+      }
+    }
+  }
+}
+
+// 登録完了ページのSCSS
+.Account__master__entry__topPageLink {
+  height: 150px;
+  text-align: center;
+  padding: 60px 0;
+  background-color: #fff;
+  .topPageBtn {
+    width: 300px;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 10px 70px;
+    margin-top: 80px;
+    background-color: #3CCACE;
+    color: #fff;
+    border-radius: 4px;
+    border-top:2px solid rgba(255,255,255,0.2);
+	  border-bottom:2px solid rgba(0,0,0,0.2);
+  }
+  .topPageBtn:hover {
+    opacity:0.8;
+  }
+  .topPageBtn:active {
     position: relative;
     top: 2px;
     -webkit-transform: translate(0,2px);

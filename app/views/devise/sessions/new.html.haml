@@ -8,15 +8,16 @@
           %h2 ログイン
         .Account__master__entry__form
           = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-            = render "devise/shared/error_messages", resource: resource
+            .errorMessage
+              = flash[:alert]
             .Formfiled
-              .Formfiled_lavel
+              .Formfiled_label
                 .field_one
                   = f.label :メールアドレス
                 .field_second
                   = f.email_field :email, autofocus: true, autocomplete: "email", class:"field", placeholder:"xxx@furima.com"
             .Formfiled
-              .Formfiled_lavel
+              .Formfiled_label
                 .field_one
                   = f.label :パスワード
                 .field_second

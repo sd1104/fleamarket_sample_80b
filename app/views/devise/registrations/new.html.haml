@@ -2,12 +2,33 @@
   .Account
     .Account__logo
       = image_tag src="material/logo/logo.png", size: "150x50", class: "logo"
+      %nav.progressBar
+        %ol.progresses
+          %li.Progress{ id: "first" }
+            .progressTile-active
+              メール/パスワード
+            .progressBorder
+            .progressRound-blue
+          %li.Progress{ id: "second" }
+            .progressTile
+              会員情報
+            .progressBorder
+            .progressRound
+          %li.Progress{ id: "third" }
+            .progressTile
+              お届け先住所入力
+            .progressBorder
+            .progressRound
+          %li.Progress{ id: "fifth" }
+            .progressTile{ id: "end" }
+              完了
+            .progressRound
     .Account__master
       .Account__master__entry
         .Account__master__entry__title
           %h2 新規登録
         .Account__master__entry__form
-          = form_for(resource, url: registration_path(resource_name)) do |f|
+          = form_for(@user, url: user_registration_path) do |f|
             = render "devise/shared/error_messages", resource: resource
             .Formfiled
               .Formfiled_label
@@ -41,5 +62,5 @@
                 .field_second
                   = f.password_field :password_confirmation, autocomplete: "new-password", class:"field", placeholder:"もう一度"
             .actions
-              = f.submit "登録する", class: "sign__btn"
+              = f.submit "会員登録に進む", class: "sign__btn"
             = render "devise/shared/links"

@@ -1,5 +1,5 @@
 class ProductAddress < ApplicationRecord
-  belongs_to :user, dependent: :destroy
+  belongs_to :user, optional: true, dependent: :destroy
 
   include JpPrefecture
   jp_prefecture :prefecture_code

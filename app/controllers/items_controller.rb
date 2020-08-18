@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:edit, :update, :show, :destroy, :buy]
   before_action :move_to_index, only: [:new]
+
   def index
     @items = Item.includes(:item_images).order("created_at DESC")
   end
@@ -27,51 +29,55 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to root_path
+      redirect_to root_path, notice: "商品の出品が完了しました"
     else
       flash.now[:alert] = "必須項目を入力してください"
       render :new
     end
   end
 
-  def search
-    @items = Item.search(params[:keyword])
-  end
-
   def edit
-    @item = Item.find(params[:id])
     @itemcategory = Category.where(ancestry: nil)
     @childrencategory = @item.category.parent.parent.children
     @grandchildrencategory = @item.category.parent.children
   end
 
   def update
+    if @item.update(item_params)
+      redirect_to item_path(@item), notice: "商品の編集が完了しました"
+    else
+      redirect_to edit_item_path(@item), notice: "必須項目を入力してください"
+    end
   end
 
   def show
-    @item = Item.find(params[:id])
     @grandchild = Category.find(@item.category_id)
     @child = @grandchild.parent
     @parent = @child.parent
   end
 
   def destroy
-    @item = Item.find(params[:id])
     if @item.seller_id == current_user.id
       if @item.destroy
-        redirect_to root_path, notice: "削除が完了しました"
+        redirect_to root_path, notice: "商品の削除が完了しました"
       else
-        redirect_to root_path, alert: "削除が失敗しました"
+        render :show, alert: "商品の削除に失敗しました"
       end
-    else
-      redirect_to root_path, alert: "ユーザーが一致していません"
     end
   end
+
+  def buy
   
+  end
+  
+  def search
+    @items = Item.search(params[:keyword]).page(params[:page]).per(20)
+  end
+
   private
 
   def item_params
-    params.require(:item).permit(:name, :introduction, :price, :condition_id, :delivery_charge_id, :delivery_origin_id, :delivery_date_id, :brand, :category_id, item_images_attributes: [:image, :id, :_destory]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :introduction, :price, :condition_id, :delivery_charge_id, :delivery_origin_id, :delivery_date_id, :brand, :category_id, item_images_attributes: [:image, :id, :_destroy]).merge(seller_id: current_user.id)
   end
 
   def move_to_index
@@ -79,7 +85,12 @@ class ItemsController < ApplicationController
       redirect_to action: :index
     end
   end
+
   def set_category_sellector
     @itemcategory = Category.where(ancestry: nil).pluck(:name).unshift("選択してください")
+  end
+  
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
