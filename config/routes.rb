@@ -26,6 +26,9 @@ Rails.application.routes.draw do
   resources :credits
   
   resources :items do
+    member do
+      get 'buy'
+    end
     resources :item_images
     collection do
       get 'search'

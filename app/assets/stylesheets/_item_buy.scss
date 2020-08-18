@@ -1,0 +1,109 @@
+.buys {
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: whitesmoke;
+  padding-bottom: 80px;
+  border-radius: 5px;
+  &__logo {
+    padding-top: 40px;
+  }
+  &__contents {
+    background-color: white;
+    width: 600px;
+    height: 840px;
+    margin-top: 20px;
+    padding: 43px 120px;
+    .buyTitle {
+      text-align: center;
+      font-size: 22px;
+      border-bottom : 1px solid lightgrey;
+      padding-bottom: 30px;
+      font-weight: bold;
+    }
+    .buyItem {
+      display: flex;
+      margin-top: 35px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-bottom : 1px solid lightgrey;
+      padding-bottom: 35px;
+      .buyImage {
+        border-radius: 2px;
+      }
+      .buyInfo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        &__name {
+          font-size: 30px;
+        }
+        &__charge {
+          font-size: 13px;
+        }
+      }
+    }
+    .buyPrice {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 15px;
+      border-bottom : 1px solid lightgrey;
+      padding-bottom: 15px;
+      &__title {
+        font-size: 20px;
+      }
+      &__price {
+        font-size: 20px;
+      }
+    }
+    .buyCredit {
+      text-align: center;
+      font-size: 17px;
+      letter-spacing: 3px;
+      margin-top: 20px;
+      border-bottom : 1px solid lightgrey;
+      padding-bottom: 20px;
+      .noneCredit {
+        text-decoration: none;
+        color: red;
+      }
+    }
+    .buyAddress {
+      text-align: center;
+      font-size: 17px;
+      letter-spacing: 3px;
+      margin-top: 20px;
+      border-bottom : 1px solid lightgray;
+      padding-bottom: 20px;
+      .noneAddress {
+        text-decoration: none;
+        color: red;
+      }
+    }
+    .buyBtn {
+      text-align: center;
+      margin-top: 50px;
+      .payBtn {
+        text-decoration: none;
+        background-color: #3CCACE;
+        color: white;
+        padding: 10px 40px;
+        letter-spacing: 3px;
+        font-size: 25px;
+        transition: all  0.5s ease;
+        border-radius: 2px;
+        &:hover {
+          background-color: rgba(86, 221, 255, 0.8);
+        }
+      }
+      .buyExit {
+        font-size: 15px;
+      }
+    }
+  }
+}
