@@ -25,7 +25,8 @@ class Item < ApplicationRecord
   validates :category_id, presence: true
   validates :item_images, presence: true
 
- 
-
- 
+  def self.search(search)
+    return Item.all unless search
+    Item.where('(name LIKE(?)) OR (introduction LIKE(?))', "%#{search}%", "%#{search}%")
+  end 
 end
