@@ -36,8 +36,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  
-
   def edit
     @itemcategory = Category.where(ancestry: nil)
     @childrencategory = @item.category.parent.parent.children
@@ -51,7 +49,6 @@ class ItemsController < ApplicationController
       redirect_to edit_item_path(@item), notice: "必須項目を入力してください"
     end
   end
-
 
   def show
     @grandchild = Category.find(@item.category_id)
@@ -69,6 +66,10 @@ class ItemsController < ApplicationController
     end
   end
   
+  def search
+    @items = Item.search(params[:keyword]).page(params[:page]).per(20)
+  end
+
   private
 
   def item_params

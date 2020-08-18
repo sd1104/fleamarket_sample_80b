@@ -104,4 +104,41 @@ describe Item do
 
   end
 
+  describe '#search' do
+    
+    before do
+      @item1 = create(:item, name: 'アルバム', seller: create(:user, email: "kkk@gmail.com"))
+      @item2 = create(:item, name: '写真集', seller: create(:user, email: "sss@gmail.com"))
+      @introduction1 = create(:item, introduction: '以前購入したアルバムです。', seller: create(:user, email: "ttt@gmail.com"))
+      @introduction22 = create(:item, introduction: '以前購入した写真集です', seller: create(:user, email: "ddd@gmail.com"))
+    end
+
+    context "search by 'アルバム" do
+      it "returns @item1" do
+        expect(Item.search('アルバム')).to include(@item1)
+      end
+
+      it "doesn't return @item2" do
+        expect(Item.search('アルバム')).to_not include(@item2)
+      end
+    end
+
+    context "search by 'アルバム" do
+      it "returns @introduction1" do
+        expect(Item.search('アルバム')).to include(@introduction1)
+      end
+
+      it "doesn't return @introduction2" do
+        expect(Item.search('アルバム')).to_not include(@introduction2)
+      end
+    end
+
+    context "search by 'アロバム'" do
+      it "returns empty" do
+        expect(Item.search('アロバム')).to be_empty
+      end
+    end
+
+  end
+
 end
