@@ -1,0 +1,24 @@
+.goodAll {
+  background-color: whitesmoke;
+  padding-bottom: 60px;
+  .goodIndex {
+    text-align: center;
+    padding-top: 40px ;
+    padding-bottom: 30px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #3CCACE;
+  }
+  .good-contents-all {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    .goodInfo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.goodAll
+  .goodIndex
+    いいね一覧
+  .goodContent
+    - current_user.liked_items.each do |item|
+      .goodNew
+        .goodNew__contents
+          - if !item.buyer_id.nil?
+            .sold_triangle
+              .sold_word
+                SOLD
+          .good-contents-all
+            .good-content-pic
+              =link_to item_path(item), method: :get do
+                =image_tag item.item_images[0].image.url, class: "item-photos", size: "220x140"
+            .goodInfo
+              .good-name
+                = item.name
+              .good-price
+                = item.price.to_s(:delimited)
+                円(税込)

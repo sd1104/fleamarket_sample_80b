@@ -91,6 +91,14 @@
       .problem
         %i.fa.fa-flag
         不適切な商品の通報
+      .hand-sign
+        %h6 いいね
+        - if current_user.already_liked?(@item)
+          = link_to item_likes_path(@item), method: :delete, class: "hand", remote: true do
+            %i.fas.fa-heart
+        - else
+          = link_to item_likes_path(@item), method: :post, class: "hand-bad", remote: true do
+            %i.far.fa-heart
 .post
   = link_to new_item_path, class: "push-post" do
     出品する
