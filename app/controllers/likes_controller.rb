@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
   def index
-    @items = Like.where(user_id: @user.id).all.order("created_at DESC")
+    @items = Like.where(user_id: current_user.id).all.order("created_at DESC")
   end
   
   def create
