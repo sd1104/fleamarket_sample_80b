@@ -38,15 +38,14 @@ class CreditsController < ApplicationController
 
   def delete
     credit = Credit.find_by(user_id: current_user.id)
-    if credit.blank?
-    else
+    if credit.present?
       Payjp.api_key = Rails.application.credentials.config[:payjp][:PAYJP_SECRET_KEY]
 
       customer = Payjp::Customer.retrieve(credit.customer_id)
       customer.delete
       credit.delete
     end
-      redirect_to action: "new"
+      redirect_to action: "show"
   end
 
 end
