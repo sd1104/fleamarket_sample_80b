@@ -55,5 +55,5 @@
 
             .actions
               = f.submit "送付先住所登録へ進む", id: "submit"
-            .actions
-              = f.submit "skip", id: "skip"
+            .skip_actions
+              = link_to "skip", skip_profiles_path, method: :post, id: "skip"

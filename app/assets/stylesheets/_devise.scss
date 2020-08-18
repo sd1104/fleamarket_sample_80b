@@ -21,6 +21,7 @@ label {
   border-radius: 4px;
 }
 
+// 新規登録時skipボタンのscss
 #skip {
   height: 48px;
   width: 40px;
@@ -37,16 +38,18 @@ label {
   text-decoration: underline;
   border: none;
 }
+.skip_actions {
+  margin-top: 40px;
+}
 
 // sessionとregistration共通項目
 .subWrapper {
-  min-height: calc( 100vh - ( 100px + 360px ) );
+  // min-height: 100%;
   display: flex;
   justify-content: center;
-  background-color:#fff;
+  background-color: #eeeeee;
   .Account {
     width: 100vw;
-    background-color: #f5f5f5;
     &__logo {
       height: 130px;
       font-size: 50px;
