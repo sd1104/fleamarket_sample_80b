@@ -15,7 +15,6 @@ document.addEventListener(
 
         Payjp.createToken(credit, (status, response) => {
           if (status === 200) { //成功した場合
-            console.log(response);
             $("#card_number").removeAttr("name");
             $("#cvc").removeAttr("name");
             $("#exp_month").removeAttr("name");

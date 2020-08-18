@@ -25,6 +25,17 @@ class CreditsController < ApplicationController
     end
   end
 
+  def show
+    credit = Credit.where(user_id: current_user.id).first
+    if credit.blank?
+      @credit = Credit.new 
+    else
+      Payjp.api_key = Rails.application.credentials.config[:payjp][:PAYJP_SECRET_KEY]
+      customer = Payjp::Customer.retrieve(credit.customer_id)
+      @default_credit_information = customer.cards.retrieve(credit.credit_id)
+    end
+  end
+
   def delete
     credit = Credit.where(user_id: current_user.id).first
     if credit.blank?
@@ -36,17 +47,6 @@ class CreditsController < ApplicationController
       credit.delete
     end
       redirect_to action: "new"
-  end
-
-  def show
-    credit = Credit.where(user_id: current_user.id).first
-    if credit.blank?
-      redirect_to action: "new" 
-    else
-      Payjp.api_key = Rails.application.credentials.config[:payjp][:PAYJP_SECRET_KEY]
-      customer = Payjp::Customer.retrieve(credit.customer_id)
-      @default_credit_information = customer.cards.retrieve(credit.credit_id)
-    end
   end
 
 end

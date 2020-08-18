@@ -1,3 +1,176 @@
-// Place all the styles related to the credits controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@mixin inputStyle {
+  height: 48px;
+  width: 343px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  line-height: 1.5;
+  font-size: 14px;
+}
+@mixin label {
+  padding: 3px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.Credit__logo {
+  height: 130px;
+  font-size: 50px;
+  justify-content: center;
+  display: flex;
+  .logo {
+    height: 50px;
+    margin-top: 50px;
+  }
+}
+
+label {
+  @include label;
+}
+label-ym{
+  @include label;
+  padding-top: 25px;
+}
+span {
+  @include label;
+  background-color: #3CCACE;
+  color: #fff;
+  border-radius: 4px;
+}
+
+#card_number,
+#cvc{
+  height: 48px;
+  width: 343px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  line-height: 1.5;
+  font-size: 14px;
+  margin: 8px 5px 0 5px ;
+}
+
+#submit {
+  height: 50px;
+  width: 343px;
+  margin-top: 80px;
+  background-color: #3CCACE;
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  font-size: 14px;
+}
+#submit:hover {
+  height: 50px;
+  width: 343px;
+  margin-top: 80px;
+  background-color: #3CCACE;
+  color: #fff;
+  border-radius: 7px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.subWrapper {
+  display: flex;
+  justify-content: center;
+  background-color:#fff;
+  .Credit {
+    width: 700px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    &__master{
+      background-color: #fff;
+      padding: 0 135px;
+    }
+
+    &__title {
+      width: 100%;
+      padding: 32px;
+      text-align: center;
+      font-size: 25px;
+      background-color: #fff;
+    }
+
+    &__formBox {
+      width: 100%;
+      padding: 40px 40px 64px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+      .field {
+        margin-top: 32px;
+        &__Input {
+          display: flex;
+          &__text {
+            height: 48px;
+            width: 150px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            line-height: 1.5;
+            font-size: 14px;
+            margin: 8px 5px 0 5px ;
+          }
+        }
+      }
+    }
+  }
+}
+
+.button__delete {
+  margin: 50px 0 24px;
+  background-color: #3ccace;
+  border: none;
+  font-size: 14px;
+  color: #fff;
+  height: 50px;
+  width: 343px;
+  border-radius: 4px;
+}
+
+.noRegistrationMessage {
+  height: 200px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px 0;
+  &__statusMessage {
+    text-align: center;
+    font-size: 16px;
+    background-color: #fff;
+  }
+  &__registrationMessage {
+    text-align: center;
+    margin-top: 50px;
+    .registrationMessageBtn {      
+      background-color: #3CCACE;
+      padding: 10px 50px;
+      color: #fff;
+      border-radius: 3px;
+      border-top:2px solid rgba(255,255,255,0.2);
+      border-bottom:2px solid rgba(0,0,0,0.2);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .registrationMessageBtn:hover {
+      opacity:0.8;
+    }
+    .registrationMessageBtn:active {
+      position: relative;
+      top: 2px;
+      -webkit-transform: translate(0,2px);
+      -moz-transform: translate(0,2px);
+      transform: translate(0,2px);
+      border-bottom:none;
+    }
+  }
+}

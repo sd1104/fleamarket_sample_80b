@@ -1,18 +1,32 @@
-.cardMain
-  .logo
-    = image_tag src="material/logo/logo.png", size: "150x50", class: "logo"
-  .cardContents
-    .cardContents__title
-      登録クレジットカード情報確認
-    .cardContents__number
-      %label カード番号
-      = "**** **** **** " + @default_credit_information.last4
-    .cardContents__deadline
-      %label 有効期限
-      - exp_month = @default_credit_information.exp_month.to_s
-      - exp_year = @default_credit_information.exp_year.to_s.slice(2,3)
-      = exp_month + " / " + exp_year
-    .cardContents__delete
-      = form_tag(delete_credits_path, method: :post, id: 'charge-form', name: "inputForm") do
-        %input{ type: "hidden", name: "credit_id", value: "" }
-        %button 削除する
+.MyPageWrapper
+  .MyPageContents
+    .MyPageContents__LeftSide
+      = render 'users/mypage_leftside'
+    .MyPageContents__RightSide
+      .subWrapper
+        .Credit
+          .Credit__master_edit
+            .Credit__entry
+              .Credit__title
+                登録クレジットカード情報確認
+              .credit__border
+              -if !current_user.credit.nil?
+                .Credit__formBox
+                  .creditContents__number
+                    %label カード番号
+                    = "**** **** **** " + @default_credit_information.last4
+                  .creditContents__deadline
+                    %label 有効期限
+                    - exp_month = @default_credit_information.exp_month.to_s
+                    - exp_year = @default_credit_information.exp_year.to_s.slice(2,3)
+                    = exp_month + " / " + exp_year
+                  .creditContents__delete
+                    = form_tag(delete_credits_path, method: :post, id: 'charge-form', name: "inputForm") do
+                      %input{ type: "hidden", name: "credit_id", value: "" }                     
+                      %button.button__delete  削除する
+              - else
+                .noRegistrationMessage
+                  .noRegistrationMessage__statusMessage
+                    クレジット情報は未登録です。
+                  .noRegistrationMessage__registrationMessage
+                    = link_to '登録する', new_credit_path, class: "registrationMessageBtn"
