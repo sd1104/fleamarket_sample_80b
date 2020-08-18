@@ -78,4 +78,5 @@
             .actions
               = f.submit "登録する", id: "productAddressSubmitBtn"
             .skip_actions
-              = link_to "skip", skip_product_addresses_path, method: :post, id: "skip"
+              あとで登録する場合は
+              = link_to "コチラ", skip_product_addresses_path, method: :post, id: "skip"

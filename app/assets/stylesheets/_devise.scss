@@ -25,21 +25,25 @@ label {
 #skip {
   height: 48px;
   width: 40px;
-  margin: 50px 150px 0;
+  margin-left: 5px;
   background-color: transparent;
   color: #3CCACE;
   border: none;
-  font-size: 18px;
+  font-size: 15px;
+  text-decoration: none;
 }
 #skip:hover {
   text-decoration: underline;
 }
 #skip:active {
-  text-decoration: underline;
-  border: none;
+  position: relative;
+  top: 2px;
 }
 .skip_actions {
+  color: #333;
+  font-size: 13px;
   margin-top: 40px;
+  text-align: center;
 }
 
 // sessionとregistration共通項目
