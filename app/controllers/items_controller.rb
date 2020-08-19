@@ -4,6 +4,9 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.includes(:item_images).order("created_at DESC")
+    if user_signed_in?
+      @recommend_items = Item.includes(:item_images).where.not(seller_id: current_user.id).where(buyer_id: nil).order("created_at DESC")
+    end
   end
 
   def new 
