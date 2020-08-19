@@ -117,7 +117,8 @@ input[type="submit"]:active {
 
 // newに関係するSCSS
 .subWrapper {
-  .wizardProductAddress {
+  .wizardProductAddress,
+  .ProfileWrapper {
     margin: 10px 0;
   }
   .ProductAdress {
