@@ -59,9 +59,3 @@
                   = f.telephone_field :phone_number, placeholder: "例)09012345678", autofocus: true, autocomplete: ""
                 .actions
                   = f.submit "変更する"
-          - else
-            .noRegistrationMessage
-              .noRegistrationMessage__statusMessage
-                送付先住所情報は未登録です。
-              .noRegistrationMessage__registrationMessage
-                = link_to '登録する', new_product_address_path, class: "registrationMessageBtn"

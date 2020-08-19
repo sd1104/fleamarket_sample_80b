@@ -5,10 +5,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'profiles',              to: 'users/registrations#new_profile'
     post 'profiles',             to: 'users/registrations#create_profile'
-    post 'skip_profiles',             to: 'users/registrations#skip_profile'
     get 'product_addresses',     to: 'users/registrations#new_product_address'
     post 'product_addresses',    to: 'users/registrations#create_product_address'
-    post 'skip_product_addresses',    to: 'users/registrations#skip_product_address'
     get 'registration_finished', to: 'users/registrations#registration_finished'
   end
 
@@ -21,7 +19,6 @@ Rails.application.routes.draw do
       get 'item_sold'
       get 'item_purchaced'
     end
-
   end
   
   resources :credits,only: [ :new, :show] do
