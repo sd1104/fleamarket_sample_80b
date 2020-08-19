@@ -1,7 +1,7 @@
 class CreditsController < ApplicationController
   require 'payjp'
 
-  before_action :user_credit, only: [:show, :delete]
+  before_action :set_credit, only: [:show, :delete]
 
   def new
     credit = Credit.where(user_id: current_user.id)
@@ -50,7 +50,7 @@ class CreditsController < ApplicationController
 
   private
 
-  def user_credit
+  def set_credit
     @credit = Credit.find_by(user_id: current_user.id)
   end
 
