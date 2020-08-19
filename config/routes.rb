@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   
   resources :items do
     resources :likes, only: [:index, :create, :destroy]
+    resources :comments, only: [:create]
     member do
       get 'buy'
     end

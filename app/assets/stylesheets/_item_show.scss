@@ -142,7 +142,7 @@
         display: flex;
         align-items: center;
         border: 1px solid black;
-        padding: 0 5px;
+        padding: 1px 5px;
       }
       .hand {
         font-size: 22px;
@@ -153,6 +153,40 @@
         font-size: 22px;
         color: #3CCACE;
         margin-left: 5px;
+      }
+    }
+    .commentAll {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .comments_title {
+        font-size: 22px;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      .comments {
+        text-align: center;
+      }
+      .comment_user {
+        text-decoration: none;
+        color: black;
+      }
+      .commentFormbtn{
+        display: flex;
+        align-items: center;
+        .comment-Form {
+          margin-top: 80px;
+          border-radius: 0;
+          padding-left: 5px;
+          padding-top: 5px;
+        }
+        .comment-submit {
+          background-color: #3CCACE;
+          height: 55px;
+          width: 80px;
+          border-radius: 0;
+        }
       }
     }
   }

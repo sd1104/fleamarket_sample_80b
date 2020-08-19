@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_one :credit, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_items, through: :likes, source: :item,dependent: :destroy
+  has_many :comments
 
   validates :nickname,
     presence: true,

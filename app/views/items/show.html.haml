@@ -99,6 +99,25 @@
         - else
           = link_to item_likes_path(@item), method: :post, class: "hand-bad", remote: true do
             %i.far.fa-heart
+    .commentAll
+      .comments_title
+        %i ＜コメント一覧＞
+      .comments
+        - if @comments
+          - @comments.each do |comment|
+            %p
+              %strong
+                = link_to comment.user.nickname, "/users/#{comment.user_id}", class: "comment_user"
+                ：
+              = comment.text
+      .comments_form
+        - if current_user
+          = form_with(model: [@item, @comment], class: "commentFormbtn", local: true) do |form|
+            = form.text_area :text, placeholder: "コメントする", size: "40X20", class: "comment-Form"
+            = form.submit "SEND", class: "comment-submit"
+        - else
+          %strong
+            %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
 .post
   = link_to new_item_path, class: "push-post" do
     出品する
