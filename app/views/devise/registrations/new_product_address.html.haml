@@ -1,5 +1,5 @@
 .subWrapper
-  .ProductAdress
+  .wizardProductAddress
     .ProductAdress__logo
       = image_tag src="material/logo/logo.png", size: "150x50", class: "logo"
       %nav.progressBar
@@ -54,7 +54,7 @@
               = f.label :都道府県, class: "label_head"
               = f.label :必須, class: "label_required"
               %br/
-              = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, selected: 27
+              = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, prompt: "----"
             .field
               = f.label :市町村区, class: "label_head"
               = f.label :必須, class: "label_required"
@@ -77,5 +77,6 @@
               = f.telephone_field :phone_number, placeholder: "例)09012345678", autofocus: true, autocomplete: ""
             .actions
               = f.submit "登録する", id: "productAddressSubmitBtn"
-            .actions
-              = f.submit "skip", id: "skip"
+            .skip_actions
+              あとで登録する場合は
+              = link_to "コチラ", skip_product_addresses_path, method: :post, id: "skip"

@@ -117,12 +117,17 @@ input[type="submit"]:active {
 
 // newに関係するSCSS
 .subWrapper {
+  .wizardProductAddress,
+  .ProfileWrapper {
+    margin: 10px 0;
+  }
   .ProductAdress {
     width: 700px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
+    background-color: #fff;
     &__master{
       background-color: #fff;
       padding: 0 135px;
