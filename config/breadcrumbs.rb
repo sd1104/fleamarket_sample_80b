@@ -7,10 +7,7 @@ crumb :mypage do
   parent :root
 end
 
-crumb :exhibiting do |user|
- if 
-   
- end
+crumb :exhibiting do
   link "出品した商品-出品中", item_exhibiting_users_path
   parent :mypage
 end
