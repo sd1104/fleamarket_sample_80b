@@ -301,6 +301,70 @@
       }
     }
   }
+  &__ShowWindow {
+    background-color: whitesmoke;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    &__Title {
+      text-align: center;
+      padding-top: 30px;
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    &__subTitle {
+      text-align: center;
+      font-weight: bold;
+      font-size: 24px;
+      color: #3ccace;
+      margin-bottom: 25px;
+    }
+    &__RecommendIndexes {
+      padding: 10px 0 30px 0;
+      &__List {
+        width: 1200px;
+        margin: 0 auto;
+        padding: 0 5px;
+        display: flex;
+        overflow-x: auto;
+        #reccomendItems {
+          text-decoration: none;
+          color: #333;
+          .Item {
+            padding: 10px;
+            margin: 20px 10px;
+            height: 280px;
+            width: 230px;
+            position: relative;
+            background-color: #fff;
+            border-radius: 2px;
+            &__info {
+              padding: 5px;
+              &__pic {
+                margin: 40px;
+              }
+              &__name {
+                font-size: 14px;
+                height: 45px;
+                margin-top: 10px;
+                overflow: hidden;
+                color: #333;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+              }
+              &__price {
+                font-size: 14px;
+                margin-top: 10px;
+              }
+            }
+          }
+          .Item:hover {
+            border: 1px solid blue;
+          }
+        }
+      }
+    }
+  }
 }
 .bottomPicture {
   background-image: image-url("material/pict/bg-appBanner-pict.jpg");

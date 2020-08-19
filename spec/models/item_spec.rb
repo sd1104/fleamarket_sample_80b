@@ -118,12 +118,14 @@ describe Item do
         expect(Item.search('アルバム')).to include(@item1)
       end
 
+      it "returns @item1" do
+        expect(Item.search('アルバム')).to include(@item1, @introduction1)
+      end
+
       it "doesn't return @item2" do
         expect(Item.search('アルバム')).to_not include(@item2)
       end
-    end
-
-    context "search by 'アルバム" do
+      
       it "returns @introduction1" do
         expect(Item.search('アルバム')).to include(@introduction1)
       end

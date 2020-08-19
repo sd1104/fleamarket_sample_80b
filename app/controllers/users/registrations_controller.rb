@@ -24,31 +24,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create_profile
     @user = User.new(session["devise.regist_data"]["user"])
-    if @profile.nil?
-      @product_address = @user.build_product_address
-      render :new_product_address
-    else
-      @profile = Profile.new(profile_params)
-      unless @profile.valid?
-        flash[:alert] = @profile.errors.full_messages
-        render :new_profile and return
-      end
-      @user.build_profile(@profile.attributes)
-      session["profile"] = @profile.attributes
-      @product_address = @user.build_product_address
-      render :new_product_address
+    @profile = Profile.new(profile_params)
+    unless @profile.valid?
+      flash[:alert] = @profile.errors.full_messages
+      render :new_profile and return
     end
+    @user.build_profile(@profile.attributes)
+    session["profile"] = @profile.attributes
+    @product_address = @user.build_product_address
+    render :new_product_address
   end
 
   def create_product_address
     @user = User.new(session["devise.regist_data"]["user"])
-    if @product_address.nil?
-      @user.save
-      session["devise.regist_data"]["user"].clear
-      sign_in(:user, @user)
-      redirect_to :registration_finished
-    else
-      @profile = Profile.new(session["profile"])
+    @profile = Profile.new(session["profile"])
+    if !@profile.nil?
       @product_address = ProductAddress.new(product_address_params)
       unless @product_address.valid?
         flash.now[:alert] = @product_address.errors.full_messages
@@ -56,6 +46,40 @@ class Users::RegistrationsController < Devise::RegistrationsController
       end
       @user.build_profile(@profile.attributes)
       @user.build_product_address(@product_address.attributes)
+      @user.save
+      session["devise.regist_data"]["user"].clear
+      sign_in(:user, @user)
+      redirect_to :registration_finished
+    else
+      @product_address = ProductAddress.new(product_address_params)
+      unless @product_address.valid?
+        flash.now[:alert] = @product_address.errors.full_messages
+        render :new_product_address and return
+      end
+      @user.build_product_address(@product_address.attributes)
+      @user.save
+      session["devise.regist_data"]["user"].clear
+      sign_in(:user, @user)
+      redirect_to :registration_finished
+    end
+  end
+
+  def skip_profile
+    @user = User.new(session["devise.regist_data"]["user"])
+    @product_address = @user.build_product_address
+    render :new_product_address
+  end
+
+  def skip_product_address
+    @user = User.new(session["devise.regist_data"]["user"])
+    if session["profile"].nil? && @product_address.nil?
+      @user.save
+      session["devise.regist_data"]["user"].clear
+      sign_in(:user, @user)
+      redirect_to :registration_finished
+    elsif !session["profile"].nil? && @product_address.nil?
+      @profile = Profile.new(session["profile"])
+      @user.build_profile(@profile.attributes)
       @user.save
       session["devise.regist_data"]["user"].clear
       sign_in(:user, @user)
