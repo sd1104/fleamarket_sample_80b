@@ -2,11 +2,6 @@ crumb :root do
   link "Home", root_path
 end
 
-crumb :exhibition do
-  link "出品ページ", new_item_path
-  parent :root
-end
-
 crumb :mypage do
   link "マイページ", user_registration_path
   parent :root
@@ -15,6 +10,16 @@ end
 crumb :exhibiting do
   link "出品した商品-出品中", item_exhibiting_users_path
   parent :mypage
+end
+
+crumb :exhibit_product_confirmation do
+  link "出品商品確認", item_path
+  parent :exhibiting
+end
+
+crumb :item_edit do
+  link "出品商品編集/削除", item_path
+  parent :exhibit_product_confirmation
 end
 
 crumb :sold do
@@ -40,6 +45,11 @@ end
 crumb :mail_password do
   link "メール/パスワード変更", edit_user_registration_path
   parent :mypage
+end
+
+crumb :exhibition do
+  link "出品ページ", new_item_path
+  parent :root
 end
 
 # crumb :project do |project|
