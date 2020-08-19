@@ -7,13 +7,20 @@ crumb :mypage do
   parent :root
 end
 
-crumb :exhibiting do
+crumb :exhibiting do |user|
+ if 
+   
+ end
   link "出品した商品-出品中", item_exhibiting_users_path
   parent :mypage
 end
 
-crumb :exhibit_product_confirmation do
-  link "出品商品確認", item_path
+crumb :exhibit_product_confirmation do |item|
+  if current_user.id == item.seller_id
+    link "出品商品確認", item_path
+  else
+    link "購入可能商品", item_path
+  end
   parent :exhibiting
 end
 
