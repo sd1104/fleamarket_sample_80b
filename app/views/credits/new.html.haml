@@ -10,14 +10,14 @@
           = form_tag(pay_credits_path,method: :post, id: 'card_token',  name: "inputForm") do
             .field
               %label カード番号
-              %span 必須
+              .spans 必須
               %br/
               .field__Input
                 = text_field_tag "number", "", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
 
             .field
               %label 有効期限
-              %span 必須
+              .spans 必須
               %br/
               .field__Input
                 %select#exp_month{name: "exp_month", class: "field__Input__text", type: "text"}
@@ -51,7 +51,7 @@
                 %label-ym 年
             .field
               %label セキュリティコード
-              %span 必須
+              .spans 必須
               .field__Input
                 = text_field_tag "cvc", "", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
             .action

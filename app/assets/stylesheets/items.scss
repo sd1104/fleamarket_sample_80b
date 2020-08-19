@@ -143,8 +143,9 @@
           text-align: center;
           font-size: 23px;
           font-weight: bold;
-          span {
+          .blue {
             color: #3ccace;
+            display: inline;
           }
         }
         &__text {
