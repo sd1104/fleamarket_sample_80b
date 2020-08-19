@@ -8,8 +8,9 @@ crumb :mypage do
 end
 
 crumb :exhibiting do
-  link "出品した商品-出品中", item_exhibiting_users_path
-  parent :mypage
+  if current_user.id == item.seller_id
+   link "出品した商品-出品中", item_exhibiting_users_path
+   parent :mypage
 end
 
 crumb :exhibit_product_confirmation do |item|
