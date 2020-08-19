@@ -302,6 +302,9 @@
     }
   }
   &__ShowWindow {
+    background-color: whitesmoke;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
     &__Title {
       text-align: center;
       padding-top: 30px;
@@ -317,7 +320,6 @@
       margin-bottom: 25px;
     }
     &__RecommendIndexes {
-      background-color: whitesmoke;
       padding: 10px 0 30px 0;
       &__List {
         width: 1200px;
@@ -329,25 +331,22 @@
           text-decoration: none;
           color: #333;
           .Item {
-            padding: 0 0 0 5px;
+            padding: 10px;
             margin: 20px 10px;
-            width: 150px;
+            height: 280px;
+            width: 230px;
             position: relative;
             background-color: #fff;
             border-radius: 2px;
-            // overflow: hidden;
-            // color: #333;
-            // white-space: nowrap;
-            // text-overflow: ellipsis;
             &__info {
-              height: 80px;
               padding: 5px;
               &__pic {
-                margin: 5px;
+                margin: 40px;
               }
               &__name {
                 font-size: 14px;
                 height: 45px;
+                margin-top: 10px;
                 overflow: hidden;
                 color: #333;
                 white-space: nowrap;
@@ -355,6 +354,7 @@
               }
               &__price {
                 font-size: 14px;
+                margin-top: 10px;
               }
             }
           }
