@@ -23,9 +23,18 @@ Rails.application.routes.draw do
     end
 
   end
+  
+  resources :credits,only: [ :new, :show] do
+    collection do
+      post 'show', to: 'credits#show'
+      post 'pay', to: 'credits#pay'
+      post 'delete', to: 'credits#delete'
+    end
+  end
+
   resources :profiles, only: [ :new, :create, :edit, :update]
+  
   resources :product_addresses, only: [ :new, :create, :edit, :update ]
-  resources :credits
   
   resources :items do
     resources :likes, only: [:index, :create]
