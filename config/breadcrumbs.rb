@@ -2,9 +2,44 @@ crumb :root do
   link "Home", root_path
 end
 
-crumb :mypage do
-  link "マイページ", profiles_path
+crumb :exhibition do
+  link "出品ページ", new_item_path
   parent :root
+end
+
+crumb :mypage do
+  link "マイページ", user_registration_path
+  parent :root
+end
+
+crumb :exhibiting do
+  link "出品した商品-出品中", item_exhibiting_users_path
+  parent :mypage
+end
+
+crumb :sold do
+  link "出品した商品-売却済み", item_sold_users_path
+  parent :mypage
+end
+
+crumb :purchaced do
+  link "購入した商品-過去の取引", item_purchaced_users_path
+  parent :mypage
+end
+
+crumb :member do
+  link "会員情報 登録・変更", edit_profile_path
+  parent :mypage
+end
+
+crumb :street_address do
+  link "商品送付先住所 登録・変更", edit_product_address_path
+  parent :mypage
+end
+
+crumb :mail_password do
+  link "メール/パスワード変更", edit_user_registration_path
+  parent :mypage
 end
 
 # crumb :project do |project|
