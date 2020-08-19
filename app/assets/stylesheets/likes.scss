@@ -35,6 +35,10 @@
             &__name {
               font-size: 14px;
               height: 45px;
+              overflow: hidden;
+              color: #333;
+              white-space: nowrap;
+              text-overflow: ellipsis;
             }
             &__price {
               font-size: 14px;

@@ -104,37 +104,28 @@
                 円
               .mainNew-tax
                 (税込)
-  .main__contents
-    .main__contents__title
+  .main__ShowWindow
+    .main__ShowWindow__Title
       新着おすすめカテゴリー
-    .items
-      .items__content
-        .item-content-pic
-          =image_tag src="material/icon/icon-04.png", class: "item-photos", size: "220x140"
-        .item-content-name
-          さんまああ
-        .item-content-price
-          1200円
-        .item-content-tax
-          (税込)
-      .items__content
-        .item-content-pic
-          =image_tag src="material/icon/icon-04.png", class: "item-photos", size: "220x140"
-        .item-content-name
-          さんまああ
-        .item-content-price
-          1200円
-        .item-content-tax
-          (税込)
-      .items__content
-        .item-content-pic
-          =image_tag src="material/icon/icon-04.png", class: "item-photos", size: "220x140"
-        .item-content-name
-          さんまああ
-        .item-content-price
-          1200円
-        .item-content-tax
-          (税込)
+    .main__ShowWindow__subTitle
+      家電・スマホ・カメラ新着アイテム
+    .main__ShowWindow__RecommendIndexes
+      .main__ShowWindow__RecommendIndexes__List
+        - @recommend_items.each do |item|
+          =link_to item_path(item), method: :get, id: "reccomendItems" do
+            .Item
+              - if !item.buyer_id.nil?
+                .sold_triangle
+                  .sold_word
+                    SOLD
+              .Item__pic
+                =image_tag item.item_images[0].image.url, class: "item-photos", size: "130x130"
+              .Item__info
+                .Item__info__name
+                  = item.name
+                .Item__info__price
+                  = item.price.to_s(:delimited)
+                  円(税込)
 .bottomPicture
   .bottomPicture__content
     .bottomTop

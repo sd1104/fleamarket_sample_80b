@@ -4,6 +4,8 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.includes(:item_images).order("created_at DESC")
+    @recommend_items = Item.includes(:item_images).where(category_id: 1338).order("created_at DESC")
+    # binding.pry
   end
 
   def new 
