@@ -32,11 +32,12 @@ label-ym{
   @include label;
   padding-top: 25px;
 }
-span {
+.spans {
   @include label;
   background-color: #3CCACE;
   color: #fff;
   border-radius: 4px;
+  display: inline;
 }
 
 #card_number,
