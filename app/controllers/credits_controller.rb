@@ -1,6 +1,8 @@
 class CreditsController < ApplicationController
   require 'payjp'
 
+  before_action :user_credit, only: [:show, :delete]
+
   def new
     credit = Credit.where(user_id: current_user.id)
     redirect_to action: "show" if credit.exists?
@@ -26,26 +28,30 @@ class CreditsController < ApplicationController
   end
 
   def show
-    credit = Credit.find_by(user_id: current_user.id)
-    if credit.blank?
+    if @credit.blank?
       @credit = Credit.new 
     else
       Payjp.api_key = Rails.application.credentials.config[:payjp][:PAYJP_SECRET_KEY]
-      customer = Payjp::Customer.retrieve(credit.customer_id)
-      @default_credit_information = customer.cards.retrieve(credit.credit_id)
+      customer = Payjp::Customer.retrieve(@credit.customer_id)
+      @default_card_information = customer.cards.retrieve(@credit.credit_id)
     end
   end
 
   def delete
-    credit = Credit.find_by(user_id: current_user.id)
-    if credit.present?
+    if @credit.present?
       Payjp.api_key = Rails.application.credentials.config[:payjp][:PAYJP_SECRET_KEY]
 
-      customer = Payjp::Customer.retrieve(credit.customer_id)
+      customer = Payjp::Customer.retrieve(@credit.customer_id)
       customer.delete
-      credit.delete
+      @credit.delete
     end
       redirect_to action: "show"
+  end
+
+  private
+
+  def user_credit
+    @credit = Credit.find_by(user_id: current_user.id)
   end
 
 end
