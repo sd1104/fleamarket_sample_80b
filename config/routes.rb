@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   resources :product_addresses, only: [ :new, :create, :edit, :update ]
   
   resources :items do
+    resources :comments, only: [:create]
     resources :likes, only: [:index, :create]
     member do
       get 'buy'
