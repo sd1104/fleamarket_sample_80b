@@ -32,7 +32,7 @@
           住所を登録してください
     .buyBtn
       - if current_user.product_address && current_user.credit
-        = link_to "#", method: :post, class: "payBtn" do
+        = link_to pay_item_item_path, method: :post, class: "payBtn" do
           購入する
       - else
         .buyExit

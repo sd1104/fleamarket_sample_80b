@@ -11,7 +11,7 @@
             .noItemMessage
               該当する商品はございません
           - else
-            - @items_exhibiting.each do |item|
+            - @items_sold.each do |item|
               = link_to users_path(item), class: "itemLink" do
                 .item
                   .item__image
