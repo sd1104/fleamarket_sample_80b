@@ -8,18 +8,21 @@ crumb :mypage do
 end
 
 crumb :exhibiting do
-  if current_user.id == item.seller_id
    link "出品した商品-出品中", item_exhibiting_users_path
    parent :mypage
 end
 
 crumb :exhibit_product_confirmation do |item|
-  if current_user.id == item.seller_id
+  if current_user.id == item.seller_id and controller_name == "items" and action_name == "show"
     link "出品商品確認", item_path
-  else
+    parent :mypage
+    parent :exhibiting
+  elsif 
     link "購入可能商品", item_path
-  end
-  parent :exhibiting
+  else
+    current_user.id == item.seller_id
+    link "出品商品確認", item_path
+    end
 end
 
 crumb :item_edit do
@@ -77,3 +80,9 @@ end
 # files there. All *.rb files (e.g. `frontend.rb` or `products.rb`) in that
 # folder are loaded and reloaded automatically when you change them, just like
 # this file (`config/breadcrumbs.rb`).
+
+# if controller_name == "items" and action_name == "index"
+#   parent root
+# else
+#   parent exhibiting
+# end
