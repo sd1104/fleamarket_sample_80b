@@ -27,9 +27,6 @@ class Item < ApplicationRecord
   validates :delivery_date_id, presence: true
   validates :category_id, presence: true
   validates :item_images, presence: true
-  validates :text, presence: true
-
-  validates :item_images, presence: true
 
   def self.search(search)
     return Item.all unless search
