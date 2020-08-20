@@ -9,8 +9,8 @@ class User < ApplicationRecord
   has_one :product_address, dependent: :destroy
   has_one :credit, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :liked_items, through: :likes, source: :item,dependent: :destroy
-  has_many :comments
+  has_many :liked_items, through: :likes, source: :item, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :nickname,
     presence: true,
