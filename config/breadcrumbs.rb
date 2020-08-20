@@ -8,21 +8,21 @@ crumb :mypage do
 end
 
 crumb :exhibiting do
-   link "出品した商品-出品中", item_exhibiting_users_path
-   parent :mypage
+  link "出品した商品-出品中", item_exhibiting_users_path
+  parent :mypage
 end
 
-crumb :exhibit_product_confirmation do |item|
-  if current_user.id == item.seller_id and controller_name == "items" and action_name == "show"
+crumb :exhibit_product_confirmation do
+  link "出品商品確認", item_path
+  parent :exhibiting
+end
+
+crumb :root_exhibit_product_confirmation do |item|
+  if current_user.id == item.seller_id
     link "出品商品確認", item_path
-    parent :mypage
-    parent :exhibiting
-  elsif 
+  else 
     link "購入可能商品", item_path
-  else
-    current_user.id == item.seller_id
-    link "出品商品確認", item_path
-    end
+  end
 end
 
 crumb :item_edit do

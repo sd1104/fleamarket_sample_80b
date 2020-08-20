@@ -1,11 +1,11 @@
-- if request.referer&.include?("/")
-- breadcrumb :from_index_exhibit_product_confirmation, @item
-.breadcrumbs
-  = breadcrumbs pretext: "",separator: " &rsaquo; ", class: "breadcrumbs"
+- if request.referer&.include?("/users/item_exhibiting")
+  - breadcrumb :exhibit_product_confirmation
+  .breadcrumbs
+    = breadcrumbs pretext: "",separator: " &rsaquo; ", class: "bread"
 - else
-- breadcrumb :exhibit_product_confirmation, @item
-.breadcrumbs
-  = breadcrumbs pretext: "",separator: " &rsaquo; ", class: "breadcrumbs"
+  - breadcrumb :root_exhibit_product_confirmation, @item
+  .breadcrumbs
+    = breadcrumbs pretext: "",separator: " &rsaquo; ", class: "bread"
 
 .itemShow
   .itemShow__main
