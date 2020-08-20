@@ -77,3 +77,6 @@ gem 'jquery-rails'
 gem 'active_hash'
 gem 'fog-aws'
 gem "gretel"
+gem 'payjp'
+gem 'dotenv-rails'
+gem 'kaminari'

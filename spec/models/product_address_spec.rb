@@ -43,8 +43,6 @@ describe ProductAddress do
 
     end
 
-
-
     context 'can not save' do
 
       it 'is invalid without first_name' do
@@ -152,8 +150,6 @@ describe ProductAddress do
       end
     
     end
-
-
     
   end
 end

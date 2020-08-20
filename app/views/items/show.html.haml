@@ -46,7 +46,7 @@
             出品者は購入手続きができません！
         - else
           .buy
-            = link_to "#", class: "buyItem" do
+            = link_to  buy_item_path(@item), class: "buyItem" do
               購入画面に進む
     .itemShow__main__intro
       商品の説明
@@ -100,6 +100,37 @@
       .problem
         %i.fa.fa-flag
         不適切な商品の通報
+      .hand-sign
+        %h6 いいね
+        - if current_user
+          - if current_user.already_liked?(@item)
+            = link_to "#", class: "hand" do
+              %i.fas.fa-heart
+          - else
+            = link_to item_likes_path(@item), method: :post, class: "hand-bad" do
+              %i.far.fa-heart
+        - else
+          = link_to new_user_session_path, class: "hand-bad" do
+            %i.far.fa-heart
+.comment
+  .commentAll
+    .comments_title
+      %i ＜コメント一覧＞
+    .comments
+      - if @comments
+        - @comments.each do |comment|
+          .comment_user
+            = link_to comment.user.nickname, "/users/#{comment.user_id}", class: "comment_user"
+          .comment_text
+            = comment.text
+    .comments_form
+      - if current_user
+        = form_with(model: [@item, @comment], class: "commentFormbtn", local: true) do |form|
+          = form.text_area :text, placeholder: "100文字以内でコメントしてください", size: "40X20", class: "comment-Form"
+          = form.submit "SEND", class: "comment-submit"
+      - else
+        %strong
+          %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
 .post
   = link_to new_item_path, class: "push-post" do
     出品する

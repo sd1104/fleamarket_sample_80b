@@ -1,0 +1,54 @@
+.Goods {
+  min-height: calc( 100vh - 455px);
+  background-color: #eeeeee;
+  display: flex;
+  justify-content: center;
+  .goodIndexes {
+    width: 1000px;
+    &__Head {
+      text-align: center;
+      padding-top: 40px ;
+      padding-bottom: 30px;
+      font-size: 30px;
+      font-weight: bold;
+      color: #3CCACE;
+    }
+    &__List {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 20px 20px 0;
+      #goodItems {
+        text-decoration: none;
+        color: #333;
+        .Item {
+          padding: 0px 0 0 5px;
+          margin: 20px 20px 0;
+          width: 150px;
+          position: relative;
+          background-color: #fff;
+          &__info {
+            height: 80px;
+            padding: 5px;
+            &__pic {
+              margin: 5px;
+            }
+            &__name {
+              font-size: 14px;
+              height: 45px;
+              overflow: hidden;
+              color: #333;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+            }
+            &__price {
+              font-size: 14px;
+            }
+          }
+        }
+        .Item:hover {
+          border: 1px solid blue;
+        }
+      }
+    }
+  }
+}

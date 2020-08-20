@@ -42,9 +42,3 @@
 
                     .actions
                       = f.submit "登録する", id:"submit"
-              - else
-                .noRegistrationMessage
-                  .noRegistrationMessage__statusMessage
-                    会員情報は未登録です。
-                  .noRegistrationMessage__registrationMessage
-                    = link_to '登録する', new_profile_path, class: "registrationMessageBtn"
