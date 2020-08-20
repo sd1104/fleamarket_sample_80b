@@ -57,7 +57,7 @@ class ItemsController < ApplicationController
     @child = @grandchild.parent
     @parent = @child.parent
     @comment = Comment.new
-    @comments = @item.comments.includes(:user)
+    @comments = @item.comments.includes(:user).order("created_at DESC")
   end
 
   def destroy
