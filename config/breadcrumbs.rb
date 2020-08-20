@@ -55,8 +55,23 @@ crumb :mail_password do
   parent :mypage
 end
 
+crumb :credit_confirmation do
+  link "クレジットカード登録", credits_path
+  parent :mypage
+end
+
+crumb :credit_registration do
+  link "クレジットカード情報登録", new_credit_path
+  parent :credit_confirmation
+end
+
 crumb :exhibition do
   link "出品ページ", new_item_path
+  parent :root
+end
+
+crumb :like do
+  link "いいね一覧", item_likes_path
   parent :root
 end
 
