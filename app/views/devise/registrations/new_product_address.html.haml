@@ -77,6 +77,3 @@
               = f.telephone_field :phone_number, placeholder: "例)09012345678", autofocus: true, autocomplete: ""
             .actions
               = f.submit "登録する", id: "productAddressSubmitBtn"
-            .skip_actions
-              あとで登録する場合は
-              = link_to "コチラ", skip_product_addresses_path, method: :post, id: "skip"
