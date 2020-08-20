@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :category, dependent: :destroy
+  belongs_to :category
   belongs_to :seller, class_name: "User", foreign_key: "seller_id"
   belongs_to :buyer, class_name: "User", optional: true
   has_many :item_images, dependent: :destroy

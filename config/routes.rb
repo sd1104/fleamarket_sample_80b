@@ -40,6 +40,7 @@ Rails.application.routes.draw do
     resources :likes, only: [:index, :create]
     member do
       get 'buy'
+      post 'pay_item'
     end
     resources :item_images
     collection do

@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :update, :show, :destroy, :buy]
+  before_action :set_item, only: [:edit, :update, :show, :destroy, :buy, :pay_item]
   before_action :move_to_index, only: [:new]
 
   def index
@@ -69,7 +69,24 @@ class ItemsController < ApplicationController
   end
 
   def buy
-  
+    
+  end
+
+  def pay_item
+      Payjp.api_key = Rails.application.credentials.config[:payjp][:PAYJP_SECRET_KEY]
+      customer = Payjp::Customer.retrieve(current_user.credit.customer_id)
+      charge = Payjp::Charge.create(
+        amount: @item.price,
+        customer: customer[:id],
+        currency: 'jpy'
+      )
+      if charge.paid
+        @item.buyer_id = current_user.id
+        @item.save
+        redirect_to root_path, notice: "購入完了しました"
+      else
+        render :buy, notice: "購入処理に失敗しました"
+      end
   end
   
   def search
