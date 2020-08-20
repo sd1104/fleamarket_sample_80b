@@ -1,3 +1,12 @@
+- if request.referer&.include?("/users/item_exhibiting")
+  - breadcrumb :exhibit_product_confirmation
+  .breadcrumbs
+    = breadcrumbs pretext: "",separator: " &rsaquo; ", class: "bread"
+- else
+  - breadcrumb :root_exhibit_product_confirmation, @item
+  .breadcrumbs
+    = breadcrumbs pretext: "",separator: " &rsaquo; ", class: "bread"
+
 .itemShow
   .itemShow__main
     -if user_signed_in? && @item.seller_id == current_user.id
