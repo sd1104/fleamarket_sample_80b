@@ -12,7 +12,7 @@
               該当する商品はございません
           - else
             - @items_purchaced.each do |item|
-              = link_to users_path(item), class: "itemLink" do
+              = link_to item_path(item), class: "itemLink" do
                 .item
                   .item__image
                     = image_tag item.item_images[0].image.url, size: "65x65"
