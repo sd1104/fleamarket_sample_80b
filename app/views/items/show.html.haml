@@ -93,12 +93,12 @@
         不適切な商品の通報
       .hand-sign
         %h6 いいね
-        -# - if current_user.already_liked?(@item)
-        -#   = link_to item_likes_path(@item), method: :delete, class: "hand", remote: true do
-        -#     %i.fas.fa-heart
-        -# - else
-        -#   = link_to item_likes_path(@item), method: :post, class: "hand-bad", remote: true do
-        -#     %i.far.fa-heart
+        - if current_user.already_liked?(@item)
+          = link_to item_likes_path(@item), method: :delete, class: "hand", remote: true do
+            %i.fas.fa-heart
+        - else
+          = link_to item_likes_path(@item), method: :post, class: "hand-bad", remote: true do
+            %i.far.fa-heart
 .comment
   .commentAll
     .comments_title
@@ -113,7 +113,7 @@
     .comments_form
       - if current_user
         = form_with(model: [@item, @comment], class: "commentFormbtn", local: true) do |form|
-          = form.text_area :text, placeholder: "コメントする", size: "40X20", class: "comment-Form"
+          = form.text_area :text, placeholder: "100文字以内でコメントしてください", size: "40X20", class: "comment-Form"
           = form.submit "SEND", class: "comment-submit"
       - else
         %strong

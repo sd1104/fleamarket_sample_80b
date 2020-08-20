@@ -1,10 +1,10 @@
 class CommentsController < ApplicationController
   def create
-    comment = Comment.create(comment_params)
-    if comment.save
-      redirect_to "/items/#{comment.item.id}", notice: "nice"
+    @comment = Comment.new(comment_params)
+    if @comment.save
+      redirect_to "/items/#{@comment.item.id}"
     else
-      render 'items#show', notice: "no"
+      redirect_to item_path(@comment.item.id), notice: "コメントが未入力もしくは100文字を超えています"
     end
   end
 
