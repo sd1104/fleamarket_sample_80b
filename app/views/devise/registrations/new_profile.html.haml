@@ -1,5 +1,5 @@
 .subWrapper
-  .Profile
+  .wizardProfile
     .Profile__logo
       = image_tag src="material/logo/logo.png", size: "150x50", class: "logo"
       %nav.progressBar
@@ -55,5 +55,3 @@
 
             .actions
               = f.submit "送付先住所登録へ進む", id: "submit"
-            .actions
-              = f.submit "skip", id: "skip"

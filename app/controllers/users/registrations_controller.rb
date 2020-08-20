@@ -24,43 +24,31 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create_profile
     @user = User.new(session["devise.regist_data"]["user"])
-    if @profile.nil?
-      @product_address = @user.build_product_address
-      render :new_product_address
-    else
-      @profile = Profile.new(profile_params)
-      unless @profile.valid?
-        flash[:alert] = @profile.errors.full_messages
-        render :new_profile and return
-      end
-      @user.build_profile(@profile.attributes)
-      session["profile"] = @profile.attributes
-      @product_address = @user.build_product_address
-      render :new_product_address
+    @profile = Profile.new(profile_params)
+    unless @profile.valid?
+      flash[:alert] = @profile.errors.full_messages
+      render :new_profile and return
     end
+    @user.build_profile(@profile.attributes)
+    session["profile"] = @profile.attributes
+    @product_address = @user.build_product_address
+    render :new_product_address
   end
 
   def create_product_address
     @user = User.new(session["devise.regist_data"]["user"])
-    if @product_address.nil?
-      @user.save
-      session["devise.regist_data"]["user"].clear
-      sign_in(:user, @user)
-      redirect_to :registration_finished
-    else
-      @profile = Profile.new(session["profile"])
-      @product_address = ProductAddress.new(product_address_params)
-      unless @product_address.valid?
-        flash.now[:alert] = @product_address.errors.full_messages
-        render :new_product_address and return
-      end
-      @user.build_profile(@profile.attributes)
-      @user.build_product_address(@product_address.attributes)
-      @user.save
-      session["devise.regist_data"]["user"].clear
-      sign_in(:user, @user)
-      redirect_to :registration_finished
+    @profile = Profile.new(session["profile"])
+    @product_address = ProductAddress.new(product_address_params)
+    unless @product_address.valid?
+      flash.now[:alert] = @product_address.errors.full_messages
+      render :new_product_address and return
     end
+    @user.build_profile(@profile.attributes)
+    @user.build_product_address(@product_address.attributes)
+    @user.save
+    session["devise.regist_data"]["user"].clear
+    sign_in(:user, @user)
+    redirect_to :registration_finished
   end
 
   def registration_finished

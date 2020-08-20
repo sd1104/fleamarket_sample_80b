@@ -21,32 +21,14 @@ label {
   border-radius: 4px;
 }
 
-#skip {
-  height: 48px;
-  width: 40px;
-  margin: 50px 150px 0;
-  background-color: transparent;
-  color: #3CCACE;
-  border: none;
-  font-size: 18px;
-}
-#skip:hover {
-  text-decoration: underline;
-}
-#skip:active {
-  text-decoration: underline;
-  border: none;
-}
-
 // sessionとregistration共通項目
 .subWrapper {
-  min-height: calc( 100vh - ( 100px + 360px ) );
+  // min-height: 100%;
   display: flex;
   justify-content: center;
-  background-color:#fff;
+  background-color: #eeeeee;
   .Account {
     width: 100vw;
-    background-color: #f5f5f5;
     &__logo {
       height: 130px;
       font-size: 50px;
