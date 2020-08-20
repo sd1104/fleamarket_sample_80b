@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   has_many :item_images, dependent: :destroy
   has_many :likes
   has_many :liked_users, through: :likes, source: :user, dependent: :destroy
+  has_many :comments
   
   accepts_nested_attributes_for :item_images, allow_destroy: true, update_only: true
   validates :item_images, presence: true
@@ -26,6 +27,7 @@ class Item < ApplicationRecord
   validates :delivery_date_id, presence: true
   validates :category_id, presence: true
   validates :item_images, presence: true
+  validates :text, presence: true
 
   def self.search(search)
     return Item.all unless search
