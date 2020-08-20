@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  
   def index
     @items = Like.where(user_id: current_user.id).all.order("created_at DESC")
   end
@@ -8,9 +9,5 @@ class LikesController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
-  def destroy
-    @like = Like.find_by(item_id: params[:item_id], user_id: current_user.id)
-    @like.destroy
-    redirect_back(fallback_location: root_path)
-  end
+
 end

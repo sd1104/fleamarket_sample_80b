@@ -1,9 +1,12 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :update, :show, :destroy, :buy]
-  before_action :move_to_index, only: [:new]
+  before_action :move_to_index, only: :new
 
   def index
     @items = Item.includes(:item_images).order("created_at DESC")
+    if user_signed_in?
+      @recommend_items = Item.includes(:item_images).where.not(seller_id: current_user.id).where(buyer_id: nil).order("created_at DESC")
+    end
   end
 
   def new 
@@ -31,8 +34,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path, notice: "商品の出品が完了しました"
     else
-      flash.now[:alert] = "必須項目を入力してください"
-      render :new
+      redirect_to new_item_path, notice: "必須項目を入力してください"
     end
   end
 

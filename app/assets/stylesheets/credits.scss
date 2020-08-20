@@ -14,7 +14,7 @@
   font-size: 14px;
 }
 
-.Profile__logo {
+.Credit__logo {
   height: 130px;
   font-size: 50px;
   justify-content: center;
@@ -25,24 +25,34 @@
   }
 }
 
+label {
+  @include label;
+}
+label-ym{
+  @include label;
+  padding-top: 25px;
+}
+.spans {
+  @include label;
+  background-color: #3CCACE;
+  color: #fff;
+  border-radius: 4px;
+  display: inline;
+}
 
-#profile_first_name,
-#profile_last_name,
-#profile_first_name_kana,
-#profile_last_name_kana{
-  @include inputStyle;
+#card_number,
+#cvc{
+  height: 48px;
+  width: 343px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  line-height: 1.5;
+  font-size: 14px;
   margin: 8px 5px 0 5px ;
-  width: 165px;
 }
 
-#profile_birthday_1i,
-#profile_birthday_2i,
-#profile_birthday_3i {
-  @include inputStyle;
-  height: 50px;
-  margin: 8px 0 0 ;
-  width: 110px;
-}
 #submit {
   height: 50px;
   width: 343px;
@@ -64,35 +74,22 @@
   font-size: 14px;
   cursor: pointer;
 }
-.label_head {
-  @include label;
+
+.creditNewWrapper {
+  padding: 50px 0 50px 0;
 }
-.label_required {
-  @include label;
-  background-color: #3CCACE;
-  color: #fff;
-  border-radius: 4px;
-}
-.subWrapper {
-  .wizardProfile,
-  .ProductAdressWrapper {
-    margin: 10px 0;
-  }
-  .Profile {
+.creditWrapper,
+.creditNewWrapper {
+  display: flex;
+  justify-content: center;
+  background-color: #eeeeee;
+  .Credit {
     width: 700px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     background-color: #fff;
-    &__master{
-      background-color: #fff;
-      padding: 0 135px;
-      margin-bottom: 50px;
-    }
-    &__master_edit{
-      width: 100%;
-    }
     &__title {
       width: 100%;
       padding: 32px;
@@ -101,7 +98,7 @@
       background-color: #fff;
     }
     &__border {
-      width: 400px;
+      width: 550px;
       border-top: 2px solid lightgray;
       margin: 0 auto;
     }
@@ -114,12 +111,34 @@
       flex-direction: column;
       .field {
         margin-top: 32px;
-        &__nameInput {
+        &__Input {
           display: flex;
+          &__text {
+            height: 48px;
+            width: 150px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            line-height: 1.5;
+            font-size: 14px;
+            margin: 8px 5px 0 5px ;
+          }
         }
       }
     }
   }
+}
+
+.button__delete {
+  margin: 50px 0 24px;
+  background-color: #3ccace;
+  border: none;
+  font-size: 14px;
+  color: #fff;
+  height: 50px;
+  width: 343px;
+  border-radius: 4px;
 }
 
 .noRegistrationMessage {

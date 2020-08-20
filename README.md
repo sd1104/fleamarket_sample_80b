@@ -1,7 +1,7 @@
 # fleamarket_sample_80b
 
 
-![ER図](https://i.gyazo.com/305570e2207cdc12b1468ff3005e2106.png)
+![ER図](https://i.gyazo.com/16f5accf5a2063d8cd4177f442959d25.png)
 
 ## usersテーブル
 
@@ -16,6 +16,8 @@
 - has_one :profile, dependent: :destroy
 - has_one :product_address, dependent: :destroy
 - has_one :credit, dependent: :destroy
+- has_many :likes
+- has_many :comments
 
 
 ## profilesテーブル
@@ -55,7 +57,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false|
+|user|references|null: false, foreign_key: true|
 |customer_id|string|null: false|
 |credit_id|string|null: false|
 
@@ -82,6 +84,8 @@
 - belongs_to :user, dependent: :destroy, optional: true
 - has_many :item_images, dependent: :destroy
 - belongs_to :category, dependent: :destroy
+- has_many :likes
+- has_many :comments
 
 
 ## item_imagesテーブル
@@ -104,3 +108,27 @@
 
 ### Association
 - has_many :items
+
+
+## likesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user|references|null: false, foreign_key:true|
+|item|references|null: false, foreign_key:true|
+
+### Association
+- belongs_to :item
+- belongs_to :user
+
+
+## commentsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user|references|null: false, foreign_key:true|
+|item|references|null: false, foreign_key:true|
+
+### Association
+- belongs_to :item
+- belongs_to :user

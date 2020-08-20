@@ -3,7 +3,7 @@
   .postForm__title
     = image_tag src="material/logo/logo.png", size: "140x40", class: "item-new-logo"
   .postForm__main
-    = form_with model: @item, id: "item-dropzone", local: true do |f|
+    = form_with model: @item, local: true do |f|
       .postContents
         .postContents__errorMessage
           = flash[:alert]
