@@ -25,9 +25,9 @@ crumb :root_exhibit_product_confirmation do |item|
   end
 end
 
-crumb :item_edit do
-  link "出品商品編集/削除", item_path
-  parent :exhibit_product_confirmation
+crumb :purchase_details do |item|
+  link "購入内容確認", item_path
+  parent :root_exhibit_product_confirmation ,item
 end
 
 crumb :sold do
@@ -55,8 +55,33 @@ crumb :mail_password do
   parent :mypage
 end
 
+crumb :credit_confirmation do
+  link "クレジットカード登録", credits_path
+  parent :mypage
+end
+
+crumb :credit_registration do
+  link "クレジットカード情報登録", new_credit_path
+  parent :credit_confirmation
+end
+
+crumb :logout do
+  link "ログアウト", logout_users_path
+  parent :mypage
+end
+
 crumb :exhibition do
   link "出品ページ", new_item_path
+  parent :root
+end
+
+crumb :like do
+  link "いいね一覧", item_likes_path
+  parent :root
+end
+
+crumb :search do
+  link "検索結果一覧", search_items_path
   parent :root
 end
 
