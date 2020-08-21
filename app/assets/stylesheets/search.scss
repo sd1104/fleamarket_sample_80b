@@ -1,5 +1,5 @@
 .SearchPageWrapper {
-  min-height: 100%;
+  min-height: 60vh;
   overflow: hidden;
   overflow-y: scroll;
   width: 100%;
@@ -17,7 +17,7 @@
       background-color: #fff;
     } 
     &__RightSide {
-      width: 700px;
+      width: 1020px;
       margin-left: 40px;
       &__searchContent {
         &__head {
@@ -40,6 +40,7 @@
               .result {
                 width: 150px;
                 margin: 0 20px 20px 0;
+                position: relative;
                 &__image {
                   background-color: #fff;
                   padding: 10px;
