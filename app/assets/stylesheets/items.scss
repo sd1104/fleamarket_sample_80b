@@ -337,6 +337,7 @@
             height: 280px;
             position: relative;
             background-color: #fff;
+            border: 1px solid #fff;
             border-radius: 2px;
             &__info {
               padding: 5px;
@@ -453,6 +454,23 @@
   border-width: 0 100px 100px 0;
   border-color: transparent red transparent transparent;
   .sold_word {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 60px 0px 45px;
+    transform: rotate(45deg);
+  }
+}
+.sold_triangle2 {
+  position: absolute;
+  right: 21px;
+  width: 0;
+  height: 0;
+  opacity: 0.9;
+  border-style: solid;
+  border-width: 0 100px 100px 0;
+  border-color: transparent red transparent transparent;
+  .sold_word2 {
     color: #fff;
     font-size: 18px;
     font-weight: 600;

@@ -22,8 +22,8 @@
       = @item.name
     .itemShow__main__image
       - if !@item.buyer_id.nil?
-        .sold_triangle
-          .sold_word
+        .sold_triangle2
+          .sold_word2
             SOLD
       - if @item.item_images[0]
         = image_tag @item.item_images[0].image.url,size: "560x346",class: "mainImage"
@@ -38,16 +38,20 @@
       = @item.delivery_charge_id
     .itemShow__main__info
       .buyOrsell
-        - if @item.buyer_id
-          .bothod
-            この商品は既に売却済みです！
-        - elsif user_signed_in? && @item.seller_id == current_user.id
-          .seller
-            出品者は購入手続きができません！
+        - if current_user
+          - if @item.buyer_id
+            .bought
+              この商品は既に売却済みです！
+          - elsif user_signed_in? && @item.seller_id == current_user.id
+            .seller
+              出品者は購入手続きができません！
+          - else
+            .buy
+              = link_to  buy_item_path(@item), class: "buyItem" do
+                購入画面に進む
         - else
-          .buy
-            = link_to  buy_item_path(@item), class: "buyItem" do
-              購入画面に進む
+          = link_to new_user_session_path, class: "buyButLogin" do
+            新規登録/ログイン
     .itemShow__main__intro
       商品の説明
     .itemShow__main__introduction

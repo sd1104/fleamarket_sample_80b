@@ -18,7 +18,7 @@ crumb :exhibit_product_confirmation do
 end
 
 crumb :root_exhibit_product_confirmation do |item|
-  if current_user.id == item.seller_id
+  if item.buyer_id
     link "出品商品確認", item_path
   else 
     link "購入可能商品", item_path

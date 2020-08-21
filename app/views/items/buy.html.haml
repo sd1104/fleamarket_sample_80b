@@ -24,16 +24,10 @@
       - else
         = link_to  new_credit_path, class: "noneCredit" do
           クレジットカードを登録して下さい。
-    .buyAddress
-      - if current_user.product_address
-        登録済の住所にお届けいたします。
-      - else
-        = link_to  new_product_address_path, class: "noneAddress" do
-          住所を登録してください
     .buyBtn
       - if current_user.product_address && current_user.credit
         = link_to pay_item_item_path, method: :post, class: "payBtn" do
           購入する
       - else
         .buyExit
-          配送先・並びにカードの登録後購入ができます
+          カードの登録後購入ができます
