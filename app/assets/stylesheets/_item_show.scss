@@ -70,7 +70,7 @@
       text-align: center;
       font-size: 22px;
       margin-top: 20px;
-      .bothod {
+      .bought {
         color: red;
       }
       .seller {
@@ -81,6 +81,18 @@
         background-color: #3CCACE;
         color: white;
         padding: 8px;
+        transition: all  0.5s ease;
+        &:hover {
+          background-color: rgb(74, 215, 250);
+          opacity: 0.8;
+        }
+      }
+      .buyButLogin {
+        text-decoration: none;
+        color: white;
+        background-color: #3CCACE;
+        padding: 7px;
+        border-radius: 1px;
         transition: all  0.5s ease;
         &:hover {
           background-color: rgb(74, 215, 250);

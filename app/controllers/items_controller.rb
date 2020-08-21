@@ -84,7 +84,7 @@ class ItemsController < ApplicationController
       if charge.paid
         @item.buyer_id = current_user.id
         if @item.save
-          redirect_to root_path, notice: "購入完了しました"
+          redirect_to root_path, notice: "購入が完了しました"
         else
           render :buy, notice: "購入処理に失敗しました"
         end

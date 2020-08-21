@@ -1,7 +1,7 @@
 $(function(){
   function buildHTML(comment){
     let html = `<div class="comment_user">
-                  <a class="comment_user" href="/users/${comment.user_id}">加藤</a>
+                  <a class="comment_user" href="/users/${comment.user_id}">${comment.user_name}</a>
                 </div>
                 <div class="comment_text">
                   ${comment.text}
