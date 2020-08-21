@@ -48,6 +48,10 @@
       align-items: center;
       position: relative;
       margin-top: 5px;
+      .mainImage {
+        width: 33vw;
+        height: 346px;
+      }
     }
     .itemSubImage {
       display: flex;

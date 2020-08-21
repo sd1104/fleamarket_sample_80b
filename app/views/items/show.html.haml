@@ -26,7 +26,7 @@
           .sold_word2
             SOLD
       - if @item.item_images[0]
-        = image_tag @item.item_images[0].image.url,size: "560x346",class: "mainImage"
+        = image_tag @item.item_images[0].image.url,class: "mainImage"
       .itemSubImage
         - @item.item_images.each do |i|
           = image_tag i.image.url,class: "subImage", size: "110x80"
