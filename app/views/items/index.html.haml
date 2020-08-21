@@ -136,11 +136,11 @@
       だれでもかんたん、人生を変えるフリマアプリ
     .bottomUnder
       今すぐ無料ダウンロード！
-    .middleTitle__photo
-      =link_to "#" do
-        =image_tag src="material/logo/app.png", class: "app-logo", size: "220x80"
-      =link_to "#" do
-        =image_tag src="material/logo/google.png", class: "google-logo2", size: "220x80"
+  .bottomTitle__photo
+    =link_to "#", class: "app-logo3" do
+      =image_tag src="material/logo/app.png", size: "220x80"
+    =link_to "#", class: "google-logo3" do
+      =image_tag src="material/logo/google.png", size: "220x80"
 .post
   = link_to new_item_path, class: "push-post" do
     出品する
