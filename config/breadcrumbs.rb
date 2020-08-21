@@ -30,11 +30,6 @@ crumb :purchase_details do |item|
   parent :root_exhibit_product_confirmation ,item
 end
 
-crumb :item_edit do
-  link "出品商品編集/削除", item_path
-  parent :exhibit_product_confirmation
-end
-
 crumb :sold do
   link "出品した商品-売却済み", item_sold_users_path
   parent :mypage
@@ -82,6 +77,11 @@ end
 
 crumb :like do
   link "いいね一覧", item_likes_path
+  parent :root
+end
+
+crumb :search do
+  link "検索結果一覧", search_items_path
   parent :root
 end
 
