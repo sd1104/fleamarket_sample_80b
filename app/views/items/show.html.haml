@@ -6,7 +6,6 @@
   - breadcrumb :root_exhibit_product_confirmation, @item
   .breadcrumbs
     = breadcrumbs pretext: "",separator: " &rsaquo; ", class: "bread"
-
 .itemShow
   .itemShow__main
     -if user_signed_in? && @item.seller_id == current_user.id && !@item.buyer_id
