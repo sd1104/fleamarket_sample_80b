@@ -195,7 +195,7 @@
     .comments {
       text-align: center;
       height: 200px;
-      width: 500px;
+      width: 33vw;
       overflow-x: hidden;
       background-color: whitesmoke;
       border: 3px solid #3CCACE ;
@@ -218,6 +218,7 @@
     .commentFormbtn{
       display: flex;
       align-items: center;
+      width: 33vw;
       .comment-Form {
         margin-top: 80px;
         border-radius: 0;
