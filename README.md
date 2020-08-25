@@ -1,7 +1,7 @@
 # fleamarket_sample_80b
 
 
-![ER図](https://i.gyazo.com/16f5accf5a2063d8cd4177f442959d25.png)
+![ER図](https://i.gyazo.com/2df9b8f9baf059fdc64ecfba7d847629.png)
 
 ## usersテーブル
 
