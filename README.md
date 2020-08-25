@@ -43,11 +43,11 @@
 |first_name_kana|string|null: false|
 |last_name_kana|string|null: false|
 |postal_code|integer|null: false|
-|address_prefecture|integer|null: false|
+|prefecture_code|integer|null: false|
 |address_city|string|null: false|
 |address_street|string|null: false|
 |building_name|string|
-|phone_number|integer|unique:true|
+|phone_number|string|unique:true|
 |user|references|null: false, foreign_key: true|
 
 ### Association
@@ -128,6 +128,7 @@
 |------|----|-------|
 |user|references|null: false, foreign_key:true|
 |item|references|null: false, foreign_key:true|
+|text|text|
 
 ### Association
 - belongs_to :item
