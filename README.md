@@ -1,9 +1,9 @@
 # fleamarket_sample_80b
 
-
+## データベース設計
 ![ER図](https://i.gyazo.com/e4e2689d841168878b8128edaeee83da.png)
 
-## usersテーブル
+### usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -11,7 +11,7 @@
 |email|string|null: false, unique: true|
 |password|string|null: false, unique: true|
 
-### Association
+#### Association
 - has_many :items, dependent: :destroy
 - has_one :profile, dependent: :destroy
 - has_one :product_address, dependent: :destroy
@@ -20,7 +20,7 @@
 - has_many :comments
 
 
-## profilesテーブル
+### profilesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -31,10 +31,10 @@
 |birthday|date|null: false|
 |user|references|null: false, foreign_key: true|
 
-### Association
+#### Association
 - belongs_to :user, dependent: :destroy
 
-## product_addressesテーブル
+### product_addressesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -50,10 +50,10 @@
 |phone_number|string|unique:true|
 |user|references|null: false, foreign_key: true|
 
-### Association
+#### Association
 - belongs_to :user, dependent: :destroy
 
-## creditsテーブル
+### creditsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -61,10 +61,10 @@
 |customer_id|string|null: false|
 |credit_id|string|null: false|
 
-### Association
+#### Association
 - belongs_to :user, dependent: :destroy
 
-## itemsテーブル
+### itemsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -80,7 +80,7 @@
 |seller_id|bigint|null:false, foreign_key:true|
 |buyer_id|bigint|foreign_key:true|
 
-### Association
+#### Association
 - belongs_to :user, dependent: :destroy, optional: true
 - has_many :item_images, dependent: :destroy
 - belongs_to :category, dependent: :destroy
@@ -88,41 +88,41 @@
 - has_many :comments
 
 
-## item_imagesテーブル
+### item_imagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |item|references|null: false, foreign_key:true|
 |image|string|null: false|
 
-### Association
+#### Association
 - belongs_to :item, optional: true
 
 
-## categoriesテーブル
+### categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 |ancestry|string|
 
-### Association
+#### Association
 - has_many :items
 
 
-## likesテーブル
+### likesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |user|references|null: false, foreign_key:true|
 |item|references|null: false, foreign_key:true|
 
-### Association
+#### Association
 - belongs_to :item
 - belongs_to :user
 
 
-## commentsテーブル
+### commentsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -130,6 +130,6 @@
 |item|references|null: false, foreign_key:true|
 |text|text|
 
-### Association
+#### Association
 - belongs_to :item
 - belongs_to :user
