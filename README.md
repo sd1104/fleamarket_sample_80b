@@ -1,4 +1,4 @@
-# fleamarket_sample_80b
+# FURIMA
 ![スクリーンショット 2020-09-24 23 37 07](https://user-images.githubusercontent.com/67669319/94159797-f112bd80-febe-11ea-992e-d32d9316f0de.png)
 
 ## アプリ紹介
