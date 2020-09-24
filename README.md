@@ -33,8 +33,6 @@
   - 出品者用
     - メールアドレス名: sample3@gmail.com
     - パスワード: sample3
-#### Githubリポジトリ
-https://github.com/sd1104/fleamarket_sample_80b
 
 ## sd1104の担当
 - DB設計
